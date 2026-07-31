@@ -1,0 +1,138 @@
+/* Archived when ArticleRichText moved to Tailwind CSS v4. */
+.body {
+  width: min(100%, 46rem);
+  margin-inline: auto;
+  color: color-mix(in oklch, var(--ink) 88%, transparent);
+  font-size: clamp(1.04rem, 1.3vw, 1.16rem);
+  line-height: 1.78;
+}
+
+.body :where(h2, h3, h4, h5, h6) {
+  margin: 2.75em 0 0.75em;
+  color: var(--ink);
+  font-family: var(--font-heading);
+  font-weight: var(--weight-hero);
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+  text-wrap: balance;
+}
+
+.body h2 {
+  font-size: clamp(2.2rem, 4vw, 3.5rem) !important;
+}
+
+.body h3 {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+}
+
+.body h4 {
+  font-size: clamp(1.45rem, 2.2vw, 2rem);
+}
+
+.body :where(h5, h6) {
+  font-size: 1.22rem;
+}
+
+.body p {
+  margin: 0 0 1.3em;
+}
+
+.body strong {
+  color: var(--ink);
+  font-weight: var(--weight-semibold);
+}
+
+.body a {
+  color: var(--orange-ink);
+}
+
+.body :not(pre) > code {
+  padding: 0.15em 0.35em;
+  background: var(--mist);
+  font-size: 0.9em;
+}
+
+.body :where(ul, ol) {
+  display: grid;
+  gap: 0.65rem;
+  margin: 1.5rem 0 2rem;
+  padding-left: 1.5rem;
+}
+
+.body li::marker {
+  color: var(--orange-ink);
+  font-weight: var(--weight-semibold);
+}
+
+.body figure {
+  margin: clamp(2.5rem, 6vw, 4rem) 0;
+}
+
+.body figure img {
+  width: 100%;
+  height: auto;
+}
+
+.body blockquote {
+  margin: 2.5rem 0;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--orange-ink);
+  border-bottom: 1px solid var(--orange-ink);
+  color: var(--ink);
+  font-family: var(--font-heading);
+  font-size: clamp(1.35rem, 2.5vw, 2rem);
+  line-height: 1.35;
+}
+
+.codeBlock {
+  margin: 2.5rem 0;
+  overflow: hidden;
+  background: var(--ink);
+  color: var(--white);
+}
+
+.codeToolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgb(255 255 255 / 18%);
+  font-size: 0.75rem;
+}
+
+.codeToolbar button {
+  border: 0;
+  background: transparent;
+  color: var(--orange);
+  cursor: pointer;
+}
+
+.codeBlock pre {
+  margin: 0;
+  overflow-x: auto;
+  padding: 1.25rem;
+}
+
+.codeBlock pre code {
+  padding: 0;
+  background: transparent;
+  color: inherit;
+}
+
+.conclusion {
+  margin-top: clamp(4rem, 8vw, 6rem);
+  padding-block: clamp(2rem, 4vw, 3rem);
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+
+.conclusion h2 {
+  margin-top: 0;
+}
+
+@media (max-width: 47.99rem) {
+  .body {
+    font-size: 1rem;
+    line-height: 1.72;
+  }
+}

@@ -1,0 +1,25 @@
+@layer theme, base, components, utilities;
+
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+@import "./native-components.css";
+
+@media (width <= 47.99rem) {
+  .hero-actions {
+    gap: 1rem;
+  }
+
+  .commerce-journey .sales-journey__phase header {
+    width: 100%;
+    flex-direction: row;
+  }
+
+  main > section.pricing-hero:first-child h1 {
+    max-width: 100% !important;
+    font-size: clamp(1.5rem, 6.9vw, 3rem) !important;
+  }
+
+  .pricing-section-heading__title span {
+    white-space: normal;
+  }
+}

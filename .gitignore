@@ -1,0 +1,27 @@
+# Dependencies
+/node_modules/
+/.pnp
+.pnp.*
+
+# Next.js output
+/.next/
+/out/
+
+# Test and tooling output
+/coverage/
+*.tsbuildinfo
+
+# Local environment files
+.env
+.env.local
+.env.*.local
+
+# Logs and editor files
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+.DS_Store
+*.pem
+
+# Hosting providers
+.vercel/

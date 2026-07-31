@@ -1,0 +1,213 @@
+@font-face {
+  font-family: "Satoshi";
+  src: url("/fonts/satoshi-medium.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("/fonts/satoshi-bold.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Inter Variable";
+  src: url("/fonts/inter-variable.woff2") format("woff2-variations");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 100 900;
+}
+
+:root {
+  --ink: oklch(18% 0 0);
+  --orange: #ff9600;
+  --orange-hover: #f28d00;
+  --orange-ink: oklch(55% 0.16 58);
+  --grey: oklch(82% 0 0);
+  --grey-dark: oklch(42% 0.005 255);
+  --mist: oklch(96.5% 0.003 255);
+  --white: oklch(100% 0 0);
+  --text-muted: oklch(39% 0.006 255);
+  --font-heading: "Satoshi", Arial, sans-serif;
+  --font-body: "Inter Variable", Arial, sans-serif;
+  --tracking-heading: -0.032em;
+  --text-section-heading: clamp(2.75rem, 4vw, 3.75rem);
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --container: 90rem;
+  --gutter: clamp(1.25rem, 4vw, 4.5rem);
+  --header-height: 4.5rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-height) + 1rem);
+}
+
+body {
+  margin: 0;
+  background: var(--white);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-kerning: normal;
+  font-optical-sizing: auto;
+  font-synthesis: none;
+  line-height: 1.55;
+  text-rendering: optimizeLegibility;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-decoration-thickness: 0.09em;
+  text-underline-offset: 0.2em;
+}
+
+@layer base {
+  a {
+    color: inherit;
+  }
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+::selection {
+  background: var(--orange);
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: 3px solid var(--orange-ink);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* The reviewed marketing compositions own their width through --container. */
+.container {
+  max-width: none;
+}
+
+.operation-icon {
+  width: 1.35rem;
+  height: 1.35rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.45;
+}
+
+/* The home agent demo has global legacy class names; contain their shared names here. */
+.agents-hero .agent-stage {
+  justify-self: center;
+  width: min(100%, 40rem);
+}
+
+.agents-hero .agent-stage__viewport {
+  min-height: 31rem;
+  overflow: visible;
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+  contain: none;
+  isolation: isolate;
+  pointer-events: auto;
+}
+
+.campaign-map .campaign-node {
+  display: grid;
+  min-height: 5.15rem;
+  grid-template-columns: 2.75rem minmax(0, 1fr) auto;
+  gap: 0.75rem;
+  padding: 0.8rem 0.9rem;
+}
+
+.campaign-map .campaign-node > div {
+  height: auto;
+  overflow: visible;
+  grid-column: auto;
+  border-radius: 0;
+  background: transparent;
+}
+
+@media (max-width: 47.99rem) {
+  .agents-hero .agent-stage {
+    width: 100%;
+  }
+
+  .agents-hero .agent-stage__viewport {
+    min-height: 26rem;
+  }
+
+  .campaign-map .campaign-node {
+    min-height: 5.7rem;
+    grid-template-columns: 2.25rem minmax(0, 1fr);
+    align-content: center;
+    padding: 0.7rem;
+  }
+}
+
+.instagram-feed__fallback .instagram-media {
+  display: grid;
+  min-height: 37.5rem;
+  place-items: center;
+  border: 0;
+  background: var(--white);
+}
+
+.instagram-feed__fallback .instagram-media > a {
+  visibility: hidden;
+}
+
+@media (max-width: 47.99rem) {
+  .instagram-feed__fallback .instagram-media {
+    min-height: 24rem;
+  }
+}

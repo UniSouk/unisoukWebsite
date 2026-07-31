@@ -1,0 +1,344 @@
+/* Archived when the blog index moved to Tailwind CSS v4. */
+.hero {
+  background: var(--white);
+}
+
+.heroInner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(18rem, 0.7fr);
+  align-items: end;
+  gap: clamp(4rem, 10vw, 10rem);
+  padding-block: clamp(3.5rem, 6vw, 5rem);
+}
+
+.hero h1 {
+  max-width: 11ch;
+  margin: 0;
+  font-size: clamp(4.2rem, 7.5vw, 6rem);
+  font-weight: var(--weight-hero);
+  letter-spacing: -0.035em;
+  line-height: 0.9;
+}
+
+.hero h1 span,
+.hero aside > span {
+  color: var(--orange-ink);
+}
+
+.heroInner > div > p {
+  max-width: 46ch;
+  margin: 1.7rem 0 0;
+  color: var(--text-muted);
+  font-size: clamp(1.08rem, 1.45vw, 1.3rem);
+  line-height: 1.65;
+}
+
+.hero aside {
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--ink);
+}
+
+.hero aside > span {
+  font-size: 0.78rem;
+  font-weight: var(--weight-semibold);
+}
+
+.hero aside p {
+  max-width: 31ch;
+  margin: 1rem 0 2rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+.hero aside a,
+.featured article > a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 0.9rem;
+  border-top: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  font-weight: var(--weight-medium);
+  text-decoration: none;
+}
+
+.featured {
+  background: var(--ink);
+  color: var(--white);
+}
+
+.featuredInner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(22rem, 0.8fr);
+  gap: clamp(3rem, 7vw, 7rem);
+  padding-block: clamp(5rem, 10vw, 8rem);
+}
+
+.featuredVisual {
+  position: relative;
+  display: block;
+  min-height: 34rem;
+  overflow: hidden;
+  background: oklch(23% 0 0);
+  text-decoration: none;
+}
+
+.featuredVisual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 700ms var(--ease-out-expo), opacity 300ms;
+}
+
+.featuredVisual > span {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  padding: 0.7rem 1rem;
+  border-radius: 999px;
+  background: var(--white);
+  color: var(--ink);
+  font-size: 0.75rem;
+}
+
+.featuredVisual:hover img {
+  opacity: 0.88;
+  transform: scale(1.025);
+}
+
+.featured article {
+  display: grid;
+  align-content: end;
+}
+
+.articleMeta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid currentColor;
+  color: var(--text-muted);
+  font-size: 0.74rem;
+}
+
+.articleMeta span {
+  color: var(--orange-ink);
+  font-weight: var(--weight-semibold);
+}
+
+.featured .articleMeta {
+  color: rgb(255 255 255 / 60%);
+}
+
+.featured .articleMeta span {
+  color: var(--orange);
+}
+
+.featured h2,
+.index h2,
+.editorial h2 {
+  margin: 0;
+  font-size: clamp(2.8rem, 5.4vw, 5rem);
+  letter-spacing: -0.035em;
+  line-height: 0.98;
+}
+
+.featured h2 {
+  max-width: 9ch;
+  margin-top: 2rem;
+}
+
+.featured article > p {
+  max-width: 42ch;
+  margin: 1.5rem 0 2rem;
+  color: rgb(255 255 255 / 66%);
+  font-size: var(--text-lead);
+  line-height: 1.65;
+}
+
+.index {
+  background: var(--mist);
+}
+
+.indexInner {
+  padding-block: clamp(5rem, 10vw, 8rem);
+}
+
+.index header {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(18rem, 0.9fr);
+  align-items: end;
+  gap: clamp(3rem, 8vw, 8rem);
+  padding-bottom: clamp(3rem, 7vw, 5rem);
+}
+
+.index h2 {
+  max-width: 9ch;
+}
+
+.index header p {
+  max-width: 45ch;
+  margin: 0;
+  color: var(--text-muted);
+  font-size: var(--text-lead);
+  line-height: 1.65;
+}
+
+.articleList,
+.empty {
+  border-top: 1px solid var(--ink);
+}
+
+.articleRow {
+  display: grid;
+  grid-template-columns: minmax(11rem, 0.42fr) minmax(0, 1fr) 1.5rem;
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 4rem);
+  padding-block: 1.5rem;
+  border-bottom: 1px solid var(--grey-dark);
+  text-decoration: none;
+}
+
+.articleRowVisual {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--grey);
+}
+
+.articleRowVisual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 500ms var(--ease-out-expo);
+}
+
+.articleRowContent {
+  min-width: 0;
+}
+
+.articleRowContent h3 {
+  max-width: 24ch;
+  margin: 1rem 0 0;
+  font-size: clamp(1.65rem, 3vw, 2.7rem);
+  line-height: 1.05;
+}
+
+.articleRowContent > p {
+  max-width: 62ch;
+  margin: 0.85rem 0 0;
+  color: var(--text-muted);
+}
+
+.rowArrow {
+  color: var(--orange-ink);
+  font-size: 1.25rem;
+}
+
+.articleRow:hover h3 {
+  color: var(--orange-ink);
+}
+
+.articleRow:hover img {
+  transform: scale(1.025);
+}
+
+.empty {
+  margin: 0;
+  padding-block: 2rem;
+  border-bottom: 1px solid var(--grey-dark);
+  color: var(--text-muted);
+}
+
+.editorial {
+  background: var(--orange);
+}
+
+.editorialInner {
+  display: grid;
+  grid-template-columns: minmax(20rem, 0.82fr) minmax(0, 1.18fr);
+  gap: clamp(4rem, 9vw, 9rem);
+  padding-block: clamp(5rem, 10vw, 8rem);
+}
+
+.editorialInner > div:first-child > span {
+  display: block;
+  margin-bottom: 1.25rem;
+  font-size: 0.78rem;
+  font-weight: var(--weight-semibold);
+}
+
+.editorial h2 {
+  max-width: 11ch;
+}
+
+.principles {
+  border-top: 1px solid var(--ink);
+}
+
+.principles p {
+  margin: 0;
+  padding-block: 1.65rem;
+  border-bottom: 1px solid color-mix(in oklch, var(--ink) 40%, transparent);
+}
+
+.principles strong {
+  display: block;
+  margin-bottom: 0.45rem;
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 2.2vw, 2rem);
+  font-weight: var(--weight-medium);
+}
+
+@media (max-width: 66rem) {
+  .heroInner,
+  .featuredInner,
+  .editorialInner {
+    grid-template-columns: 1fr;
+  }
+
+  .featuredVisual {
+    min-height: 26rem;
+  }
+}
+
+@media (max-width: 55rem) {
+  .index header {
+    grid-template-columns: 1fr;
+  }
+
+  .articleRow {
+    grid-template-columns: minmax(9rem, 0.4fr) minmax(0, 1fr) 1.5rem;
+  }
+}
+
+@media (max-width: 47.99rem) {
+  .hero h1 {
+    font-size: clamp(3.4rem, 15vw, 4.8rem);
+  }
+
+  .featuredVisual {
+    min-height: 20rem;
+  }
+
+  .articleRow {
+    grid-template-columns: minmax(0, 1fr) 1.5rem;
+    gap: 1rem;
+  }
+
+  .articleRowVisual {
+    grid-column: 1 / -1;
+  }
+
+  .articleRowContent > p {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .featuredVisual img,
+  .articleRowVisual img {
+    transition: none;
+  }
+}

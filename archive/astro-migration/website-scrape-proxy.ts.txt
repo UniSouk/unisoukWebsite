@@ -1,0 +1,44 @@
+// Archived after the React demo began calling unisouk-category directly.
+import { NextResponse } from "next/server";
+
+const categoryApiUrl =
+  process.env.DEMO_API_URL ||
+  process.env.NEXT_PUBLIC_DEMO_API_URL ||
+  "http://localhost:3001";
+
+export async function POST(request: Request) {
+  let body: unknown;
+
+  try {
+    body = await request.json();
+  } catch {
+    return NextResponse.json(
+      { error: true, message: "Invalid request body" },
+      { status: 400 },
+    );
+  }
+
+  try {
+    const response = await fetch(
+      new URL("/api/demo/scrape", categoryApiUrl),
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+        cache: "no-store",
+        signal: AbortSignal.timeout(55000),
+      },
+    );
+    const payload = (await response.json()) as unknown;
+
+    return NextResponse.json(payload, { status: response.status });
+  } catch {
+    return NextResponse.json(
+      {
+        error: true,
+        message: "The category service is temporarily unavailable",
+      },
+      { status: 502 },
+    );
+  }
+}

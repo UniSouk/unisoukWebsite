@@ -1,0 +1,106 @@
+/* Archived when the native shell moved to Tailwind CSS v4. */
+.native-page {
+  min-height: 100svh;
+  background: var(--white);
+  color: var(--ink);
+}
+
+.native-container {
+  width: min(100%, var(--container));
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.native-skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 1000;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  background: var(--ink);
+  color: var(--white);
+  font-weight: var(--weight-semibold);
+  text-decoration: none;
+  transform: translateY(calc(-100% - 1rem));
+}
+
+.native-skip-link:focus {
+  transform: translateY(0);
+}
+
+.native-button {
+  display: inline-flex;
+  min-height: 3.5rem;
+  align-items: center;
+  justify-content: center;
+  gap: 1.3rem;
+  padding: 0.85rem 1.65rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-weight: var(--weight-medium);
+  line-height: 1;
+  text-decoration: none;
+  transition:
+    background-color 180ms var(--ease-out-quart),
+    border-color 180ms var(--ease-out-quart),
+    color 180ms var(--ease-out-quart),
+    transform 120ms var(--ease-out-quart);
+}
+
+.native-button::after {
+  display: inline-grid;
+  min-width: 1.35em;
+  place-items: center;
+  color: var(--orange);
+  content: "→";
+  font-size: 1.55em;
+  font-weight: var(--weight-medium);
+  line-height: 1;
+  transition: transform 180ms var(--ease-out-quart);
+}
+
+.native-button:hover {
+  transform: translateY(-2px);
+}
+
+.native-button:hover::after {
+  transform: translateX(0.25rem);
+}
+
+.native-button:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.native-button--primary {
+  background: var(--ink);
+  color: var(--white);
+}
+
+.native-button--primary:hover {
+  background: oklch(25% 0 0);
+}
+
+.native-button--secondary {
+  border-color: var(--grey);
+  background: var(--white);
+  color: var(--grey-dark);
+}
+
+.native-button--secondary:hover {
+  border-color: var(--orange-ink);
+  color: var(--ink);
+}
+
+.native-page :where(a, button, summary, input):focus-visible {
+  outline: 3px solid var(--orange-ink);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .native-skip-link,
+  .native-button,
+  .native-button::after {
+    transition: none;
+  }
+}

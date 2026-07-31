@@ -1,0 +1,34 @@
+// Archived compatibility script loader. Do not restore to active application code.
+"use client";
+
+import { useEffect } from "react";
+
+type LegacyScriptsProps = {
+  route: string;
+  scripts: string[];
+};
+
+/**
+ * Runs the already-compiled, trusted Astro DOM behavior after React commits the
+ * imported page. Native Next.js components must use React event handlers
+ * instead and must not add scripts to this compatibility layer.
+ */
+export function LegacyScripts({ route, scripts }: LegacyScriptsProps) {
+  useEffect(() => {
+    const mountedScripts = scripts.map((source, index) => {
+      const script = document.createElement("script");
+      script.type = "module";
+      script.dataset.legacyRoute = route;
+      script.dataset.legacyIndex = String(index);
+      script.textContent = source;
+      document.body.append(script);
+      return script;
+    });
+
+    return () => {
+      mountedScripts.forEach((script) => script.remove());
+    };
+  }, [route, scripts]);
+
+  return null;
+}

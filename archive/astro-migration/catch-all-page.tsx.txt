@@ -1,0 +1,67 @@
+// Archived after all public routes were rebuilt as native App Router pages.
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+
+import { LegacyPage } from "@/components/legacy-page";
+import {
+  getLegacyPage,
+  getRouteFromSegments,
+  legacyRoutes,
+} from "@/lib/legacy-pages";
+
+type CatchAllPageProps = {
+  params: Promise<{
+    slug?: string[];
+  }>;
+};
+
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return legacyRoutes.map((route) => ({
+    slug: route === "/" ? undefined : route.slice(1).split("/"),
+  }));
+}
+
+export async function generateMetadata({
+  params,
+}: CatchAllPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const page = getLegacyPage(getRouteFromSegments(slug));
+
+  if (!page) {
+    return {};
+  }
+
+  return {
+    title: {
+      absolute: page.title,
+    },
+    description: page.description,
+    alternates: {
+      canonical: page.canonical,
+    },
+    openGraph: {
+      type: "website",
+      title: page.title,
+      description: page.description,
+      url: page.canonical,
+    },
+    twitter: {
+      card: "summary",
+      title: page.title,
+      description: page.description,
+    },
+  };
+}
+
+export default async function CatchAllPage({ params }: CatchAllPageProps) {
+  const { slug } = await params;
+  const page = getLegacyPage(getRouteFromSegments(slug));
+
+  if (!page) {
+    notFound();
+  }
+
+  return <LegacyPage page={page} />;
+}

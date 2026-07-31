@@ -1,0 +1,27 @@
+// Archived compatibility renderer. Do not restore to active application code.
+import type { LegacyPageRecord } from "@/lib/legacy-pages";
+
+import { LegacyScripts } from "./legacy-scripts";
+
+type LegacyPageProps = {
+  page: LegacyPageRecord;
+};
+
+/**
+ * Temporary migration boundary for the verified Astro build output.
+ *
+ * The HTML is generated exclusively by scripts/import-astro-build.mjs from a
+ * trusted local build. Never pass request data, CMS data, or user input here.
+ */
+export function LegacyPage({ page }: LegacyPageProps) {
+  return (
+    <>
+      <div
+        className="contents"
+        dangerouslySetInnerHTML={{ __html: page.html }}
+        suppressHydrationWarning
+      />
+      <LegacyScripts route={page.route} scripts={page.scripts} />
+    </>
+  );
+}

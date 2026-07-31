@@ -1,0 +1,48 @@
+// Archived generated-page registry. Native routes now own all public URLs.
+import generatedPages from "@/generated/pages.json";
+import { NATIVE_LEGAL_ROUTES } from "@/constants/legal";
+
+export type LegacyPageRecord = {
+  route: string;
+  title: string;
+  description: string;
+  canonical: string;
+  html: string;
+  scripts: string[];
+};
+
+const pages = generatedPages as Record<string, LegacyPageRecord>;
+
+const nativeRoutes = new Set([
+  "/",
+  "/about",
+  "/agent-visual-options",
+  "/blog",
+  "/contact",
+  "/integrations",
+  "/platform/commerce-operations",
+  "/podcast",
+  "/pricing",
+  "/solutions/account-management",
+  "/solutions/ai-agents",
+  "/solutions/amazon-seller-central",
+  "/solutions/build-your-website",
+  "/solutions/performance-marketing",
+  "/solutions/unified-commerce",
+  ...NATIVE_LEGAL_ROUTES,
+]);
+
+export const legacyRoutes = Object.freeze(
+  Object.keys(pages)
+    .filter((route) => !nativeRoutes.has(route))
+    .sort(),
+);
+
+export function getRouteFromSegments(segments?: string[]) {
+  return segments?.length ? `/${segments.join("/")}` : "/";
+}
+
+export function getLegacyPage(route: string) {
+  if (nativeRoutes.has(route)) return undefined;
+  return pages[route];
+}
