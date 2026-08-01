@@ -17,7 +17,7 @@ const orbitLogos = [
 const secondaryOrbitLogos = [
   { name: "ONDC", logo: "/ecosystem-logos/ondc.svg", angle: "45deg" },
   { name: "Wix", logo: "/platform-logos/wix.svg", angle: "135deg" },
-  { name: "Cashfree Payments", mark: "CF", angle: "225deg" },
+  { name: "Cashfree Payments", logo: "/platform-logos/cashfree-logo.png", angle: "225deg" },
   { name: "Razorpay", logo: "/ecosystem-logos/razorpay.png", angle: "315deg" },
 ];
 
