@@ -41,6 +41,9 @@
   --container: 90rem;
   --gutter: clamp(1.25rem, 4vw, 4.5rem);
   --header-height: 4.5rem;
+  --page-hero-space: clamp(4rem, 7vw, 6rem);
+  --page-section-space: clamp(4.5rem, 9vw, 8rem);
+  --page-section-space-compact: clamp(3rem, 6vw, 4.5rem);
 }
 
 *,

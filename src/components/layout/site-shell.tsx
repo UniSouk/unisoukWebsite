@@ -13,7 +13,7 @@ function WhatsAppChat() {
   const message = encodeURIComponent("What services you provide");
   return (
     <aside
-      className="fixed right-[max(1rem,env(safe-area-inset-right))] bottom-[max(1rem,env(safe-area-inset-bottom))] z-90 max-[47.99rem]:right-[max(0.75rem,env(safe-area-inset-right))] max-[47.99rem]:bottom-[max(0.75rem,env(safe-area-inset-bottom))]"
+      className="fixed right-[max(1.5rem,env(safe-area-inset-right))] bottom-[max(1.5rem,env(safe-area-inset-bottom))] z-90 max-[74.99rem]:right-[max(1.25rem,env(safe-area-inset-right))] max-[74.99rem]:bottom-[max(1.25rem,env(safe-area-inset-bottom))]"
       aria-label="WhatsApp support"
     >
       <a

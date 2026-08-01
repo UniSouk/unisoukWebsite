@@ -117,9 +117,9 @@ export default function HomePage() {
           aria-label="Supported commerce channels"
         >
           <div className="mx-auto grid w-full max-w-[90rem] grid-cols-6 gap-px bg-[var(--grey)] max-[47.99rem]:grid-cols-3">
-            {platformLogos.map((platform) => (
+            {/* {platformLogos.map((platform) => (
               <div
-                className="grid min-h-24 place-items-center bg-white p-6"
+                className="grid min-h-24 place-items-center bg-white p-2"
                 key={platform.name}
               >
                 <Image
@@ -130,7 +130,8 @@ export default function HomePage() {
                   alt={platform.name}
                 />
               </div>
-            ))}
+            ))} */}
+            <p>hii</p>
           </div>
         </section>
         <EditorialSection>

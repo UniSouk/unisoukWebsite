@@ -107,10 +107,8 @@ export default function HomePage() {
               <h1 className="hero-title" id="hero-title">
                 <span className="hero-title__line">
                   List<span className="hero-title__dot">.</span> Sell
+                  <span className="hero-title__dot">.</span> Grow
                   <span className="hero-title__dot">.</span>
-                </span>
-                <span className="hero-title__line">
-                  Grow<span className="hero-title__dot">.</span>
                 </span>
               </h1>
               <p className="hero-lede">

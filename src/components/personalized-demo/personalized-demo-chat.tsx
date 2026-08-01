@@ -149,22 +149,31 @@ export function PersonalizedDemoChat() {
   return (
     <>
       <aside
-        className="fixed right-[max(1rem,env(safe-area-inset-right))] bottom-[calc(max(1rem,env(safe-area-inset-bottom))+4.25rem)] z-90 max-[47.99rem]:right-[max(0.75rem,env(safe-area-inset-right))] max-[47.99rem]:bottom-[calc(max(0.75rem,env(safe-area-inset-bottom))+4.05rem)]"
+        className="fixed right-[max(1.5rem,env(safe-area-inset-right))] bottom-[calc(max(1.5rem,env(safe-area-inset-bottom))+4.55rem)] z-90 max-[74.99rem]:right-[calc(max(1.25rem,env(safe-area-inset-right))+4.05rem)] max-[74.99rem]:bottom-[max(1.25rem,env(safe-area-inset-bottom))]"
         aria-label="Personalized demo"
       >
         <button
           ref={launcherRef}
           type="button"
-          className="flex min-h-[3.3rem] cursor-pointer items-center gap-4 rounded-full border-0 bg-[var(--ink)] py-3 pr-3 pl-4 text-[0.8rem] font-medium text-[var(--white)] max-[47.99rem]:max-w-[calc(100vw-6rem)] [&>span]:grid [&>span]:h-8 [&>span]:w-8 [&>span]:place-items-center [&>span]:rounded-full [&>span]:bg-[var(--orange)] [&>span]:text-[var(--ink)]"
+          className="flex min-h-[3.3rem] cursor-pointer items-center gap-4 rounded-full border-0 bg-[var(--ink)] py-3 pr-3 pl-4 text-[0.8rem] font-medium text-[var(--white)] max-[74.99rem]:h-[3.3rem] max-[74.99rem]:w-[3.3rem] max-[74.99rem]:justify-center max-[74.99rem]:gap-0 max-[74.99rem]:p-0"
           onClick={open}
           aria-haspopup="dialog"
+          aria-label="Get your personalized demo"
         >
-          Get your personalized demo <span aria-hidden="true">→</span>
+          <span aria-hidden="true" className="max-[74.99rem]:hidden">
+            Get your personalized demo
+          </span>
+          <span
+            className="grid h-8 w-8 place-items-center rounded-full bg-[var(--orange)] text-[var(--ink)]"
+            aria-hidden="true"
+          >
+            →
+          </span>
         </button>
       </aside>
       <dialog
         ref={dialogRef}
-        className="fixed inset-auto right-4 bottom-4 m-0 h-auto max-h-[calc(100dvh-2rem)] w-[min(30rem,calc(100vw-2rem))] translate-y-12 rounded-[var(--radius-md)] border border-[var(--grey)] bg-[var(--white)] p-0 text-[var(--ink)] opacity-0 shadow-[0_1.5rem_4rem_rgb(17_17_17/24%)] transition-[opacity,transform] duration-[560ms] [transform-origin:bottom_right] will-change-[opacity,transform] focus:outline-0 data-[motion-state=open]:translate-y-0 data-[motion-state=open]:opacity-100 data-[motion-state=closing]:translate-y-6 data-[motion-state=closing]:opacity-0 data-[motion-state=closing]:duration-[280ms] backdrop:bg-transparent backdrop:transition-colors backdrop:duration-[420ms] data-[motion-state=open]:backdrop:bg-black/40 data-[motion-state=closing]:backdrop:bg-transparent data-[motion-state=closing]:backdrop:duration-240 max-[47.99rem]:right-[0.65rem] max-[47.99rem]:bottom-[max(0.65rem,env(safe-area-inset-bottom))] max-[47.99rem]:left-[0.65rem] max-[47.99rem]:max-h-[calc(100dvh-1.3rem)] max-[47.99rem]:w-auto motion-reduce:translate-y-0 motion-reduce:opacity-100 motion-reduce:transition-none motion-reduce:backdrop:transition-none"
+        className="fixed inset-auto right-4 bottom-4 m-0 h-auto max-h-[calc(100dvh-2rem)] w-[min(30rem,calc(100vw-2rem))] translate-y-12 rounded-[var(--radius-md)] border border-[var(--grey)] bg-[var(--white)] p-0 text-[var(--ink)] opacity-0 shadow-[0_1.5rem_4rem_rgb(17_17_17/24%)] transition-[opacity,transform] duration-[560ms] [transform-origin:bottom_right] will-change-[opacity,transform] focus:outline-0 data-[motion-state=open]:translate-y-0 data-[motion-state=open]:opacity-100 data-[motion-state=closing]:translate-y-6 data-[motion-state=closing]:opacity-0 data-[motion-state=closing]:duration-[280ms] backdrop:bg-transparent backdrop:transition-colors backdrop:duration-[420ms] data-[motion-state=open]:backdrop:bg-black/40 data-[motion-state=closing]:backdrop:bg-transparent data-[motion-state=closing]:backdrop:duration-240 max-[47.99rem]:right-5 max-[47.99rem]:bottom-[max(1.25rem,env(safe-area-inset-bottom))] max-[47.99rem]:left-5 max-[47.99rem]:max-h-[calc(100dvh-2.5rem)] max-[47.99rem]:w-auto motion-reduce:translate-y-0 motion-reduce:opacity-100 motion-reduce:transition-none motion-reduce:backdrop:transition-none"
         aria-labelledby="native-personalized-demo-title"
         tabIndex={-1}
         onCancel={(event) => {
@@ -175,7 +184,7 @@ export function PersonalizedDemoChat() {
           if (event.target === dialogRef.current) close();
         }}
       >
-        <div className="grid max-h-[calc(100dvh-2rem)] grid-rows-[auto_minmax(0,1fr)] max-[47.99rem]:max-h-[calc(100dvh-1.3rem)]">
+        <div className="grid max-h-[calc(100dvh-2rem)] grid-rows-[auto_minmax(0,1fr)] max-[47.99rem]:max-h-[calc(100dvh-2.5rem)]">
           <header className="flex min-h-18 items-center justify-between gap-4 border-b border-[var(--grey)] bg-[var(--white)] py-4 px-6 max-[47.99rem]:min-h-16 max-[47.99rem]:py-3 max-[47.99rem]:px-4">
             <Image
               className="h-auto w-[7.75rem]"

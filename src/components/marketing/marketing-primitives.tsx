@@ -69,7 +69,7 @@ export function PageHero({
   return (
     <section className={`${surface} overflow-hidden`} aria-labelledby="page-title">
       <div
-        className={`${siteContainerClass} grid min-h-[calc(100svh-var(--header-height))] grid-cols-[minmax(0,1fr)_minmax(22rem,0.9fr)] items-center gap-[clamp(3rem,7vw,7rem)] py-[clamp(4rem,8vw,7rem)] max-[65rem]:min-h-0 max-[65rem]:grid-cols-1`}
+        className={`${siteContainerClass} page-hero__inner grid grid-cols-[minmax(0,1fr)_minmax(22rem,0.9fr)] gap-[clamp(3rem,7vw,7rem)]`}
       >
         <div className="grid justify-items-start gap-6">
           {eyebrow && (
@@ -78,7 +78,7 @@ export function PageHero({
             </p>
           )}
           <h1
-            className="m-0 max-w-[11ch] !text-[clamp(3.8rem,7vw,6.75rem)] !leading-[0.91] !tracking-[-0.035em] max-[47.99rem]:!text-[clamp(3.35rem,15vw,4.8rem)]"
+            className="m-0 max-w-[11ch] !text-[var(--text-hero-heading)] !leading-[0.91] !tracking-[-0.035em]"
             id="page-title"
           >
             {title}{" "}

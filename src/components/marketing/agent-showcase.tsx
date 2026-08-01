@@ -90,6 +90,9 @@ export function AgentShowcase() {
           </p>
         </header>
         <div className="agent-showcase__body">
+          <p className="agent-showcase__scroll-hint">
+            Swipe to explore <span aria-hidden="true">→</span>
+          </p>
           <div className="agent-stack" aria-label="Choose an AI agent">
             {agents.map((agent, index) => (
               <button

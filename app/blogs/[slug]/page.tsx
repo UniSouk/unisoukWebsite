@@ -178,7 +178,17 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         <article>
           <header className="bg-[var(--white)]">
             <div
-              className={`${siteContainerClass} pt-[clamp(4rem,9vw,7rem)] pb-[clamp(3.5rem,7vw,6rem)]`}
+              className={`${siteContainerClass} !w-[95%] min-[1061px]:!w-[90%] article-hero__inner${
+                match.canonicalSlug ===
+                "unified-commerce-a-beginners-guide-for-retailers"
+                  ? " article-hero__inner--flush"
+                  : ""
+              }${
+                match.canonicalSlug ===
+                "top-10-amazon-seller-tools-for-indian-sellers-in-2026"
+                  ? " article-hero__inner--amazon-tools-mobile-spacing"
+                  : ""
+              }`}
             >
               <nav aria-label="Breadcrumb">
                 <ol className="mt-0 mb-[clamp(3rem,7vw,5.5rem)] flex list-none flex-wrap gap-2 p-0 text-[0.82rem] text-[var(--text-muted)] [&_a]:no-underline [&_li+li]:before:mr-2 [&_li+li]:before:content-['/']">
@@ -206,26 +216,26 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                   </time>
                 )}
               </div>
-              <h1 className="mt-[clamp(2rem,5vw,4rem)] mb-0 !max-w-[15ch] !text-[clamp(3.5rem,7.5vw,6rem)] !leading-[0.92] !font-medium !tracking-[-0.035em] max-[47.99rem]:!text-[clamp(3.1rem,14vw,4.5rem)]">
+              <h1 className="!mt-[clamp(2rem,5vw,4rem)] mb-0 !text-[clamp(2.5rem,3vw,3rem)] !leading-[1.2] !font-medium !tracking-[-0.035em]">
                 {article.title}
               </h1>
               {article.description && (
-                <p className="mt-7 mr-0 mb-0 ml-auto max-w-[58ch] text-[clamp(1.08rem,1.6vw,1.3rem)] leading-[1.65] text-[var(--text-muted)] max-[47.99rem]:ml-0">
+                <p className="!mt-8 mr-0 mb-0 text-[clamp(1.08rem,1.6vw,1.3rem)] leading-[1.65] text-[var(--text-muted)] max-[47.99rem]:ml-0">
                   {article.description}
                 </p>
               )}
-              <p className="mt-5 mr-0 mb-0 ml-auto max-w-[58ch] text-[0.85rem] font-semibold text-[var(--orange-ink)] max-[47.99rem]:ml-0">
+              {/* <p className="!mt-5 mr-0 mb-0 ml-auto max-w-[58ch] text-[0.85rem] font-semibold text-[var(--orange-ink)] max-[47.99rem]:ml-0">
                 By {author.name}
-              </p>
+              </p> */}
             </div>
           </header>
 
           {articleImage && (
             <figure
-              className={`${siteContainerClass} my-0 max-[47.99rem]:max-w-none max-[47.99rem]:px-0`}
+              className={`${siteContainerClass} my-0 min-w-0 max-[47.99rem]:!w-full max-[47.99rem]:!max-w-full max-[47.99rem]:overflow-hidden max-[47.99rem]:!px-0`}
             >
               <img
-                className="max-h-[46rem] w-full object-cover"
+                className="block h-auto max-h-[46rem] w-full max-w-full object-cover"
                 src={articleImage}
                 alt={article.image?.alternativeText || article.title}
                 width={
@@ -243,7 +253,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             aria-label="Article content"
           >
             <div
-              className={`${siteContainerClass} py-[clamp(5rem,10vw,9rem)]`}
+            className={`${siteContainerClass} py-[clamp(3rem,6vw,5rem)] lg:!w-[65%] lg:px-0 lg:[&>div]:!max-w-none`}
             >
               <ArticleRichText article={article} />
             </div>

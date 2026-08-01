@@ -4,7 +4,24 @@
 @import "tailwindcss/utilities.css" layer(utilities);
 @import "./native-components.css";
 
+:root {
+  --text-hero-heading: clamp(3.4rem, 5.8vw, 4.5rem);
+  --text-home-hero-heading: var(--text-hero-heading);
+}
+
+.agent-showcase__scroll-hint {
+  display: none;
+}
+
 @media (width <= 47.99rem) {
+  :root {
+    --text-hero-heading: clamp(3.2rem, 14vw, 4.5rem);
+  }
+
+  .hero-title__line {
+    white-space: normal;
+  }
+
   .hero-actions {
     gap: 1rem;
   }
@@ -12,6 +29,41 @@
   .commerce-journey .sales-journey__phase header {
     width: 100%;
     flex-direction: row;
+  }
+
+  .commerce-orbit__headline-static {
+    white-space: normal;
+  }
+
+  .commerce-orbit__headline-action {
+    flex-direction: column;
+    align-items: flex-start;
+    white-space: normal;
+  }
+
+  .commerce-orbit .commerce-keyword {
+    width: 9ch;
+    flex: none;
+  }
+
+  .agent-showcase__scroll-hint {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    margin: 0 0 0.5rem;
+    color: oklch(100% 0 0 / 0.74);
+    font-size: 0.875rem;
+  }
+
+  .agent-showcase__scroll-hint span {
+    color: var(--orange);
+    font-size: 1.5rem;
+    line-height: 1;
+  }
+
+  .agent-showcase .agent-stack {
+    padding-top: 0.5rem;
   }
 
   main > section.pricing-hero:first-child h1 {
@@ -22,4 +74,243 @@
   .pricing-section-heading__title span {
     white-space: normal;
   }
+}
+
+/* Keep equivalent page families on one responsive spacing rhythm. */
+.management-hero__inner,
+.agents-hero__inner,
+.contact-hero__inner,
+.integrations-hero__inner,
+.growth-hero__inner,
+.operations-hero__inner,
+.page-hero__inner {
+  min-height: calc(100svh - var(--header-height));
+  align-items: center;
+  padding-block: var(--page-hero-space);
+}
+
+.website-hero__intro,
+.about-hero__inner,
+.amazon-seller__inner,
+.editorial-hero__inner,
+.article-hero__inner,
+.instagram-feed {
+  min-height: auto;
+  padding-block: var(--page-hero-space);
+}
+
+.pricing-hero__inner {
+  min-height: clamp(28rem, 62svh, 36rem);
+  padding-block: var(--page-hero-space);
+}
+
+.legal-hero__inner {
+  min-height: clamp(26rem, 52svh, 36rem);
+  padding-block: var(--page-hero-space);
+}
+
+.account-support__inner,
+.faq-inner,
+.sales-journey__inner,
+.purpose__inner,
+.principles__inner,
+.operating-model__inner,
+.about-intro__inner,
+.our-story__inner,
+.leadership__inner,
+.team-gallery__inner,
+.about-faq__inner,
+.coverage__inner,
+.responsibility__inner,
+.management-cta__inner,
+.agent-lab-section__inner,
+.agent-roles__inner,
+.agents-cta__inner,
+.client-work__inner,
+.build-paths__inner,
+.website-cta__inner,
+.message-section__inner,
+.support-scope__inner,
+.contact-faq__inner,
+.contact-cta__inner,
+.agent-showcase__inner,
+.integration-directory__inner,
+.request-integration__inner,
+.channel-plan__inner,
+.campaign-system__inner,
+.decision-loop__inner,
+.growth-cta__inner,
+.episode-themes__inner,
+.series-statement__inner,
+.podcast-cta__inner,
+.pricing-plans__inner,
+.plan-comparison__inner,
+.pricing-faq__inner,
+.legal-body__inner {
+  padding-block: var(--page-section-space);
+}
+
+@media (width <= 69rem) {
+  .management-hero__inner,
+  .agents-hero__inner,
+  .contact-hero__inner,
+  .integrations-hero__inner,
+  .growth-hero__inner,
+  .operations-hero__inner,
+  .page-hero__inner {
+    min-height: auto;
+    grid-template-columns: 1fr;
+    padding-block: var(--page-hero-space);
+  }
+
+  .pricing-hero__inner,
+  .legal-hero__inner {
+    min-height: auto;
+  }
+}
+
+@media (width <= 63.99rem) {
+  .hero-inner {
+    padding-block: var(--page-section-space-compact);
+  }
+}
+
+/* Unified Commerce uses its content height without additional hero spacing. */
+.operations-hero__inner {
+  min-height: auto;
+  padding-block: 16px;
+}
+
+/* Keep selected page heroes compact without changing the shared spacing token. */
+.hero-inner,
+.management-hero__inner,
+.agents-hero__inner,
+.integrations-hero__inner,
+.contact-hero__inner,
+.growth-hero__inner {
+  min-height: auto;
+  padding-block: clamp(3rem, 5vw, 4.5rem);
+}
+
+.article-hero__inner--flush {
+  padding-block: 16px;
+}
+
+@media (width <= 47.99rem) {
+  .hero-inner,
+  .management-hero__inner,
+  .agents-hero__inner,
+  .contact-hero__inner,
+  .integrations-hero__inner,
+  .growth-hero__inner,
+  .operations-hero__inner,
+  .page-hero__inner,
+  .website-hero__intro,
+  .about-hero__inner,
+  .amazon-seller__inner,
+  .editorial-hero__inner,
+  .article-hero__inner,
+  .pricing-hero__inner,
+  .legal-hero__inner,
+  .podcast-hero__inner {
+    padding-block: 44px;
+  }
+
+  #main-content :is(
+    .hero-inner,
+    .management-hero__inner,
+    .agents-hero__inner,
+    .contact-hero__inner,
+    .integrations-hero__inner,
+    .growth-hero__inner,
+    .operations-hero__inner,
+    .page-hero__inner,
+    .website-hero__intro,
+    .about-hero__inner,
+    .amazon-seller__inner,
+    .editorial-hero__inner,
+    .article-hero__inner,
+    .pricing-hero__inner,
+    .legal-hero__inner,
+    .podcast-hero__inner
+  ) h1 {
+    font-size: 44px !important;
+    line-height: 1.18 !important;
+  }
+
+  #main-content :is(
+    .hero-lede,
+    .management-hero__copy > p,
+    .agents-hero__copy > p,
+    .contact-hero__copy > p,
+    .integrations-hero__copy > p,
+    .growth-hero__copy > p,
+    .operations-hero__copy > p,
+    .page-hero__inner > div:first-child > p:last-of-type,
+    .website-hero__copy > p,
+    .amazon-seller__heading > p,
+    .editorial-hero__inner > div:first-child > p,
+    .article-hero__inner > h1 + p,
+    .pricing-hero__lede,
+    .legal-hero__inner > div:nth-child(2) > p,
+    .podcast-hero__copy > p
+  ) {
+    line-height: 1.25 !important;
+  }
+
+  .article-hero__inner--amazon-tools-mobile-spacing {
+    padding-block: 44px;
+  }
+
+  .article-hero__inner--amazon-tools-mobile-spacing h1 {
+    margin-top: 32px !important;
+  }
+
+  .article-hero__inner--amazon-tools-mobile-spacing h1 + p {
+    margin-top: 32px !important;
+  }
+}
+
+/* Homepage commerce-channel marquee. */
+.integration-strip {
+  border: 0;
+}
+
+.integration-logo-rail {
+  --integration-logo-width: clamp(10.5rem, 16vw, 15rem);
+  min-height: 6.5rem;
+}
+
+.integration-logo-rail .integration-logo {
+  flex: 0 0 var(--integration-logo-width);
+  width: var(--integration-logo-width);
+  height: 4rem;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  overflow: visible;
+}
+
+.integration-logo-rail .integration-logo:not(:first-child)::before {
+  content: none;
+}
+
+.integration-logo-rail .integration-logo img {
+  width: auto;
+  height: auto;
+  max-width: min(100%, 8.75rem);
+  max-height: 3rem;
+}
+
+.integration-logo-rail .integration-logo--amazon img {
+  max-width: 7.75rem;
+}
+
+.integration-logo-rail .integration-logo--ondc img {
+  max-width: 6.75rem;
+}
+
+.integration-logo-rail .integration-logo--meesho img {
+  width: 3.5rem;
+  height: 3.5rem;
 }

@@ -85,17 +85,17 @@ export default async function BlogPage() {
           aria-labelledby="journal-title"
         >
           <div
-            className={`${siteContainerClass} grid grid-cols-[minmax(0,1.3fr)_minmax(18rem,0.7fr)] items-end gap-[clamp(4rem,10vw,10rem)] py-[clamp(3.5rem,6vw,5rem)] max-[66rem]:grid-cols-1`}
+            className={`${siteContainerClass} editorial-hero__inner grid grid-cols-[minmax(0,1.3fr)_minmax(18rem,0.7fr)] items-end gap-[clamp(4rem,10vw,10rem)] max-[66rem]:grid-cols-1`}
           >
             <div>
               <h1
-                className="m-0 !max-w-[11ch] !text-[clamp(4.2rem,7.5vw,6rem)] !leading-[0.9] !font-medium !tracking-[-0.035em] max-[47.99rem]:!text-[clamp(3.4rem,15vw,4.8rem)]"
+                className="m-0 !max-w-[11ch] !text-[var(--text-hero-heading)] !leading-[0.9] !font-medium !tracking-[-0.035em]"
                 id="journal-title"
               >
                 Ideas for the work{" "}
                 <span className="text-[var(--orange-ink)]">behind growth.</span>
               </h1>
-              <p className="mt-[1.7rem] mb-0 max-w-[46ch] text-[clamp(1.08rem,1.45vw,1.3rem)] leading-[1.65] text-[var(--text-muted)]">
+              <p className="!mt-[1.7rem] mb-0 max-w-[46ch] text-[clamp(1.08rem,1.45vw,1.3rem)] leading-[1.65] text-[var(--text-muted)]">
                 Practical guides for sellers and commerce teams navigating
                 marketplaces, open networks, operations and intelligent tools.
               </p>
@@ -107,7 +107,7 @@ export default async function BlogPage() {
               <span className="text-[0.78rem] font-semibold text-[var(--orange-ink)]">
                 UniSouk Journal
               </span>
-              <p className="mt-4 mb-8 max-w-[31ch] leading-[1.65] text-[var(--text-muted)]">
+              <p className="!mt-4 mb-8 max-w-[31ch] leading-[1.65] text-[var(--text-muted)]">
                 Built for people who want to understand commerce clearly and
                 operate it better.
               </p>
@@ -172,13 +172,13 @@ export default async function BlogPage() {
                   )}
                 </div>
                 <h2
-                  className={`${sectionHeadingClass} mt-8 max-w-[9ch]`}
+                  className={`${sectionHeadingClass} !mt-8 max-w-[9ch]`}
                   id="featured-title"
                 >
                   {featuredArticle.title}
                 </h2>
                 {featuredArticle.description && (
-                  <p className="mt-6 mb-8 max-w-[42ch] text-[length:var(--text-lead)] leading-[1.65] text-white/65">
+                  <p className="!mt-6 mb-8 max-w-[42ch] text-[length:var(--text-lead)] leading-[1.65] text-white/65">
                     {featuredArticle.description}
                   </p>
                 )}
@@ -252,11 +252,11 @@ export default async function BlogPage() {
                             </time>
                           )}
                         </div>
-                        <h3 className="mt-4 mb-0 max-w-[24ch] text-[clamp(1.65rem,3vw,2.7rem)] !leading-[1.05] transition-colors group-hover/article-row:text-[var(--orange-ink)]">
+                        <h3 className="!mt-4 mb-0 max-w-[24ch] text-[clamp(1.65rem,3vw,2.7rem)] !leading-[1.05] transition-colors group-hover/article-row:text-[var(--orange-ink)]">
                           {article.title}
                         </h3>
                         {article.description && (
-                          <p className="mt-[0.85rem] mb-0 max-w-[62ch] text-[var(--text-muted)] max-[47.99rem]:hidden">
+                          <p className="!mt-[0.85rem] mb-0 max-w-[62ch] text-[var(--text-muted)] max-[47.99rem]:hidden">
                             {article.description}
                           </p>
                         )}
