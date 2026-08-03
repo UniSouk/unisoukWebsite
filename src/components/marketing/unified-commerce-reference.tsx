@@ -1,6 +1,7 @@
 import { OperationIcon, type OperationName } from "./operation-icon";
 import { UnifiedCommerceBoard } from "./unified-commerce-board";
 import { UnifiedCommerceTriptych } from "./unified-commerce-triptych";
+import { SIGN_UP_URL } from "@/constants/site";
 
 const operations: Array<{
   id: OperationName;
@@ -83,8 +84,6 @@ const operations: Array<{
   },
 ];
 
-const signupUrl = "https://dashboard.unisouk.com/auth/sign-up";
-
 export function UnifiedCommerceReference() {
   return (
     <>
@@ -101,7 +100,7 @@ export function UnifiedCommerceReference() {
               listing to the final payout.
             </p>
             <div className="operations-hero__actions">
-              <a className="button button--primary" href={signupUrl}>
+              <a className="button button--primary" href={SIGN_UP_URL}>
                 Start selling
               </a>
               <a
@@ -140,7 +139,7 @@ export function UnifiedCommerceReference() {
             </p>
             <a
               className="text-link text-link--arrow text-link--black"
-              href={signupUrl}
+              href={SIGN_UP_URL}
             >
               Start with UniSouk
             </a>

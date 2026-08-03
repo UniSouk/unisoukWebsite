@@ -1,4 +1,5 @@
-const consultationUrl = "https://calendar.app.google/kxxzKiyEfoWJzmTU6";
+import { PLATFORM_LOGOS } from "@/constants/platforms";
+import { CONSULTATION_BOOKING_URL } from "@/constants/site";
 
 const buildSteps = [
   ["Discover", "Clarify the audience, catalogue, operations and commercial goals before choosing a platform."],
@@ -45,7 +46,7 @@ export function BuildWebsiteReference() {
               your brand and stays connected to the work behind every sale.
             </p>
             <div className="website-hero__actions">
-              <a className="button button--primary" href={consultationUrl}>
+              <a className="button button--primary" href={CONSULTATION_BOOKING_URL}>
                 Book a free consultation
               </a>
               <a className="text-link text-link--arrow text-link--black" href="#build-paths">
@@ -132,8 +133,8 @@ export function BuildWebsiteReference() {
               <p>We design and build D2C storefronts on Shopify, Wix and WooCommerce, balancing platform strengths with a brand experience that feels distinctly yours.</p>
               <ul className="platform-list" aria-label="Supported storefront platforms">
                 <li className="platform-list__mark platform-list__mark--shopify" aria-label="Shopify"><img src="/ecosystem-logos/shopify-mark.svg" alt="" /></li>
-                <li className="platform-list__mark platform-list__mark--wix" aria-label="Wix"><img src="/platform-logos/wix.svg" alt="" /></li>
-                <li className="platform-list__mark platform-list__mark--woocommerce" aria-label="WooCommerce"><img src="/platform-logos/woocommerce.svg" alt="" /></li>
+                <li className="platform-list__mark platform-list__mark--wix" aria-label="Wix"><img src={PLATFORM_LOGOS.wix} alt="" /></li>
+                <li className="platform-list__mark platform-list__mark--woocommerce" aria-label="WooCommerce"><img src={PLATFORM_LOGOS.woocommerce} alt="" /></li>
               </ul>
             </article>
             <article>
@@ -170,7 +171,7 @@ export function BuildWebsiteReference() {
             <h2 id="website-cta-title">Ready to give your brand a better place to sell<span>?</span></h2>
             <p>Tell us what you sell, how you operate and what the current website is holding back.</p>
           </div>
-          <a className="button button--primary" href={consultationUrl}>Book a free consultation</a>
+          <a className="button button--primary" href={CONSULTATION_BOOKING_URL}>Book a free consultation</a>
         </div>
       </section>
     </>

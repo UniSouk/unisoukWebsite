@@ -1,7 +1,10 @@
 import type { SolutionPageData } from "@/components/marketing/solution-page";
-
-const demoUrl = "https://calendar.app.google/NLwZ5g1RJvigqR4c6";
-const consultationUrl = "https://calendar.app.google/kxxzKiyEfoWJzmTU6";
+import { COMMERCE_AGENTS_BY_ID } from "@/constants/agents";
+import { PLATFORM_LOGOS } from "@/constants/platforms";
+import {
+  CONSULTATION_BOOKING_URL,
+  DEMO_BOOKING_URL,
+} from "@/constants/site";
 
 export const ACCOUNT_MANAGEMENT_SOLUTION: SolutionPageData = {
   name: "Account Management",
@@ -67,23 +70,23 @@ export const AI_AGENTS_SOLUTION: SolutionPageData = {
     "The right specialist for each kind of work, connected by the same commerce context.",
   capabilities: [
     {
-      title: "SoukList",
+      title: COMMERCE_AGENTS_BY_ID.listing.name,
       copy: "Prepare clearer, channel-ready product titles, descriptions and attributes.",
     },
     {
-      title: "SoukSense",
+      title: COMMERCE_AGENTS_BY_ID.analytics.name,
       copy: "Turn performance signals into useful findings and practical next actions.",
     },
     {
-      title: "SoukStudio",
+      title: COMMERCE_AGENTS_BY_ID.image.name,
       copy: "Develop product-image directions suited to catalogues and campaigns.",
     },
     {
-      title: "SoukBoost",
+      title: COMMERCE_AGENTS_BY_ID.marketing.name,
       copy: "Find stronger campaign opportunities and clearer places to focus spend.",
     },
     {
-      title: "SoukLedger",
+      title: COMMERCE_AGENTS_BY_ID.financial.name,
       copy: "Make payments, fees, settlements and profitability easier to understand.",
     },
   ],
@@ -106,33 +109,33 @@ export const AI_AGENTS_SOLUTION: SolutionPageData = {
   ],
   showcase: [
     {
-      title: "SoukList",
+      title: COMMERCE_AGENTS_BY_ID.listing.name,
       copy: "Stronger product content for every important channel.",
-      image: "/images/agents/listing-agent-robot.png",
+      image: COMMERCE_AGENTS_BY_ID.listing.image,
       alt: "SoukList AI agent",
     },
     {
-      title: "SoukSense",
+      title: COMMERCE_AGENTS_BY_ID.analytics.name,
       copy: "Clear performance signals and practical recommendations.",
-      image: "/images/agents/analytics-agent-robot.png",
+      image: COMMERCE_AGENTS_BY_ID.analytics.image,
       alt: "SoukSense AI agent",
     },
     {
-      title: "SoukStudio",
+      title: COMMERCE_AGENTS_BY_ID.image.name,
       copy: "Channel-ready product visual directions.",
-      image: "/images/agents/image-generation-agent-robot.png",
+      image: COMMERCE_AGENTS_BY_ID.image.image,
       alt: "SoukStudio AI agent",
     },
     {
-      title: "SoukBoost",
+      title: COMMERCE_AGENTS_BY_ID.marketing.name,
       copy: "Smarter growth direction for campaigns and catalogues.",
-      image: "/images/agents/marketing-agent-robot.png",
+      image: COMMERCE_AGENTS_BY_ID.marketing.image,
       alt: "SoukBoost AI agent",
     },
     {
-      title: "SoukLedger",
+      title: COMMERCE_AGENTS_BY_ID.financial.name,
       copy: "Clearer financial decisions across commerce activity.",
-      image: "/images/agents/financial-agent-robot.png",
+      image: COMMERCE_AGENTS_BY_ID.financial.image,
       alt: "SoukLedger AI agent",
     },
   ],
@@ -197,9 +200,9 @@ export const AMAZON_SOLUTION: SolutionPageData = {
     },
   ],
   logos: [
-    { name: "Amazon", logo: "/platform-logos/amazon.svg" },
-    { name: "ONDC", logo: "/platform-logos/ondc.svg" },
-    { name: "Meesho", logo: "/platform-logos/meesho.png" },
+    { name: "Amazon", logo: PLATFORM_LOGOS.amazon },
+    { name: "ONDC", logo: PLATFORM_LOGOS.ondc },
+    { name: "Meesho", logo: PLATFORM_LOGOS.meesho },
   ],
   ctaTitle: "Run Seller Central with a clearer operating plan.",
   ctaCopy:
@@ -217,7 +220,7 @@ export const WEBSITE_SOLUTION: SolutionPageData = {
     "Create a commerce website around your brand, catalogue and customer journey—not a generic template.",
   heroAction: {
     label: "Book a free consultation",
-    href: consultationUrl,
+    href: CONSULTATION_BOOKING_URL,
   },
   introTitle: "The right build starts with the right level of freedom.",
   introCopy:
@@ -265,7 +268,7 @@ export const WEBSITE_SOLUTION: SolutionPageData = {
   ctaCopy:
     "Tell us what you sell, how you operate and what the current website is holding back.",
   ctaLabel: "Book a free consultation",
-  ctaHref: consultationUrl,
+  ctaHref: CONSULTATION_BOOKING_URL,
   structuredDescription:
     "Ecommerce website design and development for Indian brands and sellers.",
 };
@@ -279,7 +282,7 @@ export const PERFORMANCE_MARKETING_SOLUTION: SolutionPageData = {
     "Plan and manage Meta and Google campaigns around catalogue priorities, commercial context and useful performance evidence.",
   heroAction: {
     label: "Book a free consultation",
-    href: consultationUrl,
+    href: CONSULTATION_BOOKING_URL,
   },
   introTitle: "Two powerful channels. One growth thesis.",
   introCopy:
@@ -332,7 +335,7 @@ export const PERFORMANCE_MARKETING_SOLUTION: SolutionPageData = {
   ctaCopy:
     "Tell us where you sell, what you want to grow and how current campaigns are performing.",
   ctaLabel: "Book a free consultation",
-  ctaHref: consultationUrl,
+  ctaHref: CONSULTATION_BOOKING_URL,
   structuredDescription:
     "Performance advertising and campaign management for commerce brands across Meta and Google.",
 };
@@ -413,7 +416,7 @@ export const UNIFIED_COMMERCE_SOLUTION: SolutionPageData = {
   ctaTitle: "Ready to run commerce as one?",
   ctaCopy:
     "See how UniSouk can connect the products, channels and daily work behind your growth.",
-  ctaHref: demoUrl,
+  ctaHref: DEMO_BOOKING_URL,
   structuredDescription:
     "Unified listings, inventory, orders, fulfilment, payments and analytics for Indian sellers.",
 };

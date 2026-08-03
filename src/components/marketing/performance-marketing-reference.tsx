@@ -1,7 +1,8 @@
 import { PerformanceCampaignMap } from "@/components/marketing/performance-campaign-map";
-
-const demoUrl = "https://calendar.app.google/NLwZ5g1RJvigqR4c6";
-const consultationUrl = "https://calendar.app.google/kxxzKiyEfoWJzmTU6";
+import {
+  CONSULTATION_BOOKING_URL,
+  DEMO_BOOKING_URL,
+} from "@/constants/site";
 
 const campaignWork = [
   ["Campaign architecture", "Structure accounts, audiences, objectives and budgets around the way your business actually sells."],
@@ -26,7 +27,7 @@ export function PerformanceMarketingReference() {
             <h1 id="growth-title">Turn attention into <span>profitable growth.</span></h1>
             <p>UniSouk plans and manages Meta and Google campaigns around your catalogue, commercial priorities and real selling context.</p>
             <div className="growth-hero__actions">
-              <a className="button button--primary" href={consultationUrl}>Book a free consultation</a>
+              <a className="button button--primary" href={CONSULTATION_BOOKING_URL}>Book a free consultation</a>
               <a className="text-link text-link--arrow text-link--black" href="#campaign-system">See how we work</a>
             </div>
           </div>
@@ -80,7 +81,7 @@ export function PerformanceMarketingReference() {
           <div className="decision-loop__copy">
             <h2 id="decision-loop-title">A calmer way to improve campaign performance.</h2>
             <p>We use a deliberate learning loop, not constant reaction, to turn live signals into stronger decisions.</p>
-            <a className="button button--secondary" href={demoUrl}>Discuss your growth plan</a>
+            <a className="button button--secondary" href={DEMO_BOOKING_URL}>Discuss your growth plan</a>
           </div>
           <ol className="decision-loop__steps">
             {process.map(([title, copy], index) => (
@@ -96,7 +97,7 @@ export function PerformanceMarketingReference() {
             <h2 id="growth-cta-title">Make every campaign part of a clearer growth plan.</h2>
             <p>Tell us where you sell, what you want to grow and how your current campaigns are performing.</p>
           </div>
-          <a className="button button--primary" href={consultationUrl}>Book a free consultation</a>
+          <a className="button button--primary" href={CONSULTATION_BOOKING_URL}>Book a free consultation</a>
         </div>
       </section>
     </>

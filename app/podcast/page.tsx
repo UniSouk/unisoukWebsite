@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { PageStructuredData } from "@/components/marketing/marketing-primitives";
 import { PodcastReference } from "@/components/marketing/podcast-reference";
 import { NativeSiteShell } from "@/components/layout/site-shell";
+import { PODCAST_VIDEO_URL } from "@/constants/podcast";
 import { getInstagramMedia } from "@/lib/instagram";
 
 export const revalidate = 900;
@@ -25,7 +26,7 @@ export default async function PodcastPage() {
           "@type": "PodcastEpisode",
           name: "Indian ecommerce Boom | Surat to SaaS",
           episodeNumber: 1,
-          url: "https://youtu.be/6JJzG-XJG_Q?si=e7gLYjPzm64VWzZP",
+          url: PODCAST_VIDEO_URL,
         }}
       />
       <main id="main-content">

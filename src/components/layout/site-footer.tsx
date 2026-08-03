@@ -7,6 +7,10 @@ import {
   siteContainerClass,
 } from "@/components/layout/site-shell-styles";
 import {
+  SUPPORT_PHONE_DISPLAY_COMPACT,
+  SUPPORT_PHONE_E164,
+} from "@/constants/contact";
+import {
   BLOG_ROUTE_PATHS,
   DEMO_BOOKING_URL,
   FOOTER_GROUPS,
@@ -94,7 +98,9 @@ export function SiteFooter() {
               </div>
               <div>
                 <strong>Phone</strong>
-                <a href="tel:+919033151267">+91-9033151267</a>
+                <a href={`tel:${SUPPORT_PHONE_E164}`}>
+                  {SUPPORT_PHONE_DISPLAY_COMPACT}
+                </a>
               </div>
             </address>
           </div>

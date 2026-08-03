@@ -25,7 +25,7 @@ const dialogBodyClass = "overflow-hidden";
 const demoFormClass =
   "grid gap-3 [&_label]:flex [&_label]:items-baseline [&_label]:justify-between [&_label]:gap-3 [&_label]:text-xs [&_label]:leading-[1.4] [&_label]:font-semibold [&_label]:text-[var(--ink)] [&_label_span]:font-normal [&_label_span]:text-[var(--text-muted)]";
 const spinnerClass =
-  "h-[1.125rem] w-[1.125rem] shrink-0 animate-spin rounded-full border-2 border-current border-r-transparent motion-reduce:animate-none";
+  "inline-block h-[1.125rem] w-[1.125rem] shrink-0 animate-spin rounded-full border-2 border-current border-r-transparent motion-reduce:animate-none";
 
 type CategoryMode = "detected" | "fallback";
 

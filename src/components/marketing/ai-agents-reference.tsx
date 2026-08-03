@@ -1,14 +1,14 @@
 import { AgentProfilesReference } from "@/components/marketing/agent-profiles-reference";
 import { AgentStage } from "@/components/marketing/agent-stage";
-
-const demoUrl = "https://calendar.app.google/NLwZ5g1RJvigqR4c6";
+import { COMMERCE_AGENTS_BY_ID } from "@/constants/agents";
+import { DEMO_BOOKING_URL } from "@/constants/site";
 
 const agentRoles = [
-  ["SoukList", "Finds content gaps and prepares stronger product listings."],
-  ["SoukSense", "Explains performance movement and identifies the next useful action."],
-  ["SoukStudio", "Creates channel ready product visuals that stay aligned with your catalogue and brand."],
-  ["SoukBoost", "Reads campaign performance and helps focus spend on profitable demand."],
-  ["SoukLedger", "Organizes payment, settlement and profitability signals for clearer financial decisions."],
+  [COMMERCE_AGENTS_BY_ID.listing.name, "Finds content gaps and prepares stronger product listings."],
+  [COMMERCE_AGENTS_BY_ID.analytics.name, "Explains performance movement and identifies the next useful action."],
+  [COMMERCE_AGENTS_BY_ID.image.name, "Creates channel ready product visuals that stay aligned with your catalogue and brand."],
+  [COMMERCE_AGENTS_BY_ID.marketing.name, "Reads campaign performance and helps focus spend on profitable demand."],
+  [COMMERCE_AGENTS_BY_ID.financial.name, "Organizes payment, settlement and profitability signals for clearer financial decisions."],
 ];
 
 export function AiAgentsReference() {
@@ -20,7 +20,7 @@ export function AiAgentsReference() {
             <h1 id="agents-title">Every Part of Commerce. <span>Powered by AI.</span></h1>
             <p>Five specialized agents help your team manage listings, analytics, image generation, marketing and financial workflows inside one connected commerce context.</p>
             <div className="agents-hero__actions">
-              <a className="button button--orange" href={demoUrl}>Book a free demo</a>
+              <a className="button button--orange" href={DEMO_BOOKING_URL}>Book a free demo</a>
               <a className="text-link text-link--arrow" href="#agent-lab">Meet the agents</a>
             </div>
           </div>

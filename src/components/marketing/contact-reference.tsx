@@ -1,10 +1,11 @@
 import { ContactForm } from "@/components/marketing/contact-form";
-
-const demoUrl = "https://calendar.app.google/NLwZ5g1RJvigqR4c6";
-const supportEmail = "support@unisouk.com";
-const phoneDisplay = "+91 90331 51267";
-const phoneHref = "+919033151267";
-const mapUrl = "https://maps.app.goo.gl/f7ccijXLXi2kbzQd6";
+import {
+  OFFICE_MAP_URL,
+  SUPPORT_EMAIL,
+  SUPPORT_PHONE_DISPLAY,
+  SUPPORT_PHONE_E164,
+} from "@/constants/contact";
+import { DEMO_BOOKING_URL } from "@/constants/site";
 
 const supportAreas = [
   ["Seller registration & onboarding", "Get guidance when preparing your business and sales channels for UniSouk."],
@@ -32,14 +33,14 @@ export function ContactReference() {
             <p>Whether you are launching your first product or growing across multiple marketplaces, the UniSouk team is here to help you move forward.</p>
             <div className="contact-hero__actions">
               <a className="button button--primary" href="#contact-form">Send us a message</a>
-              <a className="text-link" href={demoUrl}>Book a free demo <span aria-hidden="true">→</span></a>
+              <a className="text-link" href={DEMO_BOOKING_URL}>Book a free demo <span aria-hidden="true">→</span></a>
             </div>
           </div>
           <address className="contact-directory" aria-label="UniSouk contact information">
             <header><span>Get in touch</span><em>We’d love to hear from you</em></header>
-            <a href={`mailto:${supportEmail}`}><span>Email us</span><strong>{supportEmail}</strong><i aria-hidden="true">↗</i></a>
-            <a href={`tel:${phoneHref}`}><span>Call us</span><strong>{phoneDisplay}</strong><small>Monday to Friday · 10:00 AM to 6:00 PM</small><i aria-hidden="true">↗</i></a>
-            <a href={mapUrl} target="_blank" rel="noreferrer"><span>Visit us</span><strong>Solaris Cube, Vesu, Surat</strong><small>Seventh Floor, Office No. 701 · Gujarat 395007</small><i aria-hidden="true">↗</i></a>
+            <a href={`mailto:${SUPPORT_EMAIL}`}><span>Email us</span><strong>{SUPPORT_EMAIL}</strong><i aria-hidden="true">↗</i></a>
+            <a href={`tel:${SUPPORT_PHONE_E164}`}><span>Call us</span><strong>{SUPPORT_PHONE_DISPLAY}</strong><small>Monday to Friday · 10:00 AM to 6:00 PM</small><i aria-hidden="true">↗</i></a>
+            <a href={OFFICE_MAP_URL} target="_blank" rel="noreferrer"><span>Visit us</span><strong>Solaris Cube, Vesu, Surat</strong><small>Seventh Floor, Office No. 701 · Gujarat 395007</small><i aria-hidden="true">↗</i></a>
             <footer><img src="/unisouk-mark.svg" width="52" height="26" alt="" /><span>List. Sell. Grow.</span></footer>
           </address>
         </div>

@@ -10,7 +10,8 @@ import {
 } from "@/components/marketing/home-reference-sections";
 import { PageStructuredData } from "@/components/marketing/marketing-primitives";
 import { NativeSiteShell } from "@/components/layout/site-shell";
-import { DEMO_BOOKING_URL, SITE_URL } from "@/constants/site";
+import { PLATFORM_LOGOS } from "@/constants/platforms";
+import { DEMO_BOOKING_URL, SIGN_UP_URL, SITE_URL } from "@/constants/site";
 
 export const metadata: Metadata = {
   title: { absolute: "UniSouk | List. Sell. Grow." },
@@ -19,20 +20,19 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
 };
 
-const signupUrl = "https://dashboard.unisouk.com/auth/sign-up";
 const accountManagementUrl = "/solutions/account-management/";
 const accountManagerCalendarUrl =
   "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ27oiN5SQCdY_igGWRLCCzNNq2yR1qO5lXm9nTBi_BajecHLmlgGsalXAVVXTYyxRb7rbVSIL4S";
 
 const integrationLogos = [
-  { name: "Amazon", src: "/platform-logos/amazon.svg", modifier: "amazon" },
-  { name: "ONDC", src: "/platform-logos/ondc.svg", modifier: "ondc" },
-  { name: "Meesho", src: "/platform-logos/meesho.png", modifier: "meesho" },
-  { name: "Shopify", src: "/platform-logos/shopify.svg", modifier: "shopify" },
-  { name: "Wix", src: "/platform-logos/wix.svg", modifier: "wix" },
+  { name: "Amazon", src: PLATFORM_LOGOS.amazon, modifier: "amazon" },
+  { name: "ONDC", src: PLATFORM_LOGOS.ondc, modifier: "ondc" },
+  { name: "Meesho", src: PLATFORM_LOGOS.meesho, modifier: "meesho" },
+  { name: "Shopify", src: PLATFORM_LOGOS.shopify, modifier: "shopify" },
+  { name: "Wix", src: PLATFORM_LOGOS.wix, modifier: "wix" },
   {
     name: "WooCommerce",
-    src: "/platform-logos/woocommerce.svg",
+    src: PLATFORM_LOGOS.woocommerce,
     modifier: "woocommerce",
   },
 ];
@@ -116,7 +116,7 @@ export default function HomePage() {
                 next move.
               </p>
               <div className="hero-actions">
-                <a className="button button--primary" href={signupUrl}>
+                <a className="button button--primary" href={SIGN_UP_URL}>
                   Start selling
                 </a>
                 <a

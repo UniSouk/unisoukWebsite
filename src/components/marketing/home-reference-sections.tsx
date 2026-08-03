@@ -1,9 +1,12 @@
 import type { CSSProperties } from "react";
 
+import { PLATFORM_LOGOS } from "@/constants/platforms";
+import { SIGN_UP_URL } from "@/constants/site";
+
 const marketplaces = [
   {
     name: "Amazon",
-    src: "/platform-logos/amazon.svg",
+    src: PLATFORM_LOGOS.amazon,
     className: "marketplace--amazon",
   },
   {
@@ -13,22 +16,22 @@ const marketplaces = [
   },
   {
     name: "Meesho",
-    src: "/platform-logos/meesho.png",
+    src: PLATFORM_LOGOS.meesho,
     className: "marketplace--meesho",
   },
   {
     name: "ONDC",
-    src: "/platform-logos/ondc.svg",
+    src: PLATFORM_LOGOS.ondc,
     className: "marketplace--ondc",
   },
   {
     name: "Shopify",
-    src: "/platform-logos/shopify.svg",
+    src: PLATFORM_LOGOS.shopify,
     className: "marketplace--shopify",
   },
   {
     name: "WooCommerce",
-    src: "/platform-logos/woocommerce.svg",
+    src: PLATFORM_LOGOS.woocommerce,
     className: "marketplace--woocommerce",
   },
 ];
@@ -608,7 +611,7 @@ export function CommerceOrbit() {
           </p>
           <a
             className="text-link text-link--arrow"
-            href="https://dashboard.unisouk.com/auth/sign-up"
+            href={SIGN_UP_URL}
           >
             Explore the platform <span aria-hidden="true">→</span>
           </a>

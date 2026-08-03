@@ -2,13 +2,10 @@
 
 import { useState } from "react";
 
-const agentFeatures = [
-  "SoukList",
-  "SoukSense",
-  "SoukStudio",
-  "SoukBoost",
-  "SoukLedger",
-];
+import { COMMERCE_AGENTS } from "@/constants/agents";
+import { DASHBOARD_URL, DEMO_BOOKING_URL } from "@/constants/site";
+
+const agentFeatures = COMMERCE_AGENTS.map(({ name }) => name);
 
 const platformFeatures = [
   "Marketplace integrations",
@@ -88,9 +85,6 @@ const websiteFeatures = [
   "Complete website and ecommerce setup",
 ];
 
-const trialUrl = "https://dashboard.unisouk.com/";
-const serviceUrl = "https://calendar.app.google/NLwZ5g1RJvigqR4c6";
-
 function FeatureList({
   items,
   footnote,
@@ -136,7 +130,7 @@ export function PricingReference() {
             selling operation through UniSouk.
           </p>
           <div className="pricing-hero__actions">
-            <a className="button button--primary" href={trialUrl}>
+            <a className="button button--primary" href={DASHBOARD_URL}>
               Start your 1 month free trial
             </a>
             <a
@@ -195,7 +189,7 @@ export function PricingReference() {
                 </div>
                 <small>One month free, then monthly billing + GST</small>
               </div>
-              <a className="button button--primary" href={trialUrl}>
+              <a className="button button--primary" href={DASHBOARD_URL}>
                 Start your free trial
               </a>
               <div className="plan-card__body">
@@ -263,7 +257,7 @@ export function PricingReference() {
                 </div>
                 <small>Based on your channels and requirements</small>
               </div>
-              <a className="button button--secondary" href={serviceUrl}>
+              <a className="button button--secondary" href={DEMO_BOOKING_URL}>
                 Schedule a call
               </a>
               <div className="plan-card__body">
@@ -302,7 +296,7 @@ export function PricingReference() {
                 </div>
                 <small>one time starting price</small>
               </div>
-              <a className="button button--secondary" href={serviceUrl}>
+              <a className="button button--secondary" href={DEMO_BOOKING_URL}>
                 Discuss your website
               </a>
               <div className="plan-card__body">

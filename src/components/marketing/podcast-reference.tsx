@@ -1,11 +1,9 @@
 /* eslint-disable @next/next/no-img-element -- Instagram Graph API media uses dynamic remote URLs. */
 import type { CSSProperties } from "react";
 
+import { PODCAST_EMBED_URL, PODCAST_VIDEO_URL } from "@/constants/podcast";
+import { INSTAGRAM_URL } from "@/constants/site";
 import type { InstagramMediaItem } from "@/lib/instagram";
-
-const youtubeUrl = "https://youtu.be/6JJzG-XJG_Q?si=e7gLYjPzm64VWzZP";
-const embedUrl = "https://www.youtube.com/embed/6JJzG-XJG_Q";
-const profileUrl = "https://www.instagram.com/unisouk.in/";
 
 const themes = [
   ["The Indian ecommerce boom", "A founder’s perspective on the opportunity opening up for sellers, brands and commerce technology across India."],
@@ -30,7 +28,7 @@ function InstagramReference({ media }: { media: InstagramMediaItem[] }) {
           </div>
           <div className="instagram-feed__intro">
             <p>Product updates, seller insights and a closer look at what UniSouk is building.</p>
-            <a className="instagram-feed__follow" href={profileUrl} target="_blank" rel="noopener noreferrer" aria-label="Follow UniSouk on Instagram">
+            <a className="instagram-feed__follow" href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" aria-label="Follow UniSouk on Instagram">
               Follow @unisouk.in <span aria-hidden="true">↗</span>
             </a>
           </div>
@@ -49,10 +47,10 @@ function InstagramReference({ media }: { media: InstagramMediaItem[] }) {
             <div className="instagram-feed__fallback-copy">
               <span className="instagram-feed__mark" aria-hidden="true">◎</span>
               <p>See the latest from UniSouk on Instagram.</p>
-              <a href={profileUrl} target="_blank" rel="noopener noreferrer">Open @unisouk.in <span aria-hidden="true">↗</span></a>
+              <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer">Open @unisouk.in <span aria-hidden="true">↗</span></a>
             </div>
             <blockquote className="instagram-media">
-              <a href={profileUrl} target="_blank" rel="noopener noreferrer">View @unisouk.in on Instagram</a>
+              <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer">View @unisouk.in on Instagram</a>
             </blockquote>
           </div>
         )}
@@ -76,7 +74,7 @@ export function PodcastReference({ media }: { media: InstagramMediaItem[] }) {
           </header>
           <div className="video-frame">
             <iframe
-              src={embedUrl}
+              src={PODCAST_EMBED_URL}
               title="Indian ecommerce Boom | Surat to SaaS | Beyond the Cart Podcast with Nihil Parmar Episode 1"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerPolicy="strict-origin-when-cross-origin"
@@ -113,7 +111,7 @@ export function PodcastReference({ media }: { media: InstagramMediaItem[] }) {
             <span>Beyond the Cart</span>
             <h2 id="series-title">Conversations about the work customers never see.</h2>
             <p>Commerce is more than a storefront or a transaction. This series looks at the systems, choices and people behind building businesses that can keep moving.</p>
-            <a href={youtubeUrl} target="_blank" rel="noreferrer">Watch Episode 01 on YouTube <i aria-hidden="true">→</i></a>
+            <a href={PODCAST_VIDEO_URL} target="_blank" rel="noreferrer">Watch Episode 01 on YouTube <i aria-hidden="true">→</i></a>
           </div>
         </div>
       </section>

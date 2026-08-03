@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import { PersonalizedDemoChat } from "@/components/personalized-demo/personalized-demo-chat";
+import { SUPPORT_WHATSAPP_NUMBER } from "@/constants/contact";
 
 const focusWithinPage =
   "[&_a:focus-visible]:outline-3 [&_a:focus-visible]:outline-offset-3 [&_a:focus-visible]:outline-[var(--orange-ink)] [&_button:focus-visible]:outline-3 [&_button:focus-visible]:outline-offset-3 [&_button:focus-visible]:outline-[var(--orange-ink)] [&_input:focus-visible]:outline-3 [&_input:focus-visible]:outline-offset-3 [&_input:focus-visible]:outline-[var(--orange-ink)] [&_summary:focus-visible]:outline-3 [&_summary:focus-visible]:outline-offset-3 [&_summary:focus-visible]:outline-[var(--orange-ink)]";
@@ -18,7 +19,7 @@ function WhatsAppChat() {
     >
       <a
         className="group/whatsapp block rounded-full text-[var(--white)] no-underline"
-        href={`https://wa.me/919033151267?text=${message}`}
+        href={`https://wa.me/${SUPPORT_WHATSAPP_NUMBER}?text=${message}`}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat with UniSouk on WhatsApp"

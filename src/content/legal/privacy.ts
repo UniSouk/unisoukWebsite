@@ -7,6 +7,7 @@ import {
   strong,
   subheading,
 } from "@/lib/legal-content";
+import { SUPPORT_EMAIL } from "@/constants/contact";
 import type { LegalPageData } from "@/types/legal";
 
 export const privacyPolicy: LegalPageData = {
@@ -131,7 +132,7 @@ export const privacyPolicy: LegalPageData = {
     {
       id: "contact",
       title: "Contact us",
-      blocks: [contact(["If you have questions about this Privacy Policy, contact us at:"], [strong("Email:"), " ", link("support@unisouk.com", "mailto:support@unisouk.com")])],
+      blocks: [contact(["If you have questions about this Privacy Policy, contact us at:"], [strong("Email:"), " ", link(SUPPORT_EMAIL, `mailto:${SUPPORT_EMAIL}`)])],
     },
   ],
 };

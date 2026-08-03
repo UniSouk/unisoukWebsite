@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   description:
     "List better, sell across marketplaces and storefronts, and grow with one commerce platform built for Indian sellers.",
   icons: {
-    icon: "/unisouk-logo.svg",
+    icon: "/unisouk-mark-on-dark.svg",
   },
 };
 

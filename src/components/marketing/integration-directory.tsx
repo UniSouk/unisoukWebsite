@@ -10,6 +10,7 @@ import {
   type Integration,
   type IntegrationCategory,
 } from "@/constants/integrations";
+import { DEMO_BOOKING_URL } from "@/constants/site";
 
 type Filter = "all" | IntegrationCategory;
 
@@ -150,7 +151,7 @@ export function IntegrationDirectory() {
             <p>{selected?.description}</p>
             <div><span>UniSouk capabilities</span><ul>{selected?.capabilities.map((capability) => <li key={capability}>{capability}</li>)}</ul></div>
           </div>
-          <footer><p>Want to understand how this fits your current workflow?</p><a className="button button--primary" href="https://calendar.app.google/NLwZ5g1RJvigqR4c6">Book a free demo</a></footer>
+          <footer><p>Want to understand how this fits your current workflow?</p><a className="button button--primary" href={DEMO_BOOKING_URL}>Book a free demo</a></footer>
         </div>
       </dialog>
     </>

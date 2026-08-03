@@ -8,6 +8,7 @@ import {
 } from "@/components/marketing/marketing-primitives";
 import { RotatingShowcase } from "@/components/marketing/rotating-showcase";
 import { NativeSiteShell } from "@/components/layout/site-shell";
+import { COMMERCE_AGENTS_BY_ID } from "@/constants/agents";
 
 export const metadata: Metadata = {
   title: { absolute: "AI Agent Visual Directions | UniSouk" },
@@ -17,33 +18,33 @@ export const metadata: Metadata = {
 
 const agents = [
   {
-    title: "SoukList",
+    title: COMMERCE_AGENTS_BY_ID.listing.name,
     copy: "Audits product content and prepares clearer listings for every channel.",
-    image: "/images/agents/listing-agent-robot.png",
+    image: COMMERCE_AGENTS_BY_ID.listing.image,
     alt: "SoukList AI agent",
   },
   {
-    title: "SoukSense",
+    title: COMMERCE_AGENTS_BY_ID.analytics.name,
     copy: "Turns connected performance signals into useful next actions.",
-    image: "/images/agents/analytics-agent-robot.png",
+    image: COMMERCE_AGENTS_BY_ID.analytics.image,
     alt: "SoukSense AI agent",
   },
   {
-    title: "SoukStudio",
+    title: COMMERCE_AGENTS_BY_ID.image.name,
     copy: "Creates product visual directions for important commerce channels.",
-    image: "/images/agents/image-generation-agent-robot.png",
+    image: COMMERCE_AGENTS_BY_ID.image.image,
     alt: "SoukStudio AI agent",
   },
   {
-    title: "SoukBoost",
+    title: COMMERCE_AGENTS_BY_ID.marketing.name,
     copy: "Finds campaign opportunities and smarter places to focus spend.",
-    image: "/images/agents/marketing-agent-robot.png",
+    image: COMMERCE_AGENTS_BY_ID.marketing.image,
     alt: "SoukBoost AI agent",
   },
   {
-    title: "SoukLedger",
+    title: COMMERCE_AGENTS_BY_ID.financial.name,
     copy: "Makes fees, payments and profitability easier to understand.",
-    image: "/images/agents/financial-agent-robot.png",
+    image: COMMERCE_AGENTS_BY_ID.financial.image,
     alt: "SoukLedger AI agent",
   },
 ];

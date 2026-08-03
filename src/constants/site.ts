@@ -1,7 +1,14 @@
 export const SITE_URL = "https://www.unisouk.com";
+export const DASHBOARD_URL = "https://dashboard.unisouk.com/";
 export const SIGN_IN_URL = "https://dashboard.unisouk.com/auth/login";
+export const SIGN_UP_URL = "https://dashboard.unisouk.com/auth/sign-up";
 export const DEMO_BOOKING_URL =
   "https://calendar.app.google/NLwZ5g1RJvigqR4c6";
+export const CONSULTATION_BOOKING_URL =
+  "https://calendar.app.google/kxxzKiyEfoWJzmTU6";
+
+export const INSTAGRAM_URL = "https://www.instagram.com/unisouk.in/";
+export const YOUTUBE_URL = "https://www.youtube.com/@UniSouk";
 
 export const MARKETING_ROUTES = [
   "/",
@@ -112,7 +119,7 @@ export const SOCIAL_LINKS = [
   },
   {
     label: "Instagram",
-    href: "https://www.instagram.com/unisouk.in/",
+    href: INSTAGRAM_URL,
     icon: "instagram",
   },
   {
@@ -122,7 +129,7 @@ export const SOCIAL_LINKS = [
   },
   {
     label: "YouTube",
-    href: "https://www.youtube.com/@UniSouk",
+    href: YOUTUBE_URL,
     icon: "youtube",
   },
 ] as const;

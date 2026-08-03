@@ -3,46 +3,62 @@
 import type { CSSProperties, KeyboardEvent } from "react";
 import { useState } from "react";
 
-const agents = [
-  {
-    id: "listing",
-    name: "SoukList",
+import {
+  COMMERCE_AGENTS_BY_ID,
+  type CommerceAgentId,
+} from "@/constants/agents";
+
+const agentDetails: Record<
+  CommerceAgentId,
+  { role: string; description: string }
+> = {
+  listing: {
     role: "Listing Agent",
-    image: "/images/agents/listing-agent-robot.png",
     description:
       "Finds content gaps and prepares stronger titles, attributes and descriptions for every selling channel.",
   },
-  {
-    id: "analytics",
-    name: "SoukSense",
+  analytics: {
     role: "Analytics Agent",
-    image: "/images/agents/analytics-agent-robot.png",
     description:
       "Turns commerce activity into clear performance signals and the next useful action.",
   },
-  {
-    id: "image",
-    name: "SoukStudio",
+  image: {
     role: "Image Generation Agent",
-    image: "/images/agents/image-generation-agent-robot.png",
     description:
       "Creates channel ready product visuals that stay aligned with your catalogue and brand.",
   },
-  {
-    id: "marketing",
-    name: "SoukBoost",
+  marketing: {
     role: "Marketing Agent",
-    image: "/images/agents/marketing-agent-robot.png",
     description:
       "Reads campaign performance and helps focus spend on profitable demand.",
   },
-  {
-    id: "financial",
-    name: "SoukLedger",
+  financial: {
     role: "Financial Agent",
-    image: "/images/agents/financial-agent-robot.png",
     description:
       "Connects payments, settlements and profitability signals for clearer financial decisions.",
+  },
+};
+
+const agents = [
+  {
+    ...COMMERCE_AGENTS_BY_ID.listing,
+    ...agentDetails.listing,
+  },
+  {
+    ...COMMERCE_AGENTS_BY_ID.analytics,
+    ...agentDetails.analytics,
+  },
+  {
+    ...COMMERCE_AGENTS_BY_ID.image,
+    ...agentDetails.image,
+  },
+  {
+    ...COMMERCE_AGENTS_BY_ID.marketing,
+    ...agentDetails.marketing,
+  },
+  {
+    ...COMMERCE_AGENTS_BY_ID.financial,
+    ...agentDetails.financial,
   },
 ];
 

@@ -3,13 +3,7 @@
 import type { CSSProperties } from "react";
 import { useEffect, useRef, useState } from "react";
 
-const heroAgents = [
-  { name: "SoukList", image: "/images/agents/listing-agent-robot.png", tint: "#e9f2ff", accent: "#176fe5" },
-  { name: "SoukSense", image: "/images/agents/analytics-agent-robot.png", tint: "#fff0dd", accent: "#dc7b10" },
-  { name: "SoukStudio", image: "/images/agents/image-generation-agent-robot.png", tint: "#e3f8fc", accent: "#078aa5" },
-  { name: "SoukBoost", image: "/images/agents/marketing-agent-robot.png", tint: "#fff6cf", accent: "#a97800" },
-  { name: "SoukLedger", image: "/images/agents/financial-agent-robot.png", tint: "#f2eaff", accent: "#7550bd" },
-];
+import { COMMERCE_AGENTS } from "@/constants/agents";
 
 export function AgentStage() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -26,14 +20,14 @@ export function AgentStage() {
 
   useEffect(() => {
     if (!visible || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const timer = window.setInterval(() => setActiveIndex((index) => (index + 1) % heroAgents.length), 3000);
+    const timer = window.setInterval(() => setActiveIndex((index) => (index + 1) % COMMERCE_AGENTS.length), 3000);
     return () => window.clearInterval(timer);
   }, [visible]);
 
   return (
     <div className="agent-stage" ref={stageRef} aria-label="Meet UniSouk's five AI specialists">
       <div className="agent-stage__viewport">
-        {heroAgents.map((agent, index) => (
+        {COMMERCE_AGENTS.map((agent, index) => (
           <article
             className={`agent-stage__panel${index === activeIndex ? " is-active" : ""}`}
             aria-hidden={index !== activeIndex}
@@ -50,7 +44,7 @@ export function AgentStage() {
         ))}
       </div>
       <div className="agent-stage__controls" role="tablist" aria-label="Choose an AI specialist">
-        {heroAgents.map((agent, index) => (
+        {COMMERCE_AGENTS.map((agent, index) => (
           <button
             type="button"
             role="tab"

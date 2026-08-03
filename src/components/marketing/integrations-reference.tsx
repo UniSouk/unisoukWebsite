@@ -3,6 +3,7 @@ import type { CSSProperties } from "react";
 
 import { IntegrationDirectory } from "@/components/marketing/integration-directory";
 import { INTEGRATIONS } from "@/constants/integrations";
+import { PLATFORM_LOGOS } from "@/constants/platforms";
 
 import styles from "./integration-orbit.module.css";
 
@@ -16,7 +17,7 @@ const orbitLogos = [
 
 const secondaryOrbitLogos = [
   { name: "ONDC", logo: "/ecosystem-logos/ondc.svg", angle: "45deg" },
-  { name: "Wix", logo: "/platform-logos/wix.svg", angle: "135deg" },
+  { name: "Wix", logo: PLATFORM_LOGOS.wix, angle: "135deg" },
   { name: "Cashfree Payments", logo: "/platform-logos/cashfree-logo.png", angle: "225deg" },
   { name: "Razorpay", logo: "/ecosystem-logos/razorpay.png", angle: "315deg" },
 ];
@@ -45,7 +46,7 @@ export function IntegrationsReference() {
             <div className={`${styles.satellites} ${styles.satellitesSecondary}`} aria-hidden="true">
               {secondaryOrbitLogos.map((item) => (
                 <span className={`${styles.node} ${styles.nodeSecondary}`} style={{ "--node-angle": item.angle } as CSSProperties} title={item.name} key={item.name}>
-                  <i>{item.logo ? <Image src={item.logo} alt="" width={48} height={48} /> : <b>{item.mark}</b>}</i>
+                  <i>{item.logo ? <Image src={item.logo} alt="" width={48} height={48} /> : <b>{item.logo}</b>}</i>
                 </span>
               ))}
             </div>

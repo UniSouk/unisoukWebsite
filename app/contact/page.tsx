@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { ContactReference } from "@/components/marketing/contact-reference";
 import { PageStructuredData } from "@/components/marketing/marketing-primitives";
 import { NativeSiteShell } from "@/components/layout/site-shell";
+import { SUPPORT_EMAIL, SUPPORT_PHONE_E164 } from "@/constants/contact";
 
 export const metadata: Metadata = {
   title: { absolute: "Contact UniSouk | Talk to Ecommerce Experts" },
@@ -22,8 +23,8 @@ export default function ContactPage() {
           mainEntity: {
             "@type": "Organization",
             name: "UniSouk",
-            email: "support@unisouk.com",
-            telephone: "+919033151267",
+            email: SUPPORT_EMAIL,
+            telephone: SUPPORT_PHONE_E164,
           },
         }}
       />

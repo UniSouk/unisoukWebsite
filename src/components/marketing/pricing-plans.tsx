@@ -3,6 +3,8 @@
 import { useState } from "react";
 
 import { buttonPrimaryClass } from "@/components/layout/site-shell-styles";
+import { COMMERCE_AGENTS } from "@/constants/agents";
+import { DASHBOARD_URL } from "@/constants/site";
 
 const plans = [
   {
@@ -10,7 +12,7 @@ const plans = [
     price: "₹1,499",
     description:
       "Focused intelligent assistants for listings, analytics, imagery, marketing and finance.",
-    features: ["SoukList", "SoukSense", "SoukStudio", "SoukBoost", "SoukLedger"],
+    features: COMMERCE_AGENTS.map(({ name }) => name),
   },
   {
     name: "Integrations + AI Tools",
@@ -84,7 +86,7 @@ export function PricingPlans() {
             </li>
           ))}
         </ul>
-        <a className={`${buttonPrimaryClass} w-fit`} href="https://dashboard.unisouk.com/">
+        <a className={`${buttonPrimaryClass} w-fit`} href={DASHBOARD_URL}>
           Start your free trial
         </a>
       </div>

@@ -2,14 +2,15 @@ import {
   OperationIcon,
   type OperationName,
 } from "@/components/marketing/operation-icon";
+import { PLATFORM_LOGOS } from "@/constants/platforms";
 
 const channels = [
-  { name: "Amazon", src: "/platform-logos/amazon.svg" },
-  { name: "Meesho", src: "/platform-logos/meesho.png" },
-  { name: "Shopify", src: "/platform-logos/shopify.svg" },
-  { name: "Wix", src: "/platform-logos/wix.svg" },
-  { name: "WooCommerce", src: "/platform-logos/woocommerce.svg" },
-  { name: "ONDC", src: "/platform-logos/ondc.svg" },
+  { name: "Amazon", src: PLATFORM_LOGOS.amazon },
+  { name: "Meesho", src: PLATFORM_LOGOS.meesho },
+  { name: "Shopify", src: PLATFORM_LOGOS.shopify },
+  { name: "Wix", src: PLATFORM_LOGOS.wix },
+  { name: "WooCommerce", src: PLATFORM_LOGOS.woocommerce },
+  { name: "ONDC", src: PLATFORM_LOGOS.ondc },
 ];
 
 const stages: Array<{

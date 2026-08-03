@@ -1,3 +1,5 @@
+import { PLATFORM_LOGOS } from "@/constants/platforms";
+
 export type IntegrationCategory =
   | "marketplaces"
   | "online-stores"
@@ -101,7 +103,7 @@ export const INTEGRATIONS: Integration[] = [
     description:
       "Connect Wix products, inventory and orders to your unified commerce workflow.",
     capabilities: ["Products", "Inventory", "Orders"],
-    logo: "/platform-logos/wix.svg",
+    logo: PLATFORM_LOGOS.wix,
   },
   {
     name: "Shiprocket",

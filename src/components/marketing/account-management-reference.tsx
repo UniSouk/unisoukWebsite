@@ -1,4 +1,4 @@
-const consultationUrl = "https://calendar.app.google/kxxzKiyEfoWJzmTU6";
+import { CONSULTATION_BOOKING_URL } from "@/constants/site";
 
 const responsibilities = [
   {
@@ -81,7 +81,7 @@ export function AccountManagementReference() {
               operations and performance.
             </p>
             <div className="management-hero__actions">
-              <a className="button button--primary" href={consultationUrl}>
+              <a className="button button--primary" href={CONSULTATION_BOOKING_URL}>
                 Book a free consultation
               </a>
               <a
@@ -296,7 +296,7 @@ export function AccountManagementReference() {
               We&apos;ll show you how UniSouk can take it forward.
             </p>
           </div>
-          <a className="button button--primary" href={consultationUrl}>
+          <a className="button button--primary" href={CONSULTATION_BOOKING_URL}>
             Book a free consultation
           </a>
         </div>

@@ -2,11 +2,11 @@
 
 import { useState } from "react";
 
+import { COMMERCE_AGENTS_BY_ID } from "@/constants/agents";
+
 const agents = [
   {
-    id: "listing",
-    name: "SoukList",
-    image: "/images/agents/listing-agent-robot.png",
+    ...COMMERCE_AGENTS_BY_ID.listing,
     alt: "Blue SoukList robot",
     copy: "Audits product content and prepares clearer, channel-ready listings.",
     frontCopy: ["Create stronger listings for", "every connected sales channel."],
@@ -17,9 +17,7 @@ const agents = [
     ],
   },
   {
-    id: "analytics",
-    name: "SoukSense",
-    image: "/images/agents/analytics-agent-robot.png",
+    ...COMMERCE_AGENTS_BY_ID.analytics,
     alt: "Orange SoukSense robot",
     copy: "Turns connected performance signals into useful insights and next actions.",
     frontCopy: ["Turn performance signals into", "clearer decisions and next steps."],
@@ -30,9 +28,7 @@ const agents = [
     ],
   },
   {
-    id: "image",
-    name: "SoukStudio",
-    image: "/images/agents/image-generation-agent-robot.png",
+    ...COMMERCE_AGENTS_BY_ID.image,
     alt: "Cyan SoukStudio robot",
     copy: "Creates product visual directions for every important sales channel.",
     frontCopy: ["Create channel-ready visuals", "from one shared brand context."],
@@ -43,9 +39,7 @@ const agents = [
     ],
   },
   {
-    id: "marketing",
-    name: "SoukBoost",
-    image: "/images/agents/marketing-agent-robot.png",
+    ...COMMERCE_AGENTS_BY_ID.marketing,
     alt: "Yellow SoukBoost robot",
     copy: "Finds stronger campaign opportunities and smarter places to spend.",
     frontCopy: ["Find smarter places to spend", "and stronger campaign returns."],
@@ -56,9 +50,7 @@ const agents = [
     ],
   },
   {
-    id: "financial",
-    name: "SoukLedger",
-    image: "/images/agents/financial-agent-robot.png",
+    ...COMMERCE_AGENTS_BY_ID.financial,
     alt: "Purple SoukLedger robot",
     copy: "Makes fees, payments, and profitability easier to understand.",
     frontCopy: ["Understand fees and payments", "with clearer profitability."],
