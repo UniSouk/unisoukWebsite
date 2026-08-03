@@ -1,6 +1,6 @@
 import { AgentProfilesReference } from "@/components/marketing/agent-profiles-reference";
 import { AgentStage } from "@/components/marketing/agent-stage";
-import { ArrowRightIcon, ArrowUpRightIcon } from "@/components/ui/icon";
+import { ArrowRightIcon } from "@/components/ui/icon";
 import { COMMERCE_AGENTS_BY_ID } from "@/constants/agents";
 import { DEMO_BOOKING_URL } from "@/constants/site";
 
