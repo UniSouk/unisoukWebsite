@@ -65,10 +65,10 @@ export function IntegrationsReference() {
         </div>
       </section>
 
-      <section className="request-integration" id="request-integration" aria-labelledby="request-title">
+      <section className="request-integration !bg-[var(--ink)] !text-[var(--white)]" id="request-integration" aria-labelledby="request-title">
         <div className="container request-integration__inner">
-          <div><h2 id="request-title">Can’t find the integration you need?</h2><p>Tell us what you sell through and which workflow you want UniSouk to bring together.</p></div>
-          <a className="button button--primary" href="/contact/#contact-form">Request an integration <ArrowRightIcon /></a>
+          <div><h2 id="request-title">Can’t find the integration you need?</h2><p className="!text-white/65">Tell us what you sell through and which workflow you want UniSouk to bring together.</p></div>
+          <a className="button button--orange group" href="/contact/#contact-form">Request an integration <ArrowRightIcon className="!text-black group-hover:!text-[var(--ink)]" /></a>
         </div>
       </section>
     </>
