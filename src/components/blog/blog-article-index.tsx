@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-img-element -- CMS image origins are configured at runtime. */
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRightIcon } from "@/components/ui/icon";
 import { siteContainerClass } from "@/components/layout/site-shell";
@@ -41,21 +41,15 @@ export function BlogArticleIndex({ articles, hasFeaturedArticle }: { articles: B
                       href={getArticlePath(article)}
                       key={article.documentId}
                     >
-                      <div className="aspect-[16/10] overflow-hidden bg-[var(--grey)] max-[47.99rem]:col-span-full">
+                      <div className="relative aspect-[16/10] overflow-hidden bg-[var(--grey)] max-[47.99rem]:col-span-full">
                         {image && (
-                          <img
+                          <Image
                             src={image}
                             alt={
                               article.image?.alternativeText || article.title
                             }
-                            width={
-                              article.image?.formats?.medium?.width ||
-                              article.image?.width
-                            }
-                            height={
-                              article.image?.formats?.medium?.height ||
-                              article.image?.height
-                            }
+                            fill
+                            sizes="(max-width: 48rem) 100vw, (max-width: 55rem) 40vw, 30vw"
                             loading="lazy"
                             className="h-full w-full object-cover transition-transform duration-500 group-hover/article-row:scale-[1.025] motion-reduce:transition-none"
                           />

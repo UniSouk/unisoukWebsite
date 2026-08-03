@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { ArrowRightIcon } from "@/components/ui/icon";
 import { CONSULTATION_BOOKING_URL } from "@/constants/site";
 import { AccountManagementSections, deskItems } from "./account-management-sections";
@@ -37,7 +39,7 @@ export function AccountManagementReference() {
           >
             <header>
               <div className="account-desk__identity">
-                <img src="/unisouk-mark.svg" width="42" height="22" alt="" />
+                <Image src="/unisouk-mark.svg" width={42} height={22} alt="" />
                 <div>
                   <strong>Account desk</strong>
                   <span>One team across every channel</span>
@@ -65,7 +67,7 @@ export function AccountManagementReference() {
               {deskItems.map((item) => (
                 <article key={item.title}>
                   <span className="channel-mark">
-                    <img src={item.image} alt={item.alt} />
+                    <Image src={item.image} alt={item.alt} width={48} height={48} />
                   </span>
                   <div>
                     <strong>{item.title}</strong>

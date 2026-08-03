@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-img-element -- CMS rich-text images come from a runtime-configured origin and may not provide dimensions. */
+import Image from "next/image";
 import {
   Fragment,
   createElement,
@@ -102,15 +102,15 @@ export function ArticleRichText({ article }: { article: BlogArticle }) {
           );
           return (
             <figure key={key}>
-              <img
+              <Image
                 src={source}
                 alt={
                   item.image.alternativeText ||
                   item.image.name ||
                   "Article illustration"
                 }
-                width={item.image.formats?.large?.width || item.image.width}
-                height={item.image.formats?.large?.height || item.image.height}
+                width={item.image.formats?.large?.width || item.image.width || 1200}
+                height={item.image.formats?.large?.height || item.image.height || 675}
                 loading="lazy"
               />
             </figure>

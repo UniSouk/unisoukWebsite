@@ -1,5 +1,5 @@
-/* eslint-disable @next/next/no-img-element -- CMS image origins are configured server-side at runtime and cannot be declared as a static Next Image host. */
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 import { JsonLd } from "@/components/json-ld";
@@ -142,20 +142,14 @@ export default async function BlogPage() {
                 aria-label={`Read ${featuredArticle.title}`}
               >
                 {featuredImage && (
-                  <img
+                  <Image
                     src={featuredImage}
                     alt={
                       featuredArticle.image?.alternativeText ||
                       featuredArticle.title
                     }
-                    width={
-                      featuredArticle.image?.formats?.large?.width ||
-                      featuredArticle.image?.width
-                    }
-                    height={
-                      featuredArticle.image?.formats?.large?.height ||
-                      featuredArticle.image?.height
-                    }
+                    fill
+                    sizes="(max-width: 66rem) 100vw, 55vw"
                     className="h-full w-full object-cover transition-all duration-700 group-hover/featured:scale-[1.025] group-hover/featured:opacity-[0.88] motion-reduce:transition-none"
                   />
                 )}

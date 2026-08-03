@@ -1,4 +1,5 @@
 import type { CSSProperties } from "react";
+import Image from "next/image";
 
 const leftCampaigns = [
   { name: "Meta Ads", spend: "₹1,25,400", roas: "5.8×", logo: "/ecosystem-logos/meta.png" },
@@ -23,7 +24,7 @@ function CampaignColumn({ campaigns, side }: { campaigns: Campaign[]; side: "lef
           style={{ "--node-index": index } as CSSProperties}
           key={campaign.name}
         >
-          <span className="campaign-node__mark" aria-hidden="true"><img src={campaign.logo} alt="" /></span>
+          <span className="campaign-node__mark" aria-hidden="true"><Image src={campaign.logo} alt="" width={48} height={48} /></span>
           <div className="campaign-node__details">
             <strong>{campaign.name}</strong>
             <span>Spend <b>{campaign.spend}</b></span>

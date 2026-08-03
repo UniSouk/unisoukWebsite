@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import {
   OperationIcon,
   type OperationName,
@@ -110,7 +112,7 @@ export function UnifiedCommerceTriptych() {
           <ul>
             {channels.map((channel) => (
               <li key={channel.name}>
-                <img src={channel.src} alt={channel.name} loading="lazy" />
+                <Image src={channel.src} alt={channel.name} width={96} height={48} loading="lazy" />
                 <span><i aria-hidden="true"></i> Live</span>
               </li>
             ))}

@@ -2,6 +2,7 @@
 
 import type { CSSProperties, KeyboardEvent } from "react";
 import { useState } from "react";
+import Image from "next/image";
 
 import { ArrowRightIcon } from "@/components/ui/icon";
 import {
@@ -129,11 +130,11 @@ export function AgentShowcase() {
                 } as CSSProperties}
               >
                 <span className="agent-card__icon" aria-hidden="true">
-                  <img
+                  <Image
                     src={agent.image}
                     alt=""
-                    width="64"
-                    height="64"
+                    width={64}
+                    height={64}
                     loading="lazy"
                     decoding="async"
                   />

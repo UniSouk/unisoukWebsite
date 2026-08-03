@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { PerformanceCampaignMap } from "@/components/marketing/performance-campaign-map";
 import { ArrowRightIcon, CheckIcon } from "@/components/ui/icon";
 import {
@@ -45,7 +47,7 @@ export function PerformanceMarketingReference() {
           <div className="channel-lanes">
             <article>
               <div className="channel-lanes__identity">
-                <span className="channel-logo"><img src="/ecosystem-logos/meta.png" alt="Meta" /></span>
+                <span className="channel-logo"><Image src="/ecosystem-logos/meta.png" alt="Meta" width={180} height={180} /></span>
                 <h3>Meta advertising</h3>
               </div>
               <p>Build discovery and remarketing campaigns around audiences, product stories and creative that can keep learning.</p>
@@ -53,7 +55,7 @@ export function PerformanceMarketingReference() {
             </article>
             <article>
               <div className="channel-lanes__identity">
-                <span className="channel-logo"><img src="/ecosystem-logos/google-shopping.png" alt="Google" /></span>
+                <span className="channel-logo"><Image src="/ecosystem-logos/google-shopping.png" alt="Google" width={32} height={32} /></span>
                 <h3>Google advertising</h3>
               </div>
               <p>Meet existing demand with disciplined search, shopping and product feed decisions tied to commercial value.</p>

@@ -1,4 +1,5 @@
 import type { CSSProperties } from "react";
+import Image from "next/image";
 
 import { PLATFORM_LOGOS } from "@/constants/platforms";
 
@@ -126,7 +127,7 @@ export function CommerceOperationsLayers() {
                   style={{ "--marketplace": index } as CSSProperties}
                   key={marketplace.name}
                 >
-                  <img src={marketplace.src} alt="" />
+                  <Image src={marketplace.src} alt="" width={96} height={48} />
                   <i />
                 </li>
               ))}

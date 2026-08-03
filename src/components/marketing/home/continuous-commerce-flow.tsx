@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { CommerceGrowthLayers } from "./continuous-commerce-growth-layers";
 import { CommerceOperationsLayers } from "./continuous-commerce-layers";
 
@@ -9,10 +11,12 @@ export function ContinuousCommerceFlow() {
       aria-label="UniSouk continuously creates and optimizes a product, publishes it to connected marketplaces, manages orders, inventory and payments, and turns activity into growth insights"
     >
       <section className="flow-dashboard" aria-hidden="true">
-        <img
+        <Image
           className="flow-dashboard__base"
           src="/unisouk-dashboard-command-center.png"
           alt=""
+          width={4320}
+          height={2700}
         />
         <div className="flow-live">
           <i />
@@ -43,4 +47,3 @@ export function ContinuousCommerceFlow() {
     </div>
   );
 }
-

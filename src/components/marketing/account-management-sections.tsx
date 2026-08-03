@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { ArrowRightIcon, ArrowUpRightIcon } from "@/components/ui/icon";
 import { CONSULTATION_BOOKING_URL } from "@/constants/site";
 
@@ -94,31 +96,39 @@ export function AccountManagementSections() {
               </p>
               <ul className="channel-list" aria-label="Marketplace channels">
                 <li>
-                  <img
+                  <Image
                     className="channel-logo--amazon"
                     src="/ecosystem-logos/amazon-app-icon-clean.png"
                     alt="Amazon"
+                    width={1440}
+                    height={1244}
                   />
                 </li>
                 <li>
-                  <img
+                  <Image
                     className="channel-logo--flipkart"
                     src="/ecosystem-logos/flipkart-mark.svg"
                     alt="Flipkart"
+                    width={112}
+                    height={112}
                   />
                 </li>
                 <li>
-                  <img
+                  <Image
                     className="channel-logo--myntra"
                     src="/ecosystem-logos/myntra.png"
                     alt="Myntra"
+                    width={180}
+                    height={180}
                   />
                 </li>
                 <li>
-                  <img
+                  <Image
                     className="channel-logo--meesho"
                     src="/ecosystem-logos/meesho.png"
                     alt="Meesho"
+                    width={1080}
+                    height={1080}
                   />
                 </li>
               </ul>
@@ -139,24 +149,30 @@ export function AccountManagementSections() {
                 aria-label="Quick commerce channels"
               >
                 <li>
-                  <img
+                  <Image
                     className="channel-logo--blinkit"
                     src="/ecosystem-logos/blinkit.svg"
                     alt="Blinkit"
+                    width={112}
+                    height={112}
                   />
                 </li>
                 <li>
-                  <img
+                  <Image
                     className="channel-logo--wide"
                     src="/ecosystem-logos/zepto.svg"
                     alt="Zepto"
+                    width={180}
+                    height={100}
                   />
                 </li>
                 <li>
-                  <img
+                  <Image
                     className="channel-logo--jiomart"
                     src="/ecosystem-logos/jiomart.png"
                     alt="JioMart"
+                    width={64}
+                    height={64}
                   />
                 </li>
               </ul>

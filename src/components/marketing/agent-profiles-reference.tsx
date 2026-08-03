@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 import { ArrowDownLeftIcon, ArrowUpRightIcon } from "@/components/ui/icon";
 import { COMMERCE_AGENTS_BY_ID } from "@/constants/agents";
@@ -86,11 +87,11 @@ export function AgentProfilesReference() {
                 <span className="agent-profile__inner">
                   <span className="agent-profile__face agent-profile__front">
                     <span className="agent-profile__visual">
-                      <img
+                      <Image
                         src={agent.image}
                         alt={agent.alt}
-                        width="180"
-                        height="180"
+                        width={180}
+                        height={180}
                         loading="eager"
                         decoding="sync"
                         fetchPriority="high"

@@ -2,6 +2,7 @@
 
 import type { CSSProperties } from "react";
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 import { COMMERCE_AGENTS } from "@/constants/agents";
 
@@ -38,7 +39,7 @@ export function AgentStage() {
               <span className="agent-stage__signal agent-stage__signal--one" />
               <span className="agent-stage__signal agent-stage__signal--two" />
               <span className="agent-stage__signal agent-stage__signal--three" />
-              <img src={agent.image} alt="" width="240" height="240" loading={index === 0 ? "eager" : "lazy"} />
+              <Image src={agent.image} alt="" width={240} height={240} loading={index === 0 ? "eager" : "lazy"} />
             </div>
           </article>
         ))}

@@ -1,5 +1,5 @@
-/* eslint-disable @next/next/no-img-element -- Instagram Graph API media uses dynamic remote URLs. */
 import type { CSSProperties } from "react";
+import Image from "next/image";
 
 import { ArrowRightIcon, ArrowUpRightIcon } from "@/components/ui/icon";
 import { PODCAST_EMBED_URL, PODCAST_VIDEO_URL } from "@/constants/podcast";
@@ -38,7 +38,7 @@ function InstagramReference({ media }: { media: InstagramMediaItem[] }) {
           <div className="instagram-feed__grid" aria-label="Latest UniSouk Instagram posts">
             {media.map((post) => (
               <a className="instagram-feed__post" href={post.permalink} target="_blank" rel="noopener noreferrer" aria-label={`${postAlt(post.caption)}. View on Instagram`} key={post.id}>
-                <img src={post.imageUrl} alt={postAlt(post.caption)} loading="lazy" referrerPolicy="no-referrer" />
+                <Image src={post.imageUrl} alt={postAlt(post.caption)} width={1080} height={1080} loading="lazy" referrerPolicy="no-referrer" />
                 <span className="instagram-feed__post-action" aria-hidden="true">View <span><ArrowUpRightIcon /></span></span>
               </a>
             ))}

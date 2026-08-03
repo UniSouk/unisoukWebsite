@@ -1,4 +1,5 @@
 import type { CSSProperties } from "react";
+import Image from "next/image";
 
 import { ArrowRightIcon, CheckIcon } from "@/components/ui/icon";
 import { SIGN_UP_URL } from "@/constants/site";
@@ -161,10 +162,10 @@ export function CommerceOrbit() {
         >
           <div className="journey-board__shell">
             <header className="journey-board__header">
-              <img
+              <Image
                 src="/unisouk-logo.svg"
-                width="138"
-                height="22"
+                width={138}
+                height={22}
                 alt="UniSouk"
               />
               <span>

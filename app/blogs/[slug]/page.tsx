@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element -- CMS image origins are configured server-side at runtime and cannot be declared as a static Next Image host. */
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound, permanentRedirect } from "next/navigation";

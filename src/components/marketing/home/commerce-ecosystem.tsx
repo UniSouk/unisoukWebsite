@@ -1,4 +1,5 @@
 import type { CSSProperties } from "react";
+import Image from "next/image";
 
 const ecosystemBrands = [
   { id: "amazon", logo: "/ecosystem-logos/amazon-app-icon-clean.png" },
@@ -63,9 +64,11 @@ export function CommerceEcosystem() {
                           node.lightMark ? "needs-light-mark" : ""
                         }`}
                       >
-                        <img
+                        <Image
                           src={node.logo}
                           alt=""
+                          width={96}
+                          height={96}
                           loading={
                             copy === 0 && node.index < ecosystemBrands.length
                               ? "eager"
@@ -83,14 +86,13 @@ export function CommerceEcosystem() {
         ))}
       </div>
       <div className="sliding-integrations__center">
-        <img
+        <Image
           src="/unisouk-mark-on-dark.svg"
-          width="52"
-          height="26"
+          width={52}
+          height={26}
           alt=""
         />
       </div>
     </section>
   );
 }
-

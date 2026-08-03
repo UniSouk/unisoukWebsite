@@ -1,4 +1,5 @@
-/* eslint-disable @next/next/no-img-element -- CMS image origins are configured server-side at runtime and cannot be declared as a static Next Image host. */
+import Image from "next/image";
+
 import { ArticleRichText } from "@/components/article-rich-text";
 import { siteContainerClass } from "@/components/layout/site-shell";
 import type { BlogArticle } from "@/types/blog";
@@ -15,12 +16,12 @@ export function ArticleBody({ article, articleImage }: ArticleBodyProps) {
         <figure
           className={`${siteContainerClass} my-0 min-w-0 max-[47.99rem]:!w-full max-[47.99rem]:!max-w-full max-[47.99rem]:overflow-hidden max-[47.99rem]:!px-0`}
         >
-          <img
+          <Image
             className="block h-auto max-h-[46rem] w-full max-w-full object-cover"
             src={articleImage}
             alt={article.image?.alternativeText || article.title}
-            width={article.image?.formats?.large?.width || article.image?.width}
-            height={article.image?.formats?.large?.height || article.image?.height}
+            width={article.image?.formats?.large?.width || article.image?.width || 1200}
+            height={article.image?.formats?.large?.height || article.image?.height || 675}
           />
         </figure>
       )}

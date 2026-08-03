@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { marketplaces } from "./continuous-commerce-layers";
 
 export function CommerceGrowthLayers() {
@@ -76,7 +78,7 @@ export function CommerceGrowthLayers() {
             <div className="channel-health">
               {marketplaces.map((marketplace) => (
                 <span key={marketplace.name}>
-                  <img src={marketplace.src} alt="" />
+                  <Image src={marketplace.src} alt="" width={96} height={48} />
                   <i />
                 </span>
               ))}

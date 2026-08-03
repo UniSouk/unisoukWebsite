@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { ContinuousCommerceFlow } from "@/components/marketing/home-reference-sections";
 import { ArrowRightIcon } from "@/components/ui/icon";
 import { PLATFORM_LOGOS } from "@/constants/platforms";
@@ -71,9 +73,11 @@ export function HomeHero() {
                         role={copy === 0 ? "listitem" : undefined}
                         key={`${copy}-${logo.name}`}
                       >
-                        <img
+                        <Image
                           src={logo.src}
                           alt={copy === 0 ? logo.name : ""}
+                          width={96}
+                          height={48}
                         />
                       </div>
                     ))}

@@ -38,7 +38,7 @@ export function IntegrationsReference() {
           <figure className={`${styles.orbit} relative isolate m-0 aspect-square w-full max-w-[42rem] overflow-hidden [contain:layout_paint] [container-type:inline-size]`} aria-label="Marketplaces and commerce tools continuously connecting through UniSouk">
             <div className={styles.rings} aria-hidden="true"><i /><i /><i /></div>
             <div className={styles.signals} aria-hidden="true"><i /><i /><i /><i /><i /><i /><i /><i /></div>
-            <div className={styles.core}><span className={styles.coreMark}><img src="/unisouk-mark.svg" alt="UniSouk" /></span></div>
+            <div className={styles.core}><span className={styles.coreMark}><Image src="/unisouk-mark.svg" alt="UniSouk" width={52} height={26} /></span></div>
             <div className={nodeStyles.satellites} aria-hidden="true">
               {orbitLogos.map((item) => (
                 <span className={`${nodeStyles.node} ${nodeContentStyles.node}`} style={{ "--node-angle": item.angle } as CSSProperties} title={item.name} key={item.name}>

@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { PLATFORM_LOGOS } from "@/constants/platforms";
 import { CONSULTATION_BOOKING_URL } from "@/constants/site";
 import { ArrowRightIcon, ArrowUpRightIcon } from "@/components/ui/icon";
@@ -111,7 +113,7 @@ export function BuildWebsiteReference() {
             {clientWork.map((project) => (
               <a className="client-project" href={project.href} target="_blank" rel="noopener noreferrer" key={project.name}>
                 <figure>
-                  <img src={project.image} alt={project.alt} loading="lazy" decoding="async" />
+                  <Image src={project.image} alt={project.alt} width={1600} height={1000} loading="lazy" decoding="async" />
                   <figcaption className="client-project__details">
                     <div><h3>{project.name}</h3><p>{project.category}</p></div>
                     <ArrowUpRightIcon />
@@ -134,9 +136,9 @@ export function BuildWebsiteReference() {
               <header><span>Platform storefront</span><h3>Launch confidently on a proven foundation.</h3></header>
               <p>We design and build D2C storefronts on Shopify, Wix and WooCommerce, balancing platform strengths with a brand experience that feels distinctly yours.</p>
               <ul className="platform-list" aria-label="Supported storefront platforms">
-                <li className="platform-list__mark platform-list__mark--shopify" aria-label="Shopify"><img src="/ecosystem-logos/shopify-mark.svg" alt="" /></li>
-                <li className="platform-list__mark platform-list__mark--wix" aria-label="Wix"><img src={PLATFORM_LOGOS.wix} alt="" /></li>
-                <li className="platform-list__mark platform-list__mark--woocommerce" aria-label="WooCommerce"><img src={PLATFORM_LOGOS.woocommerce} alt="" /></li>
+                <li className="platform-list__mark platform-list__mark--shopify" aria-label="Shopify"><Image src="/ecosystem-logos/shopify-mark.svg" alt="" width={48} height={48} /></li>
+                <li className="platform-list__mark platform-list__mark--wix" aria-label="Wix"><Image src={PLATFORM_LOGOS.wix} alt="" width={48} height={48} /></li>
+                <li className="platform-list__mark platform-list__mark--woocommerce" aria-label="WooCommerce"><Image src={PLATFORM_LOGOS.woocommerce} alt="" width={48} height={48} /></li>
               </ul>
             </article>
             <article>
