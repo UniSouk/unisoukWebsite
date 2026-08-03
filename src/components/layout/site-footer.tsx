@@ -6,6 +6,7 @@ import {
   buttonPrimaryClass,
   siteContainerClass,
 } from "@/components/layout/site-shell-styles";
+import { ArrowRightIcon } from "@/components/ui/icon";
 import {
   SUPPORT_PHONE_DISPLAY_COMPACT,
   SUPPORT_PHONE_E164,
@@ -83,6 +84,7 @@ export function SiteFooter() {
             <div className="mt-8 flex flex-wrap items-center gap-5 max-[47.99rem]:grid max-[47.99rem]:w-[min(100%,22rem)] max-[47.99rem]:gap-[0.65rem]">
               <a className={buttonPrimaryClass} href={DEMO_BOOKING_URL}>
                 Book a free demo
+                <ArrowRightIcon />
               </a>
             </div>
             <address

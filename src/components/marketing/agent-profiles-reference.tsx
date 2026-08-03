@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 
+import { ArrowDownLeftIcon, ArrowUpRightIcon } from "@/components/ui/icon";
 import { COMMERCE_AGENTS_BY_ID } from "@/constants/agents";
 
 const agents = [
@@ -97,10 +98,10 @@ export function AgentProfilesReference() {
                     </span>
                     <strong>{agent.name}</strong>
                     <span className="agent-profile__copy">{agent.frontCopy[0]}<br />{agent.frontCopy[1]}</span>
-                    <span className="agent-profile__action" aria-hidden="true">↗</span>
+                    <span className="agent-profile__action" aria-hidden="true"><ArrowUpRightIcon /></span>
                   </span>
                   <span className="agent-profile__face agent-profile__back">
-                    <span className="agent-profile__back-top"><strong>{agent.name}</strong><i aria-hidden="true">↙</i></span>
+                    <span className="agent-profile__back-top"><strong>{agent.name}</strong><i aria-hidden="true"><ArrowDownLeftIcon /></i></span>
                     <span className="agent-profile__back-copy">{agent.copy}</span>
                     <span className="agent-profile__features">
                       {agent.features.map((feature) => (

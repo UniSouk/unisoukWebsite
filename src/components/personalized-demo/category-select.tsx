@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 
+import { CheckIcon, ChevronDownIcon } from "@/components/ui/icon";
 import { BUSINESS_CATEGORIES } from "@/constants/demo";
 
 type CategorySelectProps = {
@@ -65,9 +66,7 @@ export function CategorySelect({ value, onChange }: CategorySelectProps) {
         >
           {value || "Choose a category"}
         </span>
-        <svg viewBox="0 0 20 20" aria-hidden="true">
-          <path d="m6 8 4 4 4-4" />
-        </svg>
+        <ChevronDownIcon />
       </button>
       {isOpen && (
         <div
@@ -107,9 +106,7 @@ export function CategorySelect({ value, onChange }: CategorySelectProps) {
               }}
             >
               <span>{category}</span>
-              <svg viewBox="0 0 20 20" aria-hidden="true">
-                <path d="m5 10 3 3 7-7" />
-              </svg>
+              <CheckIcon />
             </button>
           ))}
         </div>

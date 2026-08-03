@@ -9,6 +9,7 @@ import {
   NativeSiteShell,
   siteContainerClass,
 } from "@/components/layout/site-shell";
+import { ArrowRightIcon } from "@/components/ui/icon";
 import { SITE_URL } from "@/constants/site";
 import {
   getArticleImage,
@@ -289,7 +290,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                       className="text-[0.78rem] font-semibold not-italic text-[var(--orange-ink)]"
                       aria-hidden="true"
                     >
-                      →
+                      <ArrowRightIcon />
                     </i>
                   </Link>
                 ))}
@@ -315,7 +316,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               className="flex min-w-60 items-center justify-between gap-8 border-y border-[var(--ink)] py-4 font-medium no-underline max-[47.99rem]:min-w-0"
               href="/blog/"
             >
-              View all articles <span aria-hidden="true">→</span>
+              View all articles <span aria-hidden="true"><ArrowRightIcon /></span>
             </Link>
           </div>
         </section>

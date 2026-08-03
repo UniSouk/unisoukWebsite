@@ -2,6 +2,11 @@
 
 import { useState } from "react";
 
+import {
+  ArrowRightIcon,
+  CheckIcon,
+  DisclosureIcons,
+} from "@/components/ui/icon";
 import { COMMERCE_AGENTS } from "@/constants/agents";
 import { DASHBOARD_URL, DEMO_BOOKING_URL } from "@/constants/site";
 
@@ -98,7 +103,7 @@ function FeatureList({
       <ul>
         {items.map((item) => (
           <li key={item}>
-            <span aria-hidden="true">✓</span>
+            <span aria-hidden="true"><CheckIcon /></span>
             {item}
           </li>
         ))}
@@ -132,6 +137,7 @@ export function PricingReference() {
           <div className="pricing-hero__actions">
             <a className="button button--primary" href={DASHBOARD_URL}>
               Start your 1 month free trial
+              <ArrowRightIcon />
             </a>
             <a
               className="text-link text-link--arrow text-link--black"
@@ -191,6 +197,7 @@ export function PricingReference() {
               </div>
               <a className="button button--primary" href={DASHBOARD_URL}>
                 Start your free trial
+                <ArrowRightIcon />
               </a>
               <div className="plan-card__body">
                 <fieldset className="subscription-options">
@@ -259,6 +266,7 @@ export function PricingReference() {
               </div>
               <a className="button button--secondary" href={DEMO_BOOKING_URL}>
                 Schedule a call
+                <ArrowRightIcon />
               </a>
               <div className="plan-card__body">
                 <FeatureList
@@ -298,6 +306,7 @@ export function PricingReference() {
               </div>
               <a className="button button--secondary" href={DEMO_BOOKING_URL}>
                 Discuss your website
+                <ArrowRightIcon />
               </a>
               <div className="plan-card__body">
                 <FeatureList
@@ -346,7 +355,7 @@ export function PricingReference() {
                 <span role="cell" data-label="AI Agents Only">
                   {row.agents ? (
                     <i className="comparison-check" aria-label="Included">
-                      ✓
+                      <CheckIcon />
                     </i>
                   ) : (
                     <i className="comparison-dash" aria-label="Not included">
@@ -356,7 +365,7 @@ export function PricingReference() {
                 </span>
                 <span role="cell" data-label="Integrations + AI Tools">
                   <i className="comparison-check" aria-label="Included">
-                    ✓
+                    <CheckIcon />
                   </i>
                 </span>
               </div>
@@ -377,7 +386,10 @@ export function PricingReference() {
           <div className="pricing-faq__list">
             {faqs.map((faq, index) => (
               <details open={index === 0} key={faq.question}>
-                <summary>{faq.question}</summary>
+                <summary>
+                  {faq.question}
+                  <DisclosureIcons />
+                </summary>
                 <p>{faq.answer}</p>
               </details>
             ))}

@@ -7,6 +7,7 @@ import {
   buttonSecondaryClass,
   siteContainerClass,
 } from "@/components/layout/site-shell-styles";
+import { ArrowRightIcon } from "@/components/ui/icon";
 
 type Action = {
   label: string;
@@ -36,7 +37,7 @@ function ActionLink({ action }: { action: Action }) {
   return (
     <a className={className} href={action.href}>
       {action.label}
-      {action.variant === "text" && <span aria-hidden="true">→</span>}
+      <ArrowRightIcon />
     </a>
   );
 }

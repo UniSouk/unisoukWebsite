@@ -7,6 +7,11 @@ import {
   NativeSiteShell,
   siteContainerClass,
 } from "@/components/layout/site-shell";
+import {
+  ArrowDownIcon,
+  ArrowRightIcon,
+  ArrowUpRightIcon,
+} from "@/components/ui/icon";
 import { SITE_URL } from "@/constants/site";
 import { getArticleImage, getBlogArticles } from "@/lib/blog";
 import {
@@ -48,7 +53,7 @@ const sectionHeadingClass =
   "m-0 !text-[clamp(2.8rem,5.4vw,5rem)] !leading-[0.98] !tracking-[-0.035em]";
 
 const articleMetaClass =
-  "flex flex-wrap justify-between gap-x-6 gap-y-3 border-b border-current pb-4 text-[0.74rem] text-[var(--text-muted)] [&>span]:font-semibold [&>span]:text-[var(--orange-ink)]";
+  "flex flex-wrap justify-between gap-x-6 gap-y-3 pb-4 text-[0.74rem] text-[var(--text-muted)] [&>span]:font-semibold [&>span]:text-[var(--orange-ink)]";
 
 const borderedTextLinkClass =
   "flex items-center justify-between gap-4 border-y border-current py-[0.9rem] font-medium no-underline";
@@ -115,7 +120,7 @@ export default async function BlogPage() {
                 className={borderedTextLinkClass}
                 href={featuredArticle ? "#featured-story" : "#article-index"}
               >
-                Start reading <span aria-hidden="true">↓</span>
+                Start reading <ArrowDownIcon />
               </a>
             </aside>
           </div>
@@ -154,10 +159,10 @@ export default async function BlogPage() {
                   />
                 )}
                 <span
-                  className="absolute right-4 bottom-4 rounded-full bg-[var(--white)] px-4 py-[0.7rem] text-xs text-[var(--ink)]"
+                  className="absolute right-4 bottom-4 inline-flex items-center gap-1.5 rounded-full bg-[var(--white)] px-4 py-[0.7rem] text-xs text-[var(--ink)]"
                   aria-hidden="true"
                 >
-                  Read guide ↗
+                  Read guide <ArrowUpRightIcon />
                 </span>
               </Link>
               <article className="grid content-end">
@@ -186,7 +191,7 @@ export default async function BlogPage() {
                   className={borderedTextLinkClass}
                   href={getArticlePath(featuredArticle)}
                 >
-                  Read the complete guide <span aria-hidden="true">→</span>
+                  Read the complete guide <ArrowRightIcon />
                 </Link>
               </article>
             </div>
@@ -255,18 +260,13 @@ export default async function BlogPage() {
                         <h3 className="!mt-4 mb-0 max-w-[24ch] text-[clamp(1.65rem,3vw,2.7rem)] !leading-[1.05] transition-colors group-hover/article-row:text-[var(--orange-ink)]">
                           {article.title}
                         </h3>
-                        {article.description && (
+                        {/* {article.description && (
                           <p className="!mt-[0.85rem] mb-0 max-w-[62ch] text-[var(--text-muted)] max-[47.99rem]:hidden">
                             {article.description}
                           </p>
-                        )}
+                        )} */}
                       </div>
-                      <span
-                        className="text-xl text-[var(--orange-ink)]"
-                        aria-hidden="true"
-                      >
-                        ↗
-                      </span>
+                      <ArrowUpRightIcon className="h-6 w-6 text-[var(--orange-ink)] transition-transform duration-200 group-hover/article-row:translate-x-0.5 group-hover/article-row:-translate-y-0.5 motion-reduce:transform-none motion-reduce:transition-none" />
                     </Link>
                   );
                 })}
@@ -279,7 +279,7 @@ export default async function BlogPage() {
           </div>
         </section>
 
-        <section
+        {/* <section
           className="bg-[var(--orange)]"
           aria-labelledby="editorial-title"
         >
@@ -314,7 +314,7 @@ export default async function BlogPage() {
               </p>
             </div>
           </div>
-        </section>
+        </section> */}
       </main>
     </NativeSiteShell>
   );

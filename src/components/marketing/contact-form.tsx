@@ -2,6 +2,8 @@
 
 import { FormEvent, useState } from "react";
 
+import { ArrowRightIcon } from "@/components/ui/icon";
+
 type ContactFields = {
   firstName: string;
   lastName: string;
@@ -180,6 +182,7 @@ export function ContactForm() {
         <p>All fields are required. We will only use these details to respond to your enquiry.</p>
         <button className="button button--primary" type="submit" disabled={isSubmitting}>
           {isSubmitting ? "Sending..." : "Send message"}
+          <ArrowRightIcon />
         </button>
       </div>
     </form>

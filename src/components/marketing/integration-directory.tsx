@@ -4,6 +4,11 @@ import Image from "next/image";
 import { useMemo, useRef, useState } from "react";
 
 import {
+  ArrowRightIcon,
+  ArrowUpRightIcon,
+  CloseIcon,
+} from "@/components/ui/icon";
+import {
   INTEGRATION_CATEGORY_META,
   INTEGRATION_CATEGORY_ORDER,
   INTEGRATIONS,
@@ -78,7 +83,7 @@ export function IntegrationDirectory() {
                   {integration.logo ? <Image src={integration.logo} alt="" width={48} height={48} /> : integration.mark}
                 </span>
                 <span className="search-result__copy"><strong>{integration.name}</strong><small>{INTEGRATION_CATEGORY_META[integration.category].name}</small></span>
-                <span aria-hidden="true">↗</span>
+                <span aria-hidden="true"><ArrowUpRightIcon /></span>
               </button>
             ))}
             {matches.length === 0 && <p>No channels found. Try another name.</p>}
@@ -121,7 +126,7 @@ export function IntegrationDirectory() {
                         {integration.capabilities.map((capability) => <li key={capability}>{capability}</li>)}
                       </ul>
                       <button className="integration-card__action" type="button" onClick={() => openIntegration(integration)}>
-                        View integration <span aria-hidden="true">↗</span>
+                        View integration <span aria-hidden="true"><ArrowUpRightIcon /></span>
                       </button>
                     </article>
                   ))}
@@ -134,7 +139,7 @@ export function IntegrationDirectory() {
         <div className="directory-empty">
           <h3>No integration matches that search.</h3>
           <p>Try a broader term, choose another category, or tell us which connection you need.</p>
-          <button className="button button--secondary" type="button" onClick={() => { setFilter("all"); setQuery(""); }}>Show all integrations</button>
+          <button className="button button--secondary" type="button" onClick={() => { setFilter("all"); setQuery(""); }}>Show all integrations <ArrowRightIcon /></button>
         </div>
       )}
 
@@ -142,7 +147,7 @@ export function IntegrationDirectory() {
         if (event.target === dialogRef.current) dialogRef.current?.close();
       }}>
         <div className="integration-dialog__shell">
-          <header><span>{selected ? INTEGRATION_CATEGORY_META[selected.category].name : "Integration"}</span><button type="button" aria-label="Close integration details" onClick={() => dialogRef.current?.close()}>×</button></header>
+          <header><span>{selected ? INTEGRATION_CATEGORY_META[selected.category].name : "Integration"}</span><button type="button" aria-label="Close integration details" onClick={() => dialogRef.current?.close()}><CloseIcon /></button></header>
           <div className="integration-dialog__body">
             <span className="integration-logo integration-dialog__logo">
               {selected?.logo ? <Image src={selected.logo} alt="" width={48} height={48} /> : <i>{selected?.mark}</i>}
@@ -151,7 +156,7 @@ export function IntegrationDirectory() {
             <p>{selected?.description}</p>
             <div><span>UniSouk capabilities</span><ul>{selected?.capabilities.map((capability) => <li key={capability}>{capability}</li>)}</ul></div>
           </div>
-          <footer><p>Want to understand how this fits your current workflow?</p><a className="button button--primary" href={DEMO_BOOKING_URL}>Book a free demo</a></footer>
+          <footer><p>Want to understand how this fits your current workflow?</p><a className="button button--primary" href={DEMO_BOOKING_URL}>Book a free demo <ArrowRightIcon /></a></footer>
         </div>
       </dialog>
     </>

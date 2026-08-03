@@ -3,6 +3,7 @@
 import { useState } from "react";
 
 import { buttonPrimaryClass } from "@/components/layout/site-shell-styles";
+import { ArrowRightIcon, CheckIcon } from "@/components/ui/icon";
 import { COMMERCE_AGENTS } from "@/constants/agents";
 import { DASHBOARD_URL } from "@/constants/site";
 
@@ -79,15 +80,17 @@ export function PricingPlans() {
         <ul className="m-0 grid list-none grid-cols-2 gap-x-8 p-0 max-[40rem]:grid-cols-1">
           {active.features.map((feature) => (
             <li
-              className="border-b border-[var(--grey)] py-3 before:mr-3 before:text-[var(--orange-ink)] before:content-['✓']"
+              className="flex items-center gap-3 border-b border-[var(--grey)] py-3"
               key={feature}
             >
+              <CheckIcon className="shrink-0 text-[var(--orange-ink)]" />
               {feature}
             </li>
           ))}
         </ul>
         <a className={`${buttonPrimaryClass} w-fit`} href={DASHBOARD_URL}>
           Start your free trial
+          <ArrowRightIcon />
         </a>
       </div>
     </div>

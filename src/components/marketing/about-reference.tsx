@@ -1,5 +1,7 @@
 import Image from "next/image";
 
+import { DisclosureIcons } from "@/components/ui/icon";
+
 export const aboutFaqs = [
   {
     question: "What services does UniSouk provide to sellers?",
@@ -140,7 +142,7 @@ export function AboutReference() {
           <div className="about-faq__list">
             {aboutFaqs.map((faq, index) => (
               <details open={index === 0} key={faq.question}>
-                <summary>{faq.question}</summary>
+                <summary>{faq.question}<DisclosureIcons /></summary>
                 <p>{faq.answer}</p>
               </details>
             ))}

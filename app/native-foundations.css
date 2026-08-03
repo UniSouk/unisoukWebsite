@@ -9,6 +9,73 @@
   --text-home-hero-heading: var(--text-hero-heading);
 }
 
+.button > .ui-icon {
+  width: 1.35rem;
+  height: 1.35rem;
+  flex: none;
+  color: var(--orange);
+  transition: transform 180ms var(--ease-out-quart);
+}
+
+.button:hover > .ui-icon {
+  transform: translateX(0.25rem);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button > .ui-icon {
+    transition: none;
+  }
+}
+
+.disclosure-icons {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  color: var(--orange-ink);
+  font-size: 1.5rem;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+.disclosure-icons .ui-icon {
+  width: 1em;
+  height: 1em;
+}
+
+.disclosure-icons__minus,
+details[open] .disclosure-icons__plus {
+  display: none;
+}
+
+details[open] .disclosure-icons__minus {
+  display: block;
+}
+
+.amazon-feature-mark .ui-icon,
+.amazon-operation-mark .ui-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.amazon-feature-mark .ui-icon {
+  color: var(--orange);
+}
+
+.amazon-operation-mark .ui-icon {
+  color: var(--orange-ink);
+}
+
+.channel-lanes li {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.channel-lanes li > .ui-icon {
+  flex: none;
+  color: var(--orange-ink);
+}
+
 .agent-showcase__scroll-hint {
   display: none;
 }

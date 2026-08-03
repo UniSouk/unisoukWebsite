@@ -2,6 +2,7 @@ import Image from "next/image";
 import type { CSSProperties } from "react";
 
 import { IntegrationDirectory } from "@/components/marketing/integration-directory";
+import { ArrowRightIcon } from "@/components/ui/icon";
 import { INTEGRATIONS } from "@/constants/integrations";
 import { PLATFORM_LOGOS } from "@/constants/platforms";
 
@@ -65,7 +66,7 @@ export function IntegrationsReference() {
       <section className="request-integration" id="request-integration" aria-labelledby="request-title">
         <div className="container request-integration__inner">
           <div><h2 id="request-title">Can’t find the integration you need?</h2><p>Tell us what you sell through and which workflow you want UniSouk to bring together.</p></div>
-          <a className="button button--primary" href="/contact/#contact-form">Request an integration</a>
+          <a className="button button--primary" href="/contact/#contact-form">Request an integration <ArrowRightIcon /></a>
         </div>
       </section>
     </>

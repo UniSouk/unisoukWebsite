@@ -1,4 +1,5 @@
 import { CONSULTATION_BOOKING_URL } from "@/constants/site";
+import { ArrowRightIcon, ArrowUpRightIcon } from "@/components/ui/icon";
 
 const responsibilities = [
   {
@@ -83,6 +84,7 @@ export function AccountManagementReference() {
             <div className="management-hero__actions">
               <a className="button button--primary" href={CONSULTATION_BOOKING_URL}>
                 Book a free consultation
+                <ArrowRightIcon />
               </a>
               <a
                 className="text-link text-link--arrow text-link--black"
@@ -269,7 +271,7 @@ export function AccountManagementReference() {
               <article key={item.title}>
                 <header>
                   <h3>{item.title}</h3>
-                  <span aria-hidden="true">↗</span>
+                  <span aria-hidden="true"><ArrowUpRightIcon /></span>
                 </header>
                 <div>
                   <p>{item.copy}</p>
@@ -298,6 +300,7 @@ export function AccountManagementReference() {
           </div>
           <a className="button button--primary" href={CONSULTATION_BOOKING_URL}>
             Book a free consultation
+            <ArrowRightIcon />
           </a>
         </div>
       </section>

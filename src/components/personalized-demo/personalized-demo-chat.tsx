@@ -3,6 +3,7 @@
 import { FormEvent, useRef, useState } from "react";
 import Image from "next/image";
 
+import { ArrowRightIcon, CloseIcon } from "@/components/ui/icon";
 import {
   DEFAULT_DEMO_API_URL,
   DEFAULT_DEMO_APP_URL,
@@ -167,7 +168,7 @@ export function PersonalizedDemoChat() {
             className="grid h-8 w-8 place-items-center rounded-full bg-[var(--orange)] text-[var(--ink)]"
             aria-hidden="true"
           >
-            →
+            <ArrowRightIcon />
           </span>
         </button>
       </aside>
@@ -199,7 +200,7 @@ export function PersonalizedDemoChat() {
               onClick={close}
               aria-label="Close personalized demo chat"
             >
-              ×
+              <CloseIcon />
             </button>
           </header>
           <div
@@ -256,12 +257,12 @@ export function PersonalizedDemoChat() {
                     {isDetecting ? (
                       <span className={spinnerClass} aria-hidden="true" />
                     ) : (
-                      "→"
+                      <ArrowRightIcon />
                     )}
                   </button>
                 </div>
                 <button
-                  className="inline-flex min-h-11 cursor-pointer items-center justify-start gap-2 border-0 bg-transparent py-2 px-0 text-left text-[0.8125rem] leading-[1.4] text-[var(--text-muted)] underline decoration-[var(--grey-dark)] underline-offset-[0.22em] disabled:cursor-wait disabled:opacity-55 [&_span]:text-base [&_span]:text-[var(--orange-ink)] [&_span]:no-underline"
+                  className="inline-flex min-h-11 cursor-pointer items-center justify-start gap-2 border-0 bg-transparent py-2 px-0 text-left text-[0.8125rem] leading-[1.4] text-[var(--text-muted)] underline decoration-[var(--grey-dark)] underline-offset-[0.22em] disabled:cursor-wait disabled:opacity-55 [&_.ui-icon]:text-base [&_.ui-icon]:text-[var(--orange-ink)]"
                   type="button"
                   onClick={() => {
                     setCategory("");
@@ -272,7 +273,7 @@ export function PersonalizedDemoChat() {
                   disabled={isDetecting}
                 >
                   No website? Choose a category manually{" "}
-                  <span aria-hidden="true">→</span>
+                  <ArrowRightIcon />
                 </button>
                 {isDetecting && (
                   <div
@@ -333,14 +334,14 @@ export function PersonalizedDemoChat() {
                   </button>
                   {category.trim() && (
                     <a
-                      className="inline-flex min-h-12 items-center justify-center gap-3 rounded-[var(--radius-sm)] border-0 bg-[var(--ink)] py-3 px-4 text-center text-[0.875rem] leading-[1.25] font-medium text-[var(--white)] no-underline max-[47.99rem]:w-full [&_span]:text-[var(--orange)]"
+                      className="inline-flex min-h-12 items-center justify-center gap-3 rounded-[var(--radius-sm)] border-0 bg-[var(--ink)] py-3 px-4 text-center text-[0.875rem] leading-[1.25] font-medium text-[var(--white)] no-underline max-[47.99rem]:w-full [&_.ui-icon]:text-[var(--orange)]"
                       href={personalizedUrl.href}
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={() => saveDemoProfile(toDemoCategory(category))}
                     >
                       Continue to your personalized demo{" "}
-                      <span aria-hidden="true">→</span>
+                      <ArrowRightIcon />
                     </a>
                   )}
                 </div>

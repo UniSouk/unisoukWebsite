@@ -1,5 +1,6 @@
 import type { CSSProperties } from "react";
 
+import { ArrowRightIcon, CheckIcon } from "@/components/ui/icon";
 import { PLATFORM_LOGOS } from "@/constants/platforms";
 import { SIGN_UP_URL } from "@/constants/site";
 
@@ -478,6 +479,7 @@ export function AccountManagementStory({
             </p>
             <a className="button button--primary" href={accountManagementUrl}>
               Talk to an account manager
+              <ArrowRightIcon />
             </a>
           </div>
         </header>
@@ -563,7 +565,7 @@ function JourneyStrip() {
               <ul>
                 {phase.items.map((item) => (
                   <li key={item}>
-                    <i aria-hidden="true">✓</i>
+                    <i aria-hidden="true"><CheckIcon /></i>
                     <span>{item}</span>
                   </li>
                 ))}
@@ -613,7 +615,7 @@ export function CommerceOrbit() {
             className="text-link text-link--arrow"
             href={SIGN_UP_URL}
           >
-            Explore the platform <span aria-hidden="true">→</span>
+            Explore the platform <span aria-hidden="true"><ArrowRightIcon /></span>
           </a>
         </header>
         <div

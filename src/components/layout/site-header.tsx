@@ -11,6 +11,7 @@ import {
   buttonSecondaryClass,
   siteContainerClass,
 } from "@/components/layout/site-shell-styles";
+import { ArrowRightIcon } from "@/components/ui/icon";
 import {
   BLOG_ROUTE_PATHS,
   COMPANY_GROUPS,
@@ -98,7 +99,7 @@ export function SiteHeader() {
                             className="-translate-x-1 text-[var(--orange-ink)] opacity-0 transition-all duration-[180ms] group-hover/solution:translate-x-0 group-hover/solution:opacity-100 group-aria-[current=page]/solution:translate-x-0 group-aria-[current=page]/solution:opacity-100 motion-reduce:transition-none"
                             aria-hidden="true"
                           >
-                            →
+                            <ArrowRightIcon />
                           </span>
                         </strong>
                         <small className="max-w-[45ch] text-[0.82rem] leading-[1.45] text-[var(--text-muted)]">
@@ -162,7 +163,7 @@ export function SiteHeader() {
                             className="text-[var(--orange-ink)] transition-transform duration-[180ms] group-hover/company-link:translate-x-1 motion-reduce:transition-none"
                             aria-hidden="true"
                           >
-                            →
+                            <ArrowRightIcon />
                           </span>
                         </RouteAwareLink>
                       </li>
@@ -179,6 +180,7 @@ export function SiteHeader() {
           </a>
           <a className={buttonPrimaryClass} href={DEMO_BOOKING_URL}>
             Book a free demo
+            <ArrowRightIcon />
           </a>
         </div>
         <details
@@ -259,9 +261,11 @@ export function SiteHeader() {
             <div className="grid grid-cols-[1fr_1.35fr] gap-3 pt-4 max-[31.99rem]:grid-cols-1">
               <a className={buttonSecondaryClass} href={SIGN_IN_URL}>
                 Sign in
+                <ArrowRightIcon />
               </a>
               <a className={buttonPrimaryClass} href={DEMO_BOOKING_URL}>
                 Book a free demo
+                <ArrowRightIcon />
               </a>
             </div>
           </div>

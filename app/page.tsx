@@ -10,6 +10,7 @@ import {
 } from "@/components/marketing/home-reference-sections";
 import { PageStructuredData } from "@/components/marketing/marketing-primitives";
 import { NativeSiteShell } from "@/components/layout/site-shell";
+import { ArrowRightIcon, DisclosureIcons } from "@/components/ui/icon";
 import { PLATFORM_LOGOS } from "@/constants/platforms";
 import { DEMO_BOOKING_URL, SIGN_UP_URL, SITE_URL } from "@/constants/site";
 
@@ -118,12 +119,14 @@ export default function HomePage() {
               <div className="hero-actions">
                 <a className="button button--primary" href={SIGN_UP_URL}>
                   Start selling
+                  <ArrowRightIcon />
                 </a>
                 <a
                   className="button button--secondary"
                   href={accountManagementUrl}
                 >
                   Explore account management
+                  <ArrowRightIcon />
                 </a>
               </div>
             </div>
@@ -229,6 +232,7 @@ export default function HomePage() {
               </p>
               <a className="button button--primary" href={DEMO_BOOKING_URL}>
                 Book a free demo
+                <ArrowRightIcon />
               </a>
             </div>
             <div className="sales-journey__showcase">
@@ -257,7 +261,7 @@ export default function HomePage() {
             <div className="faq-list">
               {faqs.map((faq) => (
                 <details key={faq.question}>
-                  <summary>{faq.question}</summary>
+                  <summary>{faq.question}<DisclosureIcons /></summary>
                   <p>{faq.answer}</p>
                 </details>
               ))}

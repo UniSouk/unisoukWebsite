@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element -- Instagram Graph API media uses dynamic remote URLs. */
 import type { CSSProperties } from "react";
 
+import { ArrowRightIcon, ArrowUpRightIcon } from "@/components/ui/icon";
 import { PODCAST_EMBED_URL, PODCAST_VIDEO_URL } from "@/constants/podcast";
 import { INSTAGRAM_URL } from "@/constants/site";
 import type { InstagramMediaItem } from "@/lib/instagram";
@@ -29,7 +30,7 @@ function InstagramReference({ media }: { media: InstagramMediaItem[] }) {
           <div className="instagram-feed__intro">
             <p>Product updates, seller insights and a closer look at what UniSouk is building.</p>
             <a className="instagram-feed__follow" href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" aria-label="Follow UniSouk on Instagram">
-              Follow @unisouk.in <span aria-hidden="true">↗</span>
+              Follow @unisouk.in <span aria-hidden="true"><ArrowUpRightIcon /></span>
             </a>
           </div>
         </div>
@@ -38,7 +39,7 @@ function InstagramReference({ media }: { media: InstagramMediaItem[] }) {
             {media.map((post) => (
               <a className="instagram-feed__post" href={post.permalink} target="_blank" rel="noopener noreferrer" aria-label={`${postAlt(post.caption)}. View on Instagram`} key={post.id}>
                 <img src={post.imageUrl} alt={postAlt(post.caption)} loading="lazy" referrerPolicy="no-referrer" />
-                <span className="instagram-feed__post-action" aria-hidden="true">View <span>↗</span></span>
+                <span className="instagram-feed__post-action" aria-hidden="true">View <span><ArrowUpRightIcon /></span></span>
               </a>
             ))}
           </div>
@@ -47,7 +48,7 @@ function InstagramReference({ media }: { media: InstagramMediaItem[] }) {
             <div className="instagram-feed__fallback-copy">
               <span className="instagram-feed__mark" aria-hidden="true">◎</span>
               <p>See the latest from UniSouk on Instagram.</p>
-              <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer">Open @unisouk.in <span aria-hidden="true">↗</span></a>
+              <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer">Open @unisouk.in <span aria-hidden="true"><ArrowUpRightIcon /></span></a>
             </div>
             <blockquote className="instagram-media">
               <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer">View @unisouk.in on Instagram</a>
@@ -88,7 +89,7 @@ export function PodcastReference({ media }: { media: InstagramMediaItem[] }) {
         <div className="container episode-themes__inner">
           <header><h2 id="themes-title">Inside the conversation.</h2><p>Three ideas frame this first Beyond the Cart episode.</p></header>
           <div className="theme-list">
-            {themes.map(([title, copy]) => <article key={title}><h3>{title}</h3><p>{copy}</p><span aria-hidden="true">↗</span></article>)}
+            {themes.map(([title, copy]) => <article key={title}><h3>{title}</h3><p>{copy}</p><span aria-hidden="true"><ArrowUpRightIcon /></span></article>)}
           </div>
         </div>
       </section>
@@ -111,7 +112,7 @@ export function PodcastReference({ media }: { media: InstagramMediaItem[] }) {
             <span>Beyond the Cart</span>
             <h2 id="series-title">Conversations about the work customers never see.</h2>
             <p>Commerce is more than a storefront or a transaction. This series looks at the systems, choices and people behind building businesses that can keep moving.</p>
-            <a href={PODCAST_VIDEO_URL} target="_blank" rel="noreferrer">Watch Episode 01 on YouTube <i aria-hidden="true">→</i></a>
+            <a href={PODCAST_VIDEO_URL} target="_blank" rel="noreferrer">Watch Episode 01 on YouTube <i aria-hidden="true"><ArrowRightIcon /></i></a>
           </div>
         </div>
       </section>

@@ -1,5 +1,6 @@
 import { AgentProfilesReference } from "@/components/marketing/agent-profiles-reference";
 import { AgentStage } from "@/components/marketing/agent-stage";
+import { ArrowRightIcon, ArrowUpRightIcon } from "@/components/ui/icon";
 import { COMMERCE_AGENTS_BY_ID } from "@/constants/agents";
 import { DEMO_BOOKING_URL } from "@/constants/site";
 
@@ -20,7 +21,13 @@ export function AiAgentsReference() {
             <h1 id="agents-title">Every Part of Commerce. <span>Powered by AI.</span></h1>
             <p>Five specialized agents help your team manage listings, analytics, image generation, marketing and financial workflows inside one connected commerce context.</p>
             <div className="agents-hero__actions">
-              <a className="button button--orange" href={DEMO_BOOKING_URL}>Book a free demo</a>
+              <a
+                className="button button--primary agents-hero__demo-button"
+                href={DEMO_BOOKING_URL}
+              >
+                Book a free demo
+                <ArrowRightIcon />
+              </a>
               <a className="text-link text-link--arrow" href="#agent-lab">Meet the agents</a>
             </div>
           </div>
@@ -48,7 +55,7 @@ export function AiAgentsReference() {
             {agentRoles.map(([name, copy], index) => (
               <article key={name}>
                 <span>{String(index + 1).padStart(2, "0")}</span>
-                <h3>{name}</h3><p>{copy}</p><em aria-hidden="true">↗</em>
+                <h3>{name}</h3><p>{copy}</p><em aria-hidden="true"><ArrowUpRightIcon /></em>
               </article>
             ))}
           </div>

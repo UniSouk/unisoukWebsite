@@ -5,6 +5,7 @@ import {
   buttonPrimaryClass,
   buttonSecondaryClass,
 } from "@/components/layout/site-shell-styles";
+import { ArrowRightIcon, ArrowUpRightIcon } from "@/components/ui/icon";
 import type {
   LegalBlock,
   LegalInline,
@@ -43,9 +44,10 @@ function DocumentBlock({ href }: { href: string }) {
   return (
     <>
       <div className="mb-6 flex flex-wrap gap-4">
-        <a className={buttonPrimaryClass} href={href} download>Download IT Policy</a>
+        <a className={buttonPrimaryClass} href={href} download>Download IT Policy <ArrowRightIcon /></a>
         <a className={buttonSecondaryClass} href={href} target="_blank" rel="noreferrer">
           Open full screen
+          <ArrowUpRightIcon />
         </a>
       </div>
       <object

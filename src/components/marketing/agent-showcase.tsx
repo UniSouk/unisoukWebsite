@@ -3,6 +3,7 @@
 import type { CSSProperties, KeyboardEvent } from "react";
 import { useState } from "react";
 
+import { ArrowRightIcon } from "@/components/ui/icon";
 import {
   COMMERCE_AGENTS_BY_ID,
   type CommerceAgentId,
@@ -107,7 +108,7 @@ export function AgentShowcase() {
         </header>
         <div className="agent-showcase__body">
           <p className="agent-showcase__scroll-hint">
-            Swipe to explore <span aria-hidden="true">→</span>
+            Swipe to explore <span aria-hidden="true"><ArrowRightIcon /></span>
           </p>
           <div className="agent-stack" aria-label="Choose an AI agent">
             {agents.map((agent, index) => (

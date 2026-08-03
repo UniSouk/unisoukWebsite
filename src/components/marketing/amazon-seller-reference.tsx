@@ -1,3 +1,5 @@
+import { CheckIcon, PlusIcon } from "@/components/ui/icon";
+
 const amazonCapabilities = [
   {
     title: "Product Listing Management",
@@ -108,7 +110,7 @@ export function AmazonSellerReference() {
         <div className="amazon-capabilities">
           {amazonCapabilities.map((capability) => (
             <article key={capability.title}>
-              <span className="amazon-feature-mark" aria-hidden="true" />
+              <span className="amazon-feature-mark" aria-hidden="true"><PlusIcon /></span>
               <h2>{capability.title}</h2>
               <ul>
                 {capability.items.map((item) => (
@@ -122,7 +124,7 @@ export function AmazonSellerReference() {
           {amazonOperations.map((operation) => (
             <article key={operation.title}>
               <header>
-                <span className="amazon-operation-mark" aria-hidden="true" />
+                <span className="amazon-operation-mark" aria-hidden="true"><CheckIcon /></span>
                 <h2>{operation.title}</h2>
               </header>
               <ul>

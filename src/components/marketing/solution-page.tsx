@@ -15,6 +15,7 @@ import {
   type ShowcaseItem,
 } from "@/components/marketing/rotating-showcase";
 import { NativeSiteShell } from "@/components/layout/site-shell";
+import { ArrowRightIcon } from "@/components/ui/icon";
 import { DEMO_BOOKING_URL } from "@/constants/site";
 
 export type SolutionPageData = {
@@ -164,7 +165,7 @@ function CommerceFlowVisual({ name }: { name: string }) {
             <strong className="font-[family-name:var(--font-heading)] text-xl font-medium">
               {step}
             </strong>
-            <span aria-hidden="true">→</span>
+            <span aria-hidden="true"><ArrowRightIcon /></span>
           </li>
         ))}
       </ol>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { ArrowUpRightIcon } from "@/components/ui/icon";
 import { LEGAL_POLICY_LINKS } from "@/constants/legal";
 import type { LegalPageData } from "@/types/legal";
 
@@ -31,7 +32,7 @@ export function LegalSidebar({
               >
                 <span>{label}</span>
                 <i className="not-italic" aria-hidden="true">
-                  ↗
+                  <ArrowUpRightIcon />
                 </i>
               </Link>
             </li>

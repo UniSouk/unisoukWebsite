@@ -2,6 +2,7 @@ import { OperationIcon, type OperationName } from "./operation-icon";
 import { UnifiedCommerceBoard } from "./unified-commerce-board";
 import { UnifiedCommerceTriptych } from "./unified-commerce-triptych";
 import { SIGN_UP_URL } from "@/constants/site";
+import { ArrowRightIcon } from "@/components/ui/icon";
 
 const operations: Array<{
   id: OperationName;
@@ -102,6 +103,7 @@ export function UnifiedCommerceReference() {
             <div className="operations-hero__actions">
               <a className="button button--primary" href={SIGN_UP_URL}>
                 Start selling
+                <ArrowRightIcon />
               </a>
               <a
                 className="text-link text-link--arrow text-link--black"

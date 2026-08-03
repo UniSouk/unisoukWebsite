@@ -1,5 +1,6 @@
 import { PLATFORM_LOGOS } from "@/constants/platforms";
 import { CONSULTATION_BOOKING_URL } from "@/constants/site";
+import { ArrowRightIcon, ArrowUpRightIcon } from "@/components/ui/icon";
 
 const buildSteps = [
   ["Discover", "Clarify the audience, catalogue, operations and commercial goals before choosing a platform."],
@@ -48,6 +49,7 @@ export function BuildWebsiteReference() {
             <div className="website-hero__actions">
               <a className="button button--primary" href={CONSULTATION_BOOKING_URL}>
                 Book a free consultation
+                <ArrowRightIcon />
               </a>
               <a className="text-link text-link--arrow text-link--black" href="#build-paths">
                 Explore build options
@@ -73,7 +75,7 @@ export function BuildWebsiteReference() {
                 <div className="storefront-statement">
                   <span>Considered essentials</span>
                   <h2 className="section-heading--compact">Objects for everyday rituals.</h2>
-                  <a href="#build-paths">Explore collection <b aria-hidden="true">→</b></a>
+                  <a href="#build-paths">Explore collection <b aria-hidden="true"><ArrowRightIcon /></b></a>
                 </div>
                 <div className="product-composition" aria-hidden="true">
                   <span className="product-form product-form--tall" />
@@ -112,7 +114,7 @@ export function BuildWebsiteReference() {
                   <img src={project.image} alt={project.alt} loading="lazy" decoding="async" />
                   <figcaption className="client-project__details">
                     <div><h3>{project.name}</h3><p>{project.category}</p></div>
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" /></svg>
+                    <ArrowUpRightIcon />
                   </figcaption>
                 </figure>
               </a>
@@ -171,7 +173,7 @@ export function BuildWebsiteReference() {
             <h2 id="website-cta-title">Ready to give your brand a better place to sell<span>?</span></h2>
             <p>Tell us what you sell, how you operate and what the current website is holding back.</p>
           </div>
-          <a className="button button--primary" href={CONSULTATION_BOOKING_URL}>Book a free consultation</a>
+          <a className="button button--primary" href={CONSULTATION_BOOKING_URL}>Book a free consultation <ArrowRightIcon /></a>
         </div>
       </section>
     </>

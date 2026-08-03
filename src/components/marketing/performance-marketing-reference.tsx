@@ -1,4 +1,5 @@
 import { PerformanceCampaignMap } from "@/components/marketing/performance-campaign-map";
+import { ArrowRightIcon, CheckIcon } from "@/components/ui/icon";
 import {
   CONSULTATION_BOOKING_URL,
   DEMO_BOOKING_URL,
@@ -27,7 +28,7 @@ export function PerformanceMarketingReference() {
             <h1 id="growth-title">Turn attention into <span>profitable growth.</span></h1>
             <p>UniSouk plans and manages Meta and Google campaigns around your catalogue, commercial priorities and real selling context.</p>
             <div className="growth-hero__actions">
-              <a className="button button--primary" href={CONSULTATION_BOOKING_URL}>Book a free consultation</a>
+              <a className="button button--primary" href={CONSULTATION_BOOKING_URL}>Book a free consultation <ArrowRightIcon /></a>
               <a className="text-link text-link--arrow text-link--black" href="#campaign-system">See how we work</a>
             </div>
           </div>
@@ -48,7 +49,7 @@ export function PerformanceMarketingReference() {
                 <h3>Meta advertising</h3>
               </div>
               <p>Build discovery and remarketing campaigns around audiences, product stories and creative that can keep learning.</p>
-              <ul><li>Prospecting and retargeting</li><li>Catalogue campaigns</li><li>Creative testing</li></ul>
+              <ul><li><CheckIcon />Prospecting and retargeting</li><li><CheckIcon />Catalogue campaigns</li><li><CheckIcon />Creative testing</li></ul>
             </article>
             <article>
               <div className="channel-lanes__identity">
@@ -56,7 +57,7 @@ export function PerformanceMarketingReference() {
                 <h3>Google advertising</h3>
               </div>
               <p>Meet existing demand with disciplined search, shopping and product feed decisions tied to commercial value.</p>
-              <ul><li>Search campaigns</li><li>Shopping and feeds</li><li>Query optimization</li></ul>
+              <ul><li><CheckIcon />Search campaigns</li><li><CheckIcon />Shopping and feeds</li><li><CheckIcon />Query optimization</li></ul>
             </article>
           </div>
         </div>
@@ -81,7 +82,7 @@ export function PerformanceMarketingReference() {
           <div className="decision-loop__copy">
             <h2 id="decision-loop-title">A calmer way to improve campaign performance.</h2>
             <p>We use a deliberate learning loop, not constant reaction, to turn live signals into stronger decisions.</p>
-            <a className="button button--secondary" href={DEMO_BOOKING_URL}>Discuss your growth plan</a>
+            <a className="button button--secondary" href={DEMO_BOOKING_URL}>Discuss your growth plan <ArrowRightIcon /></a>
           </div>
           <ol className="decision-loop__steps">
             {process.map(([title, copy], index) => (
@@ -97,7 +98,7 @@ export function PerformanceMarketingReference() {
             <h2 id="growth-cta-title">Make every campaign part of a clearer growth plan.</h2>
             <p>Tell us where you sell, what you want to grow and how your current campaigns are performing.</p>
           </div>
-          <a className="button button--primary" href={CONSULTATION_BOOKING_URL}>Book a free consultation</a>
+          <a className="button button--primary" href={CONSULTATION_BOOKING_URL}>Book a free consultation <ArrowRightIcon /></a>
         </div>
       </section>
     </>
