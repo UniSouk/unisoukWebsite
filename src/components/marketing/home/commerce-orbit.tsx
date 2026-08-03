@@ -4,6 +4,8 @@ import Image from "next/image";
 import { ArrowRightIcon, CheckIcon } from "@/components/ui/icon";
 import { SIGN_UP_URL } from "@/constants/site";
 
+import { CommerceKeyword } from "./commerce-keyword";
+
 const stages = [
   {
     id: "listing",
@@ -134,15 +136,7 @@ export function CommerceOrbit() {
             </span>
             <span className="commerce-orbit__headline-action">
               <span>manage</span>
-              <span className="commerce-keyword" aria-hidden="true">
-                <span className="commerce-keyword__background" />
-                <span className="commerce-keyword__clip">
-                  <span className="commerce-keyword__word is-current">
-                    Listings
-                  </span>
-                </span>
-                <span className="commerce-keyword__measure">Listings</span>
-              </span>
+              <CommerceKeyword />
             </span>
           </h2>
           <p>
