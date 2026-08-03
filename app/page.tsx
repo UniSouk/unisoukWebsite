@@ -212,7 +212,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <VideoTestimonialPlaceholder />
+        {/* <VideoTestimonialPlaceholder /> */}
 
         <section
           className="sales-journey"
