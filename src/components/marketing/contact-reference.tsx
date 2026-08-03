@@ -48,7 +48,9 @@ export function ContactReference() {
             <a href={`mailto:${SUPPORT_EMAIL}`}><span>Email us</span><strong>{SUPPORT_EMAIL}</strong><i aria-hidden="true"><ArrowUpRightIcon /></i></a>
             <a href={`tel:${SUPPORT_PHONE_E164}`}><span>Call us</span><strong>{SUPPORT_PHONE_DISPLAY}</strong><small>Monday to Friday · 10:00 AM to 6:00 PM</small><i aria-hidden="true"><ArrowUpRightIcon /></i></a>
             <a href={OFFICE_MAP_URL} target="_blank" rel="noreferrer"><span>Visit us</span><strong>Solaris Cube, Vesu, Surat</strong><small>Seventh Floor, Office No. 701 · Gujarat 395007</small><i aria-hidden="true"><ArrowUpRightIcon /></i></a>
-            <footer><Image src="/unisouk-mark.svg" width={52} height={26} alt="" /><span>List. Sell. Grow.</span></footer>
+            <div className="flex justify-between pt-4">
+              <Image src="/unisouk-mark-on-dark.svg" width={52} height={26} alt="" /><span>List. Sell. Grow.</span>
+            </div>
           </address>
         </div>
       </section>
