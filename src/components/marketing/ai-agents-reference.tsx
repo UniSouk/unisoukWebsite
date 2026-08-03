@@ -55,7 +55,8 @@ export function AiAgentsReference() {
             {agentRoles.map(([name, copy], index) => (
               <article key={name}>
                 <span>{String(index + 1).padStart(2, "0")}</span>
-                <h3>{name}</h3><p>{copy}</p><em aria-hidden="true"><ArrowUpRightIcon /></em>
+                <h3>{name}</h3><p>{copy}</p>
+                {/* <em aria-hidden="true"><ArrowUpRightIcon /></em> */}
               </article>
             ))}
           </div>

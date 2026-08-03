@@ -7,6 +7,8 @@ import { INTEGRATIONS } from "@/constants/integrations";
 import { PLATFORM_LOGOS } from "@/constants/platforms";
 
 import styles from "./integration-orbit.module.css";
+import nodeContentStyles from "./integration-orbit-node-content.module.css";
+import nodeStyles from "./integration-orbit-nodes.module.css";
 
 const orbitLogos = [
   { name: "Amazon", logo: "/ecosystem-logos/amazon-app-icon-clean.png", angle: "0deg" },
@@ -37,16 +39,16 @@ export function IntegrationsReference() {
             <div className={styles.rings} aria-hidden="true"><i /><i /><i /></div>
             <div className={styles.signals} aria-hidden="true"><i /><i /><i /><i /><i /><i /><i /><i /></div>
             <div className={styles.core}><span className={styles.coreMark}><img src="/unisouk-mark.svg" alt="UniSouk" /></span></div>
-            <div className={styles.satellites} aria-hidden="true">
+            <div className={nodeStyles.satellites} aria-hidden="true">
               {orbitLogos.map((item) => (
-                <span className={styles.node} style={{ "--node-angle": item.angle } as CSSProperties} title={item.name} key={item.name}>
+                <span className={`${nodeStyles.node} ${nodeContentStyles.node}`} style={{ "--node-angle": item.angle } as CSSProperties} title={item.name} key={item.name}>
                   <i><Image src={item.logo} alt="" width={48} height={48} /></i>
                 </span>
               ))}
             </div>
-            <div className={`${styles.satellites} ${styles.satellitesSecondary}`} aria-hidden="true">
+            <div className={`${nodeStyles.satellites} ${nodeStyles.satellitesSecondary}`} aria-hidden="true">
               {secondaryOrbitLogos.map((item) => (
-                <span className={`${styles.node} ${styles.nodeSecondary}`} style={{ "--node-angle": item.angle } as CSSProperties} title={item.name} key={item.name}>
+                <span className={`${nodeStyles.node} ${nodeStyles.nodeSecondary} ${nodeContentStyles.node} ${nodeContentStyles.nodeSecondary}`} style={{ "--node-angle": item.angle } as CSSProperties} title={item.name} key={item.name}>
                   <i>{item.logo ? <Image src={item.logo} alt="" width={48} height={48} /> : <b>{item.logo}</b>}</i>
                 </span>
               ))}

@@ -1,0 +1,43 @@
+/* Homepage commerce-channel marquee. */
+.integration-strip {
+  border: 0;
+}
+
+.integration-logo-rail {
+  --integration-logo-width: clamp(10.5rem, 16vw, 15rem);
+  min-height: 6.5rem;
+}
+
+.integration-logo-rail .integration-logo {
+  flex: 0 0 var(--integration-logo-width);
+  width: var(--integration-logo-width);
+  height: 4rem;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  overflow: visible;
+}
+
+.integration-logo-rail .integration-logo:not(:first-child)::before {
+  content: none;
+}
+
+.integration-logo-rail .integration-logo img {
+  width: auto;
+  height: auto;
+  max-width: min(100%, 8.75rem);
+  max-height: 3rem;
+}
+
+.integration-logo-rail .integration-logo--amazon img {
+  max-width: 7.75rem;
+}
+
+.integration-logo-rail .integration-logo--ondc img {
+  max-width: 6.75rem;
+}
+
+.integration-logo-rail .integration-logo--meesho img {
+  width: 3.5rem;
+  height: 3.5rem;
+}

@@ -1,0 +1,66 @@
+.agent-showcase__scroll-hint {
+  display: none;
+}
+
+@media (width <= 47.99rem) {
+  :root {
+    --text-hero-heading: clamp(3.2rem, 14vw, 4.5rem);
+  }
+
+  .hero-title__line {
+    white-space: normal;
+  }
+
+  .hero-actions {
+    gap: 1rem;
+  }
+
+  .commerce-journey .sales-journey__phase header {
+    width: 100%;
+    flex-direction: row;
+  }
+
+  .commerce-orbit__headline-static {
+    white-space: normal;
+  }
+
+  .commerce-orbit__headline-action {
+    flex-direction: column;
+    align-items: flex-start;
+    white-space: normal;
+  }
+
+  .commerce-orbit .commerce-keyword {
+    width: 9ch;
+    flex: none;
+  }
+
+  .agent-showcase__scroll-hint {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    margin: 0 0 0.5rem;
+    color: oklch(100% 0 0 / 0.74);
+    font-size: 0.875rem;
+  }
+
+  .agent-showcase__scroll-hint span {
+    color: var(--orange);
+    font-size: 1.5rem;
+    line-height: 1;
+  }
+
+  .agent-showcase .agent-stack {
+    padding-top: 0.5rem;
+  }
+
+  main > section.pricing-hero:first-child h1 {
+    max-width: 100% !important;
+    font-size: clamp(1.5rem, 6.9vw, 3rem) !important;
+  }
+
+  .pricing-section-heading__title span {
+    white-space: normal;
+  }
+}
