@@ -96,7 +96,7 @@ export function UnifiedCommerceTriptych() {
 
 <section className="commerce-demo" aria-labelledby="commerce-demo-title">
   <header className="commerce-demo__intro">
-    <h2 id="commerce-demo-title">One platform. Every step. In perfect sync<span>.</span></h2>
+    <h2 id="commerce-demo-title">One platform. Every step. In perfect sync<span className="!text-[var(--ink)]">.</span></h2>
     <p>From product to customer, UniSouk keeps your entire commerce journey moving together.</p>
   </header>
 

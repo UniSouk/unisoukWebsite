@@ -89,7 +89,7 @@ export function ContactReference() {
 
       <section className="contact-cta" aria-labelledby="contact-cta-title">
         <div className="container contact-cta__inner">
-          <h2 id="contact-cta-title">Ready to simplify your online selling journey<span>?</span></h2>
+          <h2 id="contact-cta-title">Ready to simplify your online selling journey<span className="!text-[var(--ink)]">?</span></h2>
           <div className="contact-cta__copy"><p>Reach out today and see how UniSouk can help you simplify operations, expand your reach and prepare for the next stage of growth.</p></div>
         </div>
       </section>

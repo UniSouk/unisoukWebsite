@@ -88,7 +88,10 @@ const operations: Array<{
 export function UnifiedCommerceReference() {
   return (
     <>
-      <section className="operations-hero" aria-labelledby="operations-hero-title">
+      <section
+        className="operations-hero !bg-[var(--mist)]"
+        aria-labelledby="operations-hero-title"
+      >
         <div className="container operations-hero__inner">
           <div className="operations-hero__copy">
             <h1 id="operations-hero-title">
@@ -120,7 +123,7 @@ export function UnifiedCommerceReference() {
       </section>
 
       <section
-        className="orchestration !bg-[var(--mist)]"
+        className="orchestration"
         id="orchestration"
         aria-labelledby="commerce-demo-title"
       >
