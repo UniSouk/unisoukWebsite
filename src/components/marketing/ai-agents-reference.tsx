@@ -63,11 +63,14 @@ export function AiAgentsReference() {
         </div>
       </section>
 
-      <section className="agents-cta" aria-labelledby="agents-cta-title">
+      <section
+        className="agents-cta !bg-[var(--ink)] !text-[var(--white)]"
+        aria-labelledby="agents-cta-title"
+      >
         <div className="container agents-cta__inner">
           <h2 id="agents-cta-title">Put specialized AI inside your everyday commerce workflow.</h2>
           <div className="agents-cta__copy">
-            <p>See how UniSouk brings your operations and AI agents into one connected platform.</p>
+            <p className="!text-[var(--white)]">See how UniSouk brings your operations and AI agents into one connected platform.</p>
           </div>
         </div>
       </section>
