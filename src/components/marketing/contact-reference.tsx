@@ -73,7 +73,7 @@ export function ContactReference() {
             <p>No question is too small and no commerce challenge needs to be explained in technical language. Tell us what is happening in the business, and we’ll help identify the relevant next step.</p>
           </div>
           <div className="support-list">
-            {supportAreas.map(([title, copy]) => <article key={title}><h3>{title}</h3><p>{copy}</p><span aria-hidden="true"><ArrowUpRightIcon /></span></article>)}
+            {supportAreas.map(([title, copy]) => <article key={title}><h3>{title}</h3><p>{copy}</p></article>)}
           </div>
         </div>
       </section>

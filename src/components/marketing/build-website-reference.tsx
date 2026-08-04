@@ -132,7 +132,7 @@ export function BuildWebsiteReference() {
             <p>Use an established commerce platform when speed and simplicity matter. Choose a custom build when your business model needs something more specific.</p>
           </div>
           <div className="path-comparison">
-            <article>
+            <article className="bg-[var(--white)]">
               <header><span>Platform storefront</span><h3>Launch confidently on a proven foundation.</h3></header>
               <p>We design and build D2C storefronts on Shopify, Wix and WooCommerce, balancing platform strengths with a brand experience that feels distinctly yours.</p>
               <ul className="platform-list" aria-label="Supported storefront platforms">

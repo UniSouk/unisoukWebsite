@@ -142,7 +142,7 @@ export function AmazonSellerReference() {
           </div>
           <div>
             <h2>Key Roles</h2>
-            <ul>
+            <ul className="opacity-60">
               {amazonRoles.map((role) => (
                 <li key={role}>{role}</li>
               ))}

@@ -120,7 +120,7 @@ export function UnifiedCommerceReference() {
       </section>
 
       <section
-        className="orchestration"
+        className="orchestration !bg-[var(--mist)]"
         id="orchestration"
         aria-labelledby="commerce-demo-title"
       >
@@ -129,7 +129,10 @@ export function UnifiedCommerceReference() {
         </div>
       </section>
 
-      <section className="capabilities" aria-labelledby="capabilities-title">
+      <section
+        className="capabilities !bg-[var(--mist)]"
+        aria-labelledby="capabilities-title"
+      >
         <div className="container capabilities__inner">
           <div className="capabilities__intro">
             <h2 id="capabilities-title">

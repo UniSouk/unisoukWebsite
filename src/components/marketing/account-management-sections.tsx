@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { ArrowRightIcon, ArrowUpRightIcon } from "@/components/ui/icon";
+import { ArrowRightIcon } from "@/components/ui/icon";
 import { CONSULTATION_BOOKING_URL } from "@/constants/site";
 
 const responsibilities = [
