@@ -107,10 +107,10 @@ export function SiteFooter() {
             </address>
           </div>
           <nav
-            className="grid grid-cols-[repeat(3,minmax(8.25rem,10rem))] content-start justify-between gap-x-8 max-[71.99rem]:grid-cols-3 max-[71.99rem]:justify-stretch max-[47.99rem]:grid-cols-1 max-[47.99rem]:gap-0 max-[47.99rem]:border-t max-[47.99rem]:border-[color:color-mix(in_oklch,var(--ink)_18%,transparent)]"
+            className="grid grid-cols-3 content-start gap-x-6 gap-y-10 lg:grid-cols-[repeat(4,max-content)] lg:justify-between max-[47.99rem]:grid-cols-1 max-[47.99rem]:gap-0 max-[47.99rem]:border-t max-[47.99rem]:border-[color:color-mix(in_oklch,var(--ink)_18%,transparent)]"
             aria-label="Footer navigation"
           >
-            {FOOTER_GROUPS.map((group, groupIndex) => (
+            {FOOTER_GROUPS.map((group) => (
               <div
                 className="grid content-start gap-9 max-[47.99rem]:gap-0"
                 key={group.title}
@@ -144,39 +144,39 @@ export function SiteFooter() {
                     ))}
                   </ul>
                 </details>
-                {groupIndex === FOOTER_GROUPS.length - 1 && (
-                  <details
-                    className="group/footer-group max-[47.99rem]:border-b max-[47.99rem]:border-[color:color-mix(in_oklch,var(--ink)_18%,transparent)]"
-                    open
-                    data-native-footer-group
-                  >
-                    <summary className="flex items-center justify-between font-[family-name:var(--font-heading)] text-[0.78rem] leading-[1.3] font-medium tracking-[0.035em] uppercase list-none max-[47.99rem]:min-h-[3.9rem] max-[47.99rem]:cursor-pointer max-[47.99rem]:text-[0.76rem] [&::-webkit-details-marker]:hidden">
-                      Connect
-                      <span
-                        className="relative hidden h-px w-3 bg-current after:absolute after:inset-0 after:h-px after:w-3 after:rotate-90 after:bg-current after:content-[''] group-open/footer-group:after:rotate-0 max-[47.99rem]:block motion-reduce:after:transition-none"
-                        aria-hidden="true"
-                      />
-                    </summary>
-                    <ul className="mt-[1.35rem] mb-0 grid list-none gap-[0.66rem] p-0 max-[47.99rem]:mt-[-0.1rem] max-[47.99rem]:mb-[1.4rem] max-[47.99rem]:hidden max-[47.99rem]:gap-[0.7rem] max-[47.99rem]:group-open/footer-group:grid">
-                      {SOCIAL_LINKS.map(({ label, href, icon }) => (
-                        <li key={href}>
-                          <a
-                            className="group/social inline-flex min-h-[1.55rem] items-center gap-[0.55rem] text-[0.86rem] leading-[1.35] text-[color:color-mix(in_oklch,var(--ink)_78%,transparent)] no-underline transition-all duration-[180ms] hover:-translate-y-px hover:text-[var(--orange-ink)] max-[47.99rem]:min-h-[1.8rem] max-[47.99rem]:text-[0.92rem] motion-reduce:transition-none [&_svg]:h-4 [&_svg]:w-4 [&_svg]:shrink-0 [&_svg]:fill-none [&_svg]:stroke-current [&_svg]:stroke-[1.35] [&_svg]:transition-transform [&_svg]:duration-[180ms] group-hover/social:[&_svg]:scale-110 motion-reduce:[&_svg]:transition-none"
-                            href={href}
-                            target="_blank"
-                            rel="noreferrer"
-                            aria-label={`UniSouk on ${label}`}
-                          >
-                            <SocialIcon icon={icon} />
-                            <span>{label}</span>
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  </details>
-                )}
               </div>
             ))}
+            <div className="grid content-start max-[47.99rem]:gap-0">
+              <details
+                className="group/footer-group max-[47.99rem]:border-b max-[47.99rem]:border-[color:color-mix(in_oklch,var(--ink)_18%,transparent)]"
+                open
+                data-native-footer-group
+              >
+                <summary className="flex items-center justify-between font-[family-name:var(--font-heading)] text-[0.78rem] leading-[1.3] font-medium tracking-[0.035em] uppercase list-none max-[47.99rem]:min-h-[3.9rem] max-[47.99rem]:cursor-pointer max-[47.99rem]:text-[0.76rem] [&::-webkit-details-marker]:hidden">
+                  Connect
+                  <span
+                    className="relative hidden h-px w-3 bg-current after:absolute after:inset-0 after:h-px after:w-3 after:rotate-90 after:bg-current after:content-[''] group-open/footer-group:after:rotate-0 max-[47.99rem]:block motion-reduce:after:transition-none"
+                    aria-hidden="true"
+                  />
+                </summary>
+                <ul className="mt-[1.35rem] mb-0 grid list-none gap-[0.66rem] p-0 max-[47.99rem]:mt-[-0.1rem] max-[47.99rem]:mb-[1.4rem] max-[47.99rem]:hidden max-[47.99rem]:gap-[0.7rem] max-[47.99rem]:group-open/footer-group:grid">
+                  {SOCIAL_LINKS.map(({ label, href, icon }) => (
+                    <li key={href}>
+                      <a
+                        className="group/social inline-flex min-h-[1.55rem] items-center gap-[0.65rem] text-[0.86rem] leading-[1.35] text-[color:color-mix(in_oklch,var(--ink)_78%,transparent)] no-underline transition-all duration-[180ms] hover:-translate-y-px hover:text-[var(--orange-ink)] max-[47.99rem]:min-h-[1.8rem] max-[47.99rem]:text-[0.92rem] motion-reduce:transition-none [&_svg]:h-6 [&_svg]:w-6 [&_svg]:shrink-0 [&_svg]:fill-none [&_svg]:stroke-current [&_svg]:stroke-[1.35] [&_svg]:transition-transform [&_svg]:duration-[180ms] group-hover/social:[&_svg]:scale-110 motion-reduce:[&_svg]:transition-none"
+                        href={href}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label={`UniSouk on ${label}`}
+                      >
+                        <SocialIcon icon={icon} />
+                        <span>{label}</span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </details>
+            </div>
           </nav>
         </div>
         <div className="grid min-h-[clamp(17rem,31vh,22rem)] place-items-center content-center py-[clamp(2.5rem,4.5vw,4rem)] [perspective:900px] max-[71.99rem]:min-h-[21rem] max-[47.99rem]:min-h-80 max-[47.99rem]:py-15">
