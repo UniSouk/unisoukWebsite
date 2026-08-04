@@ -124,12 +124,7 @@ export const SOCIAL_LINKS = [
   },
   {
     label: "Facebook",
-    href: "https://www.facebook.com/profile.php?id=61571499654477",
+    href: "https://www.facebook.com/unisouk/",
     icon: "facebook",
-  },
-  {
-    label: "YouTube",
-    href: YOUTUBE_URL,
-    icon: "youtube",
   },
 ] as const;

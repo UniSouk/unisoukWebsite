@@ -25,8 +25,10 @@ function SocialIcon({
 }) {
   if (icon === "linkedin") {
     return (
-      <svg viewBox="0 0 20 20" aria-hidden="true">
-        <path d="M5 7.3V15M5 4.8v.1M8.7 15v-4.4c0-2.1 3.4-2.4 3.4.2V15M8.7 7.3V15M3.3 7.3h3.4M3.3 15h3.4M12.1 10.8V15M8.7 7.3h3.4" />
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="2" y="9" width="4" height="12" />
+        <circle cx="4" cy="4" r="2" />
+        <path d="M10 21V9h4v1.7A5.5 5.5 0 0 1 18 9c2.8 0 4 1.8 4 5v7h-4v-6.5c0-1.7-.7-2.5-2-2.5s-2 .9-2 2.5V21Z" />
       </svg>
     );
   }
@@ -41,18 +43,10 @@ function SocialIcon({
     );
   }
 
-  if (icon === "facebook") {
-    return (
-      <svg viewBox="0 0 20 20" aria-hidden="true">
-        <path d="M11.2 16v-5h1.9l.3-2.2h-2.2V7.5c0-.7.2-1.1 1.1-1.1h1.2V4.5c-.2 0-.9-.1-1.7-.1-1.7 0-2.9 1.1-2.9 3v1.4H7V11h1.9v5" />
-      </svg>
-    );
-  }
-
   return (
-    <svg viewBox="0 0 20 20" aria-hidden="true">
-      <path d="M17 10c0 2.1-.2 3.5-.5 4-.3.5-.8.8-1.4.9-1.3.2-3 .3-5.1.3s-3.8-.1-5.1-.3c-.6-.1-1.1-.4-1.4-.9-.3-.5-.5-1.9-.5-4s.2-3.5.5-4c.3-.5.8-.8 1.4-.9C6.2 4.9 7.9 4.8 10 4.8s3.8.1 5.1.3c.6.1 1.1.4 1.4.9.3.5.5 1.9.5 4Z" />
-      <path d="m8.4 7.7 4 2.3-4 2.3z" />
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <circle cx="12" cy="12" r="9" />
+      <path d="M14.5 8h-1.7c-1.3 0-1.8.8-1.8 1.9V12h3l-.5 3H11v6" />
     </svg>
   );
 }
