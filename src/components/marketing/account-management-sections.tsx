@@ -201,7 +201,6 @@ export function AccountManagementSections() {
               <article key={item.title}>
                 <header>
                   <h3>{item.title}</h3>
-                  <span aria-hidden="true"><ArrowUpRightIcon /></span>
                 </header>
                 <div>
                   <p>{item.copy}</p>
