@@ -2,6 +2,7 @@ import type { CSSProperties } from "react";
 import Image from "next/image";
 
 import { ArrowRightIcon, ArrowUpRightIcon } from "@/components/ui/icon";
+import { InstagramEmbed } from "@/components/marketing/instagram-embed";
 import { PODCAST_EMBED_URL, PODCAST_VIDEO_URL } from "@/constants/podcast";
 import { INSTAGRAM_URL } from "@/constants/site";
 import type { InstagramMediaItem } from "@/lib/instagram";
@@ -50,9 +51,7 @@ function InstagramReference({ media }: { media: InstagramMediaItem[] }) {
               <p>See the latest from UniSouk on Instagram.</p>
               <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer">Open @unisouk.in <span aria-hidden="true"><ArrowUpRightIcon /></span></a>
             </div>
-            <blockquote className="instagram-media">
-              <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer">View @unisouk.in on Instagram</a>
-            </blockquote>
+            <InstagramEmbed />
           </div>
         )}
       </div>
