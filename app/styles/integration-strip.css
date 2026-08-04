@@ -41,3 +41,7 @@
   width: 8.75rem;
   height: auto;
 }
+
+.integration-logo-rail .integration-logo--wix img {
+  max-height: 2.25rem;
+}

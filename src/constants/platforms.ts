@@ -4,5 +4,5 @@ export const PLATFORM_LOGOS = {
   ondc: "/platform-logos/ondc.svg",
   shopify: "/platform-logos/shopify.svg",
   wix: "/platform-logos/wix.svg",
-  woocommerce: "/platform-logos/woocommerce.svg",
+  woocommerce: "/platform-logos/woo-commerce.svg",
 } as const;
