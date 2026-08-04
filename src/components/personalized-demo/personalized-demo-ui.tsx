@@ -130,6 +130,7 @@ export function DemoDialogContent({
                 disabled={isDetecting}
               />
               <button
+                className="grid place-items-center"
                 type="submit"
                 aria-label={
                   isDetecting
