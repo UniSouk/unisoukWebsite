@@ -30,7 +30,7 @@ const clientWork = [
     name: "Vedic Vita",
     category: "Food and wellness ecommerce",
     href: "https://vedicvita.com/",
-    image: "https://vedicvita.com/wp-content/uploads/2026/06/2.png",
+    image: "/vedic-vita.png",
     alt: "Vedic Vita food ecommerce website homepage",
   },
 ];
