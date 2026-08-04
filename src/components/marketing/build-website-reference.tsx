@@ -172,7 +172,7 @@ export function BuildWebsiteReference() {
       <section className="website-cta" aria-labelledby="website-cta-title">
         <div className="container website-cta__inner">
           <div>
-            <h2 id="website-cta-title">Ready to give your brand a better place to sell<span>?</span></h2>
+            <h2 id="website-cta-title">Ready to give your brand a better place to sell?</h2>
             <p>Tell us what you sell, how you operate and what the current website is holding back.</p>
           </div>
           <a className="button button--primary" href={CONSULTATION_BOOKING_URL}>Book a free consultation <ArrowRightIcon /></a>

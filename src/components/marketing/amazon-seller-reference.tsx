@@ -138,11 +138,11 @@ export function AmazonSellerReference() {
         <div className="amazon-seller__meta">
           <div>
             <h2>Supported Marketplaces</h2>
-            <span className="amazon-marketplace">IN India</span>
+            <span className="amazon-marketplace !bg-[color:color-mix(in_oklch,var(--orange)_10%,transparent)]">IN India</span>
           </div>
           <div>
             <h2>Key Roles</h2>
-            <ul className="opacity-60">
+            <ul className="[&_li]:!bg-[color:color-mix(in_oklch,var(--orange)_10%,transparent)]">
               {amazonRoles.map((role) => (
                 <li key={role}>{role}</li>
               ))}
