@@ -67,6 +67,15 @@ export function SiteHeaderInteractions() {
       for (const disclosure of disclosures) disclosure.open = false;
       if (mobile) mobile.open = false;
     };
+    
+    const syncBodyScroll = () => {
+      document.documentElement.style.overflow = mobile?.open ? "hidden" : "";
+    };
+
+    if (mobile) {
+      mobile.addEventListener("toggle", syncBodyScroll);
+      syncBodyScroll();
+    }
     const onPointerDown = (event: PointerEvent) => {
       if (!header.contains(event.target as Node)) closeMenus();
     };
@@ -80,6 +89,10 @@ export function SiteHeaderInteractions() {
       for (const cleanup of cleanups) cleanup();
       document.removeEventListener("pointerdown", onPointerDown);
       document.removeEventListener("keydown", onKeyDown);
+      if (mobile) {
+        mobile.removeEventListener("toggle", syncBodyScroll);
+        document.documentElement.style.overflow = "";
+      }
     };
   }, []);
 
