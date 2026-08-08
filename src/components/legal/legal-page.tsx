@@ -16,7 +16,7 @@ export function LegalPage({ data }: { data: LegalPageData }) {
           aria-labelledby="legal-title"
         >
           <div
-            className={`${siteContainerClass} legal-hero__inner grid grid-cols-[minmax(0,1.15fr)_minmax(18rem,0.85fr)] items-end gap-[clamp(3rem,9vw,9rem)] max-[63.99rem]:grid-cols-1 max-[63.99rem]:content-end max-[63.99rem]:gap-9`}
+            className={`${siteContainerClass} grid grid-cols-[minmax(0,1.15fr)_minmax(18rem,0.85fr)] items-end gap-[clamp(3rem,9vw,9rem)] py-[clamp(2.5rem,5vw,4rem)] max-[63.99rem]:grid-cols-1 max-[63.99rem]:content-end max-[63.99rem]:gap-9`}
           >
             <div>
               <p className="mb-[1.35rem] font-semibold text-[var(--orange-ink)]">
@@ -43,7 +43,7 @@ export function LegalPage({ data }: { data: LegalPageData }) {
         </section>
         <section aria-label={`${data.title} document`}>
           <div
-            className={`${siteContainerClass} legal-body__inner grid grid-cols-[minmax(13rem,0.33fr)_minmax(0,1fr)] items-start gap-[clamp(3rem,8vw,8rem)] max-[63.99rem]:grid-cols-1`}
+            className={`${siteContainerClass} mt-6 md:mt-10 grid grid-cols-[minmax(13rem,0.33fr)_minmax(0,1fr)] items-start gap-[clamp(3rem,8vw,8rem)] pb-[clamp(4.5rem,9vw,8rem)] max-[63.99rem]:grid-cols-1`}
           >
             <LegalSidebar
               currentRoute={data.route}

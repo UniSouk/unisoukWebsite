@@ -77,7 +77,7 @@ function LegalBlockView({ block }: { block: LegalBlock }) {
 export function LegalDocument({ data }: { data: LegalPageData }) {
   return (
     <article className={legalCopyClass}>
-      <p className="mb-[clamp(3rem,6vw,5rem)] font-[family-name:var(--font-heading)] text-[clamp(1.55rem,2.5vw,2.35rem)] leading-[1.22] text-[var(--ink)]">
+      <p className="font-[family-name:var(--font-heading)] text-[clamp(1rem,1.5vw,2rem)] leading-[0.5] text-[var(--ink)]">
         {data.intro}
       </p>
       {data.sections.map((section) => (

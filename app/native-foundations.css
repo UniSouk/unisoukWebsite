@@ -39,10 +39,6 @@
   padding-block: var(--page-hero-space);
 }
 
-.legal-hero__inner {
-  min-height: clamp(26rem, 52svh, 36rem);
-  padding-block: var(--page-hero-space);
-}
 
 .account-support__inner,
 .faq-inner,
@@ -72,10 +68,10 @@
 .podcast-cta__inner,
 .pricing-plans__inner,
 .plan-comparison__inner,
-.pricing-faq__inner,
-.legal-body__inner {
+.pricing-faq__inner {
   padding-block: var(--page-section-space);
 }
+
 
 @media (width <= 69rem) {
   .management-hero__inner,

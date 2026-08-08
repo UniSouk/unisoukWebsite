@@ -103,10 +103,9 @@ export const FOOTER_GROUPS = [
   {
     title: "Quick Links",
     links: [
-      { label: "Privacy & Policy", href: "/privacy/" },
+      { label: "Privacy Policy", href: "/privacy/" },
       { label: "Terms & Conditions", href: "/terms/" },
       { label: "Refund Policy", href: "/refund-policy/" },
-      { label: "IT Policy", href: "/it-policy/" },
     ],
   },
 ] as const;
