@@ -63,14 +63,14 @@ export function SiteFooter() {
         data-native-footer-shell
       >
         <div className="grid grid-cols-[minmax(0,2fr)_minmax(0,3fr)] gap-[clamp(3rem,6vw,6rem)] border-b border-[color:color-mix(in_oklch,var(--ink)_18%,transparent)] pb-[clamp(3.5rem,5vw,5rem)] max-[71.99rem]:grid-cols-1 max-[71.99rem]:gap-16 max-[47.99rem]:gap-12 max-[47.99rem]:border-b-0 max-[47.99rem]:pb-0">
-          <div className="max-w-[32rem] self-start max-[71.99rem]:max-w-[44rem]">
+          <div className="grid content-start gap-[clamp(1rem,1.5vw,1.35rem)] max-w-[32rem] self-start max-[71.99rem]:max-w-[44rem]">
             <h2
               className="m-0 max-w-[10ch] text-[length:var(--text-section-heading)] leading-[0.96] font-medium tracking-[-0.035em] text-balance max-[71.99rem]:max-w-[12ch] max-[47.99rem]:max-w-[9.5ch] max-[47.99rem]:leading-[0.98]"
               id="footer-pitch-title"
             >
               One platform for modern commerce.
             </h2>
-            <p className="mt-[1.65rem] mb-0 max-w-[43ch] text-[clamp(1rem,1.15vw,1.125rem)] leading-[1.65] text-[color:color-mix(in_oklch,var(--ink)_82%,transparent)] text-pretty max-[47.99rem]:max-w-[34ch] max-[47.99rem]:text-base">
+            <p className="m-0 max-w-[43ch] text-[clamp(1rem,1.15vw,1.125rem)] leading-[1.65] text-[color:color-mix(in_oklch,var(--ink)_82%,transparent)] text-pretty max-[47.99rem]:max-w-[34ch] max-[47.99rem]:text-base">
               Manage product listings, inventory, orders, shipping, payments
               and AI agents from one intelligent commerce operating system.
             </p>
