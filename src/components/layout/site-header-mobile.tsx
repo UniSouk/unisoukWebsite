@@ -35,8 +35,8 @@ export function SiteHeaderMobile() {
         <i className="h-0.5 w-6 bg-[var(--ink)] transition-all group-open/mobile:opacity-0 motion-reduce:transition-none" />
         <i className="h-0.5 w-6 bg-[var(--ink)] transition-all group-open/mobile:-translate-y-[0.38rem] group-open/mobile:-rotate-45 motion-reduce:transition-none" />
       </summary>
-      <div className="fixed inset-x-0 top-[var(--header-height)] bottom-0 grid grid-rows-[minmax(0,1fr)_auto] overflow-y-auto  overscroll-contain  bg-[var(--white)] px-[var(--gutter)] pt-4 pb-6">
-        <nav className="grid content-start" aria-label="Mobile navigation">
+      <div className="fixed inset-x-0 top-[var(--header-height)] bottom-0 grid grid-rows-[minmax(0,1fr)_auto] overflow-hidden bg-[var(--white)] px-[var(--gutter)] pt-4 pb-6">
+        <nav className="grid content-start overflow-y-auto overscroll-contain" aria-label="Mobile navigation">
           <details className="group/mobile-group">
             <RouteAwareSummary
               className={sectionToggle}
