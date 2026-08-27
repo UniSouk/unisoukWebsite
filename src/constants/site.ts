@@ -23,6 +23,7 @@ export const MARKETING_ROUTES = [
   "/solutions/build-your-website/",
   "/solutions/performance-marketing/",
   "/solutions/unified-commerce/",
+  "/solutions/uni-agents/",
 ] as const;
 
 export const BLOG_ROUTE_PATHS = ["/blog/", "/blogs/"] as const;
