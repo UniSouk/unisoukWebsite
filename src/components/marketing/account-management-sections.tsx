@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import { ArrowRightIcon } from "@/components/ui/icon";
 import { CONSULTATION_BOOKING_URL } from "@/constants/site";
+import { ManagedServiceClarity } from "./managed-service-clarity";
 
 const responsibilities = [
   {
@@ -215,6 +216,8 @@ export function AccountManagementSections() {
           </div>
         </div>
       </section>
+
+      <ManagedServiceClarity scopeUrl={CONSULTATION_BOOKING_URL} />
 
       <section className="management-cta" aria-labelledby="management-cta-title">
         <div className="container management-cta__inner">

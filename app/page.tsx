@@ -10,7 +10,13 @@ import { PageStructuredData } from "@/components/marketing/marketing-primitives"
 import { NativeSiteShell } from "@/components/layout/site-shell";
 import { ArrowRightIcon, DisclosureIcons } from "@/components/ui/icon";
 import { HomeHero } from "@/components/marketing/home/home-hero";
-import { DEMO_BOOKING_URL, SITE_URL } from "@/constants/site";
+import { ChooseHowItWorks } from "@/components/marketing/home/choose-how-it-works";
+import {
+  CONSULTATION_BOOKING_URL,
+  DEMO_BOOKING_URL,
+  SIGN_UP_URL,
+  SITE_URL,
+} from "@/constants/site";
 
 export const metadata: Metadata = {
   title: { absolute: "UniSouk | List. Sell. Grow." },
@@ -91,6 +97,12 @@ export default function HomePage() {
         <AgentShowcase />
         <AccountManagementStory
           accountManagementUrl={accountManagerCalendarUrl}
+        />
+        <ChooseHowItWorks
+          startTrialUrl={SIGN_UP_URL}
+          buildPlanUrl={DEMO_BOOKING_URL}
+          consultationUrl={CONSULTATION_BOOKING_URL}
+          pricingUrl="/pricing/"
         />
         <CommerceOrbit />
         <CommerceEcosystem />
