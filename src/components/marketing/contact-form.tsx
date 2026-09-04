@@ -8,6 +8,7 @@ type ContactFields = {
   firstName: string;
   lastName: string;
   email: string;
+  phoneNumber: string;
   industry: string;
   message: string;
 };
@@ -18,9 +19,12 @@ const initialFields: ContactFields = {
   firstName: "",
   lastName: "",
   email: "",
+  phoneNumber: "",
   industry: "",
   message: "",
 };
+
+const INDIAN_PHONE_PATTERN = /^(?:\+91|91|0)?[6-9]\d{9}$/;
 
 function validate(fields: ContactFields): FieldErrors {
   const errors: FieldErrors = {};
@@ -31,11 +35,18 @@ function validate(fields: ContactFields): FieldErrors {
   } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fields.email)) {
     errors.email = "Enter a valid email address.";
   }
+  if (fields.phoneNumber.trim()) {
+    const normalized = fields.phoneNumber.replace(/[\s-]/g, "");
+    if (!INDIAN_PHONE_PATTERN.test(normalized)) {
+      errors.phoneNumber =
+        "Enter a valid Indian mobile number, e.g. +91 98765 43210.";
+    }
+  }
   if (!fields.industry) errors.industry = "Business industry is required.";
-  if (fields.message.trim().length < 20) {
-    errors.message = "Message must be at least 20 characters.";
-  } else if (fields.message.trim().length > 200) {
-    errors.message = "Message must be no more than 200 characters.";
+  if (!fields.message.trim()) {
+    errors.message = "Message is required.";
+  } else if (fields.message.trim().length > 5000) {
+    errors.message = "Message must be no more than 5000 characters.";
   }
   return errors;
 }
@@ -70,10 +81,18 @@ export function ContactForm() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("https://www.unisouk.com/api/contact", {
+      const coreApiUrl = process.env.NEXT_PUBLIC_CORE_API_URL;
+      const response = await fetch(`${coreApiUrl}/contact`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(fields),
+        body: JSON.stringify({
+          firstName: fields.firstName,
+          lastName: fields.lastName,
+          email: fields.email,
+          phoneNumber: fields.phoneNumber || undefined,
+          businessIndustry: fields.industry,
+          message: fields.message,
+        }),
         signal: controller.signal,
       });
       if (!response.ok) {
@@ -82,8 +101,20 @@ export function ContactForm() {
             "You have sent several requests. Please wait and try again.",
           );
         }
+        let backendMessage: string | undefined;
+        try {
+          const data: { message?: string | string[] } = await response.json();
+          if (Array.isArray(data.message)) {
+            backendMessage = data.message.join(" ");
+          } else if (typeof data.message === "string") {
+            backendMessage = data.message;
+          }
+        } catch {
+          // Response body was not JSON; fall back to the generic message below.
+        }
         throw new Error(
-          "Our contact service is temporarily unavailable. Please try again shortly.",
+          backendMessage ??
+            "Our contact service is temporarily unavailable. Please try again shortly.",
         );
       }
       setFields(initialFields);
@@ -128,6 +159,21 @@ export function ContactForm() {
         error={errors.email}
         onChange={update}
       />
+      <div className="form-field" data-invalid={Boolean(errors.phoneNumber) || undefined}>
+        <label htmlFor="contact-phone">Phone number (optional)</label>
+        <input
+          id="contact-phone"
+          name="phoneNumber"
+          type="tel"
+          value={fields.phoneNumber}
+          autoComplete="tel"
+          placeholder="+91 98765 43210"
+          aria-invalid={Boolean(errors.phoneNumber)}
+          aria-describedby="contact-phone-error"
+          onChange={(event) => update("phoneNumber", event.target.value)}
+        />
+        <p className="form-field__error" id="contact-phone-error" aria-live="polite" hidden={!errors.phoneNumber}>{errors.phoneNumber}</p>
+      </div>
       <div className="form-field" data-invalid={Boolean(errors.industry) || undefined}>
         <label htmlFor="contact-industry">Business industry</label>
         <select
@@ -155,8 +201,7 @@ export function ContactForm() {
           id="contact-message"
           name="message"
           rows={6}
-          minLength={20}
-          maxLength={200}
+          maxLength={5000}
           required
           placeholder="Tell us what you would like help with"
           value={fields.message}
@@ -165,8 +210,7 @@ export function ContactForm() {
           onChange={(event) => update("message", event.target.value)}
         />
         <div className="form-field__meta" id="contact-message-hint">
-          <span>Minimum 20 characters</span>
-          <span>{fields.message.length} / 200</span>
+          <span>{fields.message.length} / 5000</span>
         </div>
         <p className="form-field__error" id="contact-message-error" aria-live="polite" hidden={!errors.message}>{errors.message}</p>
       </div>
@@ -179,7 +223,7 @@ export function ContactForm() {
         {status}
       </p>
       <div className="contact-form__footer">
-        <p>All fields are required. We will only use these details to respond to your enquiry.</p>
+        <p>All fields are required except phone number. We will only use these details to respond to your enquiry.</p>
         <button className="button button--primary" type="submit" disabled={isSubmitting}>
           {isSubmitting ? "Sending..." : "Send message"}
           <ArrowRightIcon />
