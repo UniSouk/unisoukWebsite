@@ -7,6 +7,7 @@ import {
   ChevronDown,
   Minus,
   Plus,
+  ShieldCheck,
   X,
   type LucideIcon,
   type LucideProps,
@@ -38,6 +39,7 @@ export const ChevronDownIcon = createUiIcon(ChevronDown);
 export const CloseIcon = createUiIcon(X);
 export const PlusIcon = createUiIcon(Plus);
 export const MinusIcon = createUiIcon(Minus);
+export const ShieldCheckIcon = createUiIcon(ShieldCheck);
 
 export function DisclosureIcons() {
   return (
