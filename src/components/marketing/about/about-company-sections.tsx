@@ -94,7 +94,7 @@ export function OurStory() {
             To create a unified platform that simplifies every step of the ecommerce journey.
           </strong>
           <p className={`${mutedLeadClass} ${subtleRuleClass} max-w-[64ch] border-b py-8`}>
-            Today, UniSouk helps brands across India bring listings, inventory, payments, logistics and analytics into a clearer commerce workflow through one platform and its managed services.
+            Today, UniSouk, one of the best ecommerce solution providers, stands as a trusted growth partner for brands across India, offering seamless listings, live inventory management, payment integrations, logistics support, and deep analytics through one intuitive dashboard.
           </p>
         </div>
       </div>
@@ -116,9 +116,9 @@ export function AboutIntro() {
         </h2>
         <div className="border-t border-[var(--ink)]">
           {[
-            "At UniSouk, an ecommerce technology and services provider in India, we believe that online selling should be easier to understand and operate. UniSouk is a unified ecommerce SaaS platform developed for D2C brands and marketplace sellers.",
-            "Whether you're a new entrepreneur or a market leader, UniSouk combines live software connections with separately scoped account management for marketplaces and commerce channels.",
-            "UniSouk is built to help Indian businesses reduce the complexity of modern ecommerce operations.",
+            "At UniSouk, a leading ecommerce service provider in India, we believe that the future of commerce is online, and it should be accessible to everyone at their fingertips. Founded with a vision to simplify online selling, UniSouk is India’s first truly unified ecommerce SaaS platform developed for D2C brands and marketplace sellers.",
+            "Whether you're a new entrepreneur or a market leader, we offer the complete solutions needed to scale effortlessly across digital platforms like Amazon, ONDC, Flipkart, Meesho, and many more.",
+            "UniSouk is proudly built by a seasoned team that understands the complexities of modern ecommerce and is passionate about eliminating them for Indian businesses of all kinds.",
           ].map((copy) => (
             <p className={`${mutedLeadClass} ${subtleRuleClass} max-w-[62ch] border-b py-[1.7rem]`} key={copy}>
               {copy}

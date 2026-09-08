@@ -202,6 +202,7 @@ export function SiteFooter() {
                   width={52}
                   height={26}
                   alt=""
+                  priority
                 />
               </span>
             </a>

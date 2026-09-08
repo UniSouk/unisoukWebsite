@@ -92,8 +92,9 @@ export function AgentProfilesReference() {
                         alt={agent.alt}
                         width={180}
                         height={180}
-                        loading="lazy"
-                        decoding="async"
+                        loading="eager"
+                        decoding="sync"
+                        fetchPriority="high"
                       />
                     </span>
                     <strong>{agent.name}</strong>

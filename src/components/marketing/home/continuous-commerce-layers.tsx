@@ -10,6 +10,11 @@ export const marketplaces = [
     className: "marketplace--amazon",
   },
   {
+    name: "Flipkart",
+    src: "/ecosystem-logos/flipkart-mark.svg",
+    className: "marketplace--flipkart",
+  },
+  {
     name: "Meesho",
     src: PLATFORM_LOGOS.meesho,
     className: "marketplace--meesho",
@@ -158,7 +163,7 @@ export function CommerceOperationsLayers() {
             <div className="order-list">
               {[
                 ["#USK 4821", "Amazon", "Processing"],
-                ["#USK 4820", "Shopify", "Ready to ship"],
+                ["#USK 4820", "Flipkart", "Ready to ship"],
                 ["#USK 4819", "Meesho", "Shipped"],
               ].map(([order, channel, state]) => (
                 <div key={order}>
@@ -188,7 +193,7 @@ export function CommerceOperationsLayers() {
             <ul>
               {[
                 ["Amazon", 0.82],
-                ["Meesho", 0.68],
+                ["Flipkart", 0.68],
                 ["Shopify", 0.76],
                 ["ONDC", 0.61],
               ].map(([channel, stock]) => (
@@ -218,7 +223,7 @@ export function CommerceOperationsLayers() {
             <ol>
               {[
                 ["₹", "Settlement received", "Amazon · ₹42,680", "Now"],
-                ["✓", "Commission calculated", "Meesho · ₹3,240", "1m"],
+                ["✓", "Commission calculated", "Flipkart · ₹3,240", "1m"],
                 ["↻", "Refund processed", "Order #USK 4792", "4m"],
                 ["→", "Payout scheduled", "₹92,430", "Today"],
               ].map(([icon, title, copy, time]) => (

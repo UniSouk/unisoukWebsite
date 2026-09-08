@@ -117,7 +117,6 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
     "@graph": [
       {
         "@type": "BlogPosting",
-        "@id": `${articleUrl}#article`,
         headline: article.title,
         description:
           article.description ||
@@ -128,7 +127,8 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         image: articleImage || undefined,
         keywords: getArticleTags(article.tag),
         mainEntityOfPage: {
-          "@id": `${articleUrl}#webpage`,
+          "@type": "WebPage",
+          "@id": articleUrl,
         },
         author: {
           "@type": author.name === "UniSouk" ? "Organization" : "Person",
@@ -136,21 +136,17 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           url: author.url,
         },
         publisher: {
-          "@id": `${SITE_URL}/#organization`,
-        },
-      },
-      {
-        "@type": "WebPage",
-        "@id": `${articleUrl}#webpage`,
-        name: article.title,
-        url: articleUrl,
-        isPartOf: {
-          "@id": `${SITE_URL}/#website`,
+          "@type": "Organization",
+          name: "UniSouk",
+          url: SITE_URL,
+          logo: {
+            "@type": "ImageObject",
+            url: `${SITE_URL}/unisouk-logo.svg`,
+          },
         },
       },
       {
         "@type": "BreadcrumbList",
-        "@id": `${articleUrl}#breadcrumb`,
         itemListElement: [
           {
             "@type": "ListItem",

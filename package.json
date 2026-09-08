@@ -11,8 +11,7 @@
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
-    "check": "npm run typecheck && npm run lint && npm run build",
-    "seo:check": "node scripts/seo-checks.mjs"
+    "check": "npm run typecheck && npm run lint && npm run build"
   },
   "dependencies": {
     "lucide-react": "^1.28.0",

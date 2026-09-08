@@ -21,12 +21,12 @@ function postAlt(caption: string) {
 
 function InstagramReference({ media }: { media: InstagramMediaItem[] }) {
   return (
-    <section className="instagram-feed" aria-labelledby="podcast-title">
+    <section className="instagram-feed" aria-labelledby="instagram-feed-title">
       <div className="container instagram-feed__inner">
         <div className="instagram-feed__heading">
           <div className="instagram-feed__copy">
             <p className="instagram-feed__eyebrow">Instagram</p>
-            <h1 id="podcast-title"><span>Connected Beyond</span><span>the Platform</span></h1>
+            <h2 id="instagram-feed-title"><span>Connected Beyond</span><span>the Platform</span></h2>
           </div>
           <div className="instagram-feed__intro">
             <p>Product updates, seller insights and a closer look at what UniSouk is building.</p>
