@@ -1,6 +1,8 @@
 import type { CSSProperties } from "react";
 import Image from "next/image";
 
+import { IllustrativeInterfaceLabel } from "@/components/marketing/illustrative-interface-label";
+
 const leftCampaigns = [
   { name: "Meta Ads", spend: "₹1,25,400", roas: "5.8×", logo: "/ecosystem-logos/meta.png" },
   { name: "Google Ads", spend: "₹98,600", roas: "4.7×", logo: "/ecosystem-logos/google-ads.svg" },
@@ -76,6 +78,7 @@ export function PerformanceCampaignMap() {
         <span className="campaign-map__status"><i /> Optimizing</span>
       </div>
       <CampaignColumn campaigns={rightCampaigns} side="right" />
+      <IllustrativeInterfaceLabel className="absolute bottom-2 left-1/2 z-10 -translate-x-1/2 rounded-[0.25rem] bg-white/90 px-2 py-1 text-center text-[0.55rem] shadow-[0_2px_6px_rgb(0_0_0_/_0.12)]" />
     </div>
   );
 }

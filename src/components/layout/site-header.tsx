@@ -69,9 +69,9 @@ export function SiteHeader() {
                   <p className="mb-3 text-[0.78rem] font-semibold text-[var(--orange-ink)]">
                     Solutions
                   </p>
-                  <h2 className="m-0 max-w-[9ch] text-[clamp(2rem,2.5vw,2.75rem)]">
+                  <p className="m-0 max-w-[9ch] font-[family-name:var(--font-heading)] text-[clamp(2rem,2.5vw,2.75rem)] leading-[var(--leading-heading)] font-medium tracking-[var(--tracking-heading)] [text-wrap:balance]">
                     Run commerce your way.
-                  </h2>
+                  </p>
                   <span className="mt-4 block max-w-[29ch] text-[0.9rem] leading-[1.55] text-[var(--text-muted)]">
                     Choose the platform, service or intelligent assistant that
                     fits the way you sell.

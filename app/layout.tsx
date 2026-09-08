@@ -12,12 +12,27 @@ import "./native-foundations.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+  applicationName: "UniSouk",
   title: {
     default: "UniSouk | List. Sell. Grow.",
     template: "%s | UniSouk",
   },
   description:
     "List better, sell across marketplaces and storefronts, and grow with one commerce platform built for Indian sellers.",
+  authors: [{ name: "UniSouk", url: SITE_URL }],
+  creator: "UniSouk",
+  category: "commerce software",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   icons: {
     icon: "/unisouk-mark-on-dark.svg",
   },

@@ -25,10 +25,6 @@ export const aboutFaqs = [
     answer: "Yes! UniSouk lets you sell across leading platforms like Amazon, ONDC, Shopify, WooCommerce, and more. Manage everything from one dashboard, with no need to switch between apps or worry about missing an order.",
   },
   {
-    question: "How secure is my data on UniSouk’s platform?",
-    answer: "Your data security is our top priority. UniSouk uses trusted encryption standards and secure servers to protect your information. We never share your data with third parties, ensuring your business details remain safe and confidential.",
-  },
-  {
     question: "Is UniSouk suitable for new entrepreneurs?",
     answer: "Absolutely! If you're just starting your online journey or already running a brand, UniSouk is designed to meet you where you are. New sellers can set up their store in minutes, with no coding required. Experienced sellers can use our advanced features to streamline operations and maximize growth.",
   },
