@@ -69,11 +69,7 @@ export function CommerceEcosystem() {
                           alt=""
                           width={96}
                           height={96}
-                          loading={
-                            copy === 0 && node.index < ecosystemBrands.length
-                              ? "eager"
-                              : "lazy"
-                          }
+                          loading="lazy"
                           decoding="async"
                         />
                       </div>
