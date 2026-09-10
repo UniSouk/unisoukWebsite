@@ -20,7 +20,9 @@ import {
 } from "@/constants/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "UniSouk | List. Sell. Grow." },
+  title: {
+    absolute: "Unified Commerce Platform for Indian Sellers | UniSouk",
+  },
   description:
     "Improve every listing, sell across connected channels and know your next move with UniSouk.",
   alternates: { canonical: "/" },
@@ -51,11 +53,6 @@ const faqs = [
       "Unlike traditional ecommerce tools that only manage operations, UniSouk combines AI powered automation, marketplace management, and business intelligence in one platform.",
   },
   {
-    question: "Which marketplaces and ecommerce platforms does UniSouk support?",
-    answer:
-      "UniSouk supports major ecommerce marketplaces and platforms, including Amazon, Flipkart, Meesho, Myntra, AJIO, Nykaa Fashion, Etsy, Shopify, WooCommerce, Wix, Blinkit, Zepto, and Instamart.",
-  },
-  {
     question: "What AI Agents does UniSouk offer?",
     answer:
       "UniSouk currently offers five specialized AI Agents: SoukList, SoukSense, SoukStudio, SoukBoost and SoukLedger.",
@@ -83,13 +80,45 @@ export default function HomePage() {
       <PageStructuredData
         value={{
           "@context": "https://schema.org",
-          "@type": "SoftwareApplication",
-          name: "UniSouk",
-          url: SITE_URL,
-          applicationCategory: "BusinessApplication",
-          operatingSystem: "Web",
-          description:
-            "A unified commerce platform for Indian sellers to manage listings, channels, inventory, orders and growth insights.",
+          "@graph": [
+            {
+              "@type": "Organization",
+              "@id": `${SITE_URL}/#organization`,
+              name: "UniSouk",
+              url: `${SITE_URL}/`,
+              logo: {
+                "@type": "ImageObject",
+                "@id": `${SITE_URL}/#logo`,
+                url: `${SITE_URL}/unisouk-logo.svg`,
+              },
+            },
+            {
+              "@type": "WebSite",
+              "@id": `${SITE_URL}/#website`,
+              name: "UniSouk",
+              url: `${SITE_URL}/`,
+              publisher: { "@id": `${SITE_URL}/#organization` },
+            },
+            {
+              "@type": "SoftwareApplication",
+              "@id": `${SITE_URL}/#software`,
+              name: "UniSouk",
+              url: `${SITE_URL}/`,
+              applicationCategory: "BusinessApplication",
+              operatingSystem: "Web",
+              description:
+                "A unified commerce platform for Indian sellers to manage listings, channels, inventory, orders and growth insights.",
+              provider: { "@id": `${SITE_URL}/#organization` },
+            },
+            {
+              "@type": "WebPage",
+              "@id": `${SITE_URL}/#webpage`,
+              name: "Unified commerce for Indian sellers",
+              url: `${SITE_URL}/`,
+              isPartOf: { "@id": `${SITE_URL}/#website` },
+              about: { "@id": `${SITE_URL}/#software` },
+            },
+          ],
         }}
       />
       <main id="main-content">
@@ -164,8 +193,8 @@ export default function HomePage() {
               </h2>
               <p>
                 It&apos;s time to take control of your ecommerce operations.
-                Join thousands of sellers across India who are growing faster
-                with UniSouk.
+                Bring your commerce operations together with UniSouk and
+                take control of your next move.
               </p>
               <a className="button button--primary" href={DEMO_BOOKING_URL}>
                 Book a free demo

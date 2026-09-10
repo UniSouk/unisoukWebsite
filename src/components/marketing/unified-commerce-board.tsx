@@ -1,11 +1,12 @@
+import { IllustrativeInterfaceLabel } from "@/components/marketing/illustrative-interface-label";
+
 export function UnifiedCommerceBoard() {
   return (
-<div
-  className="commerce-board"
- 
-  role="img"
-  aria-label="Amazon, Shopify, Meesho and ONDC connect to one UniSouk workspace for listings, inventory, orders, shipping and growth"
->
+<div className="commerce-board">
+  <div
+    role="img"
+    aria-label="Amazon, Shopify, Meesho and ONDC connect to one UniSouk workspace for listings, inventory, orders, shipping and growth"
+  >
   <svg className="commerce-board__canvas" viewBox="0 0 640 540" aria-hidden="true">
     <defs>
       <linearGradient id="board-surface" x1="0" y1="0" x2="0" y2="1">
@@ -165,6 +166,8 @@ export function UnifiedCommerceBoard() {
       <text x="479" y="493" fill="#3e4045" fontSize="10.5">Everything in sync</text>
     </g>
   </svg>
+  </div>
+  <IllustrativeInterfaceLabel className="absolute bottom-[5%] left-[18%] z-10 max-w-[28ch] rounded-[0.25rem] bg-white/90 px-2 py-1 text-[0.55rem] shadow-[0_2px_6px_rgb(0_0_0_/_0.12)]" />
 </div>
   );
 }

@@ -6,13 +6,14 @@ import {
 } from "react";
 
 import { CodeCopyButton } from "@/components/blog/code-copy-button";
+import { normalizeInternalHref } from "@/constants/legacy-routes";
 import { resolveCmsUrl } from "@/lib/blog";
 import type { BlogArticle, RichTextChild } from "@/types/blog";
 
 function safeHref(url?: string) {
   if (!url) return "#";
+  if (url.startsWith("/")) return normalizeInternalHref(url);
   if (
-    url.startsWith("/") ||
     url.startsWith("#") ||
     /^https?:\/\//i.test(url) ||
     /^mailto:/i.test(url) ||
@@ -21,6 +22,13 @@ function safeHref(url?: string) {
     return url;
   }
   return "#";
+}
+
+function sanitizeArticleText(text: string) {
+  return text
+    .replace(/\bone of the best businesses\b/gi, "a practical business")
+    .replace(/\bone of the best places\b/gi, "a useful place")
+    .replace(/\bone of the best\b/gi, "a strong option");
 }
 
 function renderChild(child: RichTextChild, key: string): ReactNode {
@@ -40,7 +48,7 @@ function renderChild(child: RichTextChild, key: string): ReactNode {
     );
   }
 
-  let content: ReactNode = child.text || "";
+  let content: ReactNode = sanitizeArticleText(child.text || "");
   if (child.code) content = <code>{content}</code>;
   if (child.bold) content = <strong>{content}</strong>;
   if (child.italic) content = <em>{content}</em>;
@@ -78,13 +86,17 @@ export function ArticleRichText({ article }: { article: BlogArticle }) {
       (paragraph) => paragraph && paragraph.toLocaleLowerCase() !== "drag",
     );
 
+  let previousHeadingLevel = 1;
+
   return (
     <div className="mx-auto w-full max-w-[46rem] text-[clamp(1.04rem,1.3vw,1.16rem)] leading-[1.78] text-[color:color-mix(in_oklch,var(--ink)_88%,transparent)] max-[47.99rem]:text-base max-[47.99rem]:leading-[1.72] [&_:where(h2,h3,h4,h5,h6)]:!mt-[2.75em] [&_:where(h2,h3,h4,h5,h6)]:mb-[0.75em] [&_:where(h2,h3,h4,h5,h6)]:font-[family-name:var(--font-heading)] [&_:where(h2,h3,h4,h5,h6)]:font-medium [&_:where(h2,h3,h4,h5,h6)]:tracking-[-0.03em] [&_:where(h2,h3,h4,h5,h6)]:text-[var(--ink)] [&_:where(h2,h3,h4,h5,h6)]:text-balance [&_h2]:!text-[clamp(2.2rem,4vw,3.5rem)] [&_h3]:text-[clamp(1.75rem,3vw,2.5rem)] [&_h4]:text-[clamp(1.45rem,2.2vw,2rem)] [&_:where(h5,h6)]:text-[1.22rem] [&_p]:mb-[1.3em] [&_p]:mt-0 [&_strong]:font-semibold [&_strong]:text-[var(--ink)] [&_a]:text-[var(--orange-ink)] [&_:not(pre)>code]:bg-[var(--mist)] [&_:not(pre)>code]:px-[0.35em] [&_:not(pre)>code]:py-[0.15em] [&_:not(pre)>code]:text-[0.9em] [&_:where(ul,ol)]:my-6 [&_:where(ul,ol)]:grid [&_:where(ul,ol)]:gap-[0.65rem] [&_:where(ul,ol)]:pl-6 [&_li::marker]:font-semibold [&_li::marker]:text-[var(--orange-ink)] [&_figure]:my-[clamp(2.5rem,6vw,4rem)] [&_figure_img]:h-auto [&_figure_img]:w-full [&_blockquote]:my-10 [&_blockquote]:border-y [&_blockquote]:border-[var(--orange-ink)] [&_blockquote]:py-6 [&_blockquote]:font-[family-name:var(--font-heading)] [&_blockquote]:text-[clamp(1.35rem,2.5vw,2rem)] [&_blockquote]:leading-[1.35] [&_blockquote]:text-[var(--ink)]">
       {(article.body || []).map((item, index) => {
         const key = `body-${index}`;
 
         if (item.type === "heading") {
-          const level = Math.min(Math.max(item.level || 2, 2), 6);
+          const requestedLevel = Math.min(Math.max(item.level || 2, 2), 6);
+          const level = Math.min(requestedLevel, previousHeadingLevel + 1);
+          previousHeadingLevel = level;
           return createElement(
             `h${level}`,
             { key },

@@ -19,26 +19,21 @@ function toLastModified(value?: string) {
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const articles = await getBlogArticles();
-  const marketingEntries: MetadataRoute.Sitemap = MARKETING_ROUTES
-    .map((route) => ({
+  const marketingEntries: MetadataRoute.Sitemap = MARKETING_ROUTES.map(
+    (route) => ({
       url: new URL(route, SITE_URL).href,
-      changeFrequency: route === "/" ? "weekly" : "monthly",
-      priority: route === "/" ? 1 : 0.7,
-    }));
+    }),
+  );
 
   const articleEntries: MetadataRoute.Sitemap = articles.map((article) => ({
     url: new URL(getArticlePath(article), SITE_URL).href,
     lastModified: toLastModified(
       getModifiedDate(article) || getPublishedDate(article),
     ),
-    changeFrequency: "monthly",
-    priority: 0.64,
   }));
   const legalEntries: MetadataRoute.Sitemap = LEGAL_POLICY_LINKS.map(
     ({ href }) => ({
       url: new URL(href, SITE_URL).href,
-      changeFrequency: "yearly",
-      priority: 0.4,
     }),
   );
 
@@ -47,8 +42,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...legalEntries,
     {
       url: `${SITE_URL}/blog/`,
-      changeFrequency: "weekly",
-      priority: 0.8,
     },
     ...articleEntries,
   ];
