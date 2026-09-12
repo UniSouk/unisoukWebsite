@@ -1,0 +1,40 @@
+.tab {
+  position: relative;
+  overflow: hidden;
+}
+
+.progress {
+  position: absolute;
+  right: 0;
+  bottom: -1px;
+  left: 0;
+  height: 2px;
+  background: var(--orange);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.progress.isCycling {
+  animation: uni-agents-agent-progress 4.2s linear both;
+}
+
+.progress.isPaused {
+  animation-play-state: paused;
+}
+
+@keyframes uni-agents-agent-progress {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .progress.isCycling {
+    animation: none;
+    transform: scaleX(0);
+  }
+}

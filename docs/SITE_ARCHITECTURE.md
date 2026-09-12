@@ -50,3 +50,13 @@ information architecture.
 Do not create thin placeholder pages merely to populate navigation. Capabilities
 belong as sections inside their solution page unless the product architecture is
 explicitly revised.
+
+## Unlisted routes
+
+`/solutions/uni-agents/` documents the live Uni Agents seller-dashboard
+product (product audits, listing optimization, image generation, and
+portfolio insights). It is a real, complete page reachable by direct link
+and listed in `app/sitemap.ts`, but it is intentionally not linked from the
+primary Solutions navigation or footer yet, pending a decision on how it
+relates to `/solutions/ai-agents/` in the approved information architecture.
+Do not add a nav/footer entry for it without revisiting this document.
