@@ -11,7 +11,7 @@ import { NativeSiteShell } from "@/components/layout/site-shell";
 import { ArrowRightIcon, DisclosureIcons } from "@/components/ui/icon";
 import { HomeHero } from "@/components/marketing/home/home-hero";
 import { ChooseHowItWorks } from "@/components/marketing/home/choose-how-it-works";
-import { CustomerProof } from "@/components/marketing/home/customer-proof";
+// import { CustomerProof } from "@/components/marketing/home/customer-proof";
 import {
   CONSULTATION_BOOKING_URL,
   DEMO_BOOKING_URL,
@@ -176,7 +176,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <CustomerProof privacyPolicyUrl="/privacy/" />
+        {/* <CustomerProof privacyPolicyUrl="/privacy/" /> */}
 
         {/* <VideoTestimonialPlaceholder /> */}
 
