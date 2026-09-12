@@ -106,6 +106,7 @@ export function InstagramEmbed() {
   return (
     <div
       ref={containerRef}
+      className="instagram-feed__embed"
       style={{ visibility: isReady ? "visible" : "hidden" }}
     >
       <blockquote

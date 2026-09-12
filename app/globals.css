@@ -198,9 +198,14 @@ p {
   }
 }
 
+.instagram-feed__embed {
+  height: 36.5rem;
+  overflow: hidden;
+}
+
 .instagram-feed__fallback .instagram-media {
   display: grid;
-  min-height: 36.5rem;
+  min-height: 100%;
   place-items: center;
   border: 0;
   background: var(--white);
@@ -211,7 +216,7 @@ p {
 }
 
 @media (max-width: 47.99rem) {
-  .instagram-feed__fallback .instagram-media {
-    min-height: 39rem;
+  .instagram-feed__embed {
+    height: 39rem;
   }
 }
