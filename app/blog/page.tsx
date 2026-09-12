@@ -137,7 +137,7 @@ export default async function BlogPage() {
               className={`${siteContainerClass} grid grid-cols-[minmax(0,1.2fr)_minmax(22rem,0.8fr)] gap-[clamp(3rem,7vw,7rem)] py-[clamp(5rem,10vw,8rem)] max-[66rem]:grid-cols-1`}
             >
               <Link
-                className="group/featured relative block min-h-[34rem] overflow-hidden bg-[oklch(23%_0_0)] no-underline max-[66rem]:min-h-[26rem] max-[47.99rem]:min-h-80"
+                className="group/featured relative block aspect-[4/3] overflow-hidden bg-[var(--ink)] no-underline"
                 href={getArticlePath(featuredArticle)}
                 aria-label={`Read ${featuredArticle.title}`}
               >
@@ -150,7 +150,7 @@ export default async function BlogPage() {
                     }
                     fill
                     sizes="(max-width: 66rem) 100vw, 55vw"
-                    className="h-full w-full object-cover transition-all duration-700 group-hover/featured:scale-[1.025] group-hover/featured:opacity-[0.88] motion-reduce:transition-none"
+                    className="h-full w-full object-contain transition-all duration-700 group-hover/featured:scale-[1.025] group-hover/featured:opacity-[0.88] motion-reduce:transition-none"
                   />
                 )}
                 <span
