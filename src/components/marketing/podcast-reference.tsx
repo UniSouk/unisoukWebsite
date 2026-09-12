@@ -31,7 +31,7 @@ function InstagramReference({ media }: { media: InstagramMediaItem[] }) {
           <div className="instagram-feed__intro">
             <p>Product updates, seller insights and a closer look at what UniSouk is building.</p>
             <a className="instagram-feed__follow" href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" aria-label="Follow UniSouk on Instagram">
-              Follow @unisouk.in <span aria-hidden="true"><ArrowUpRightIcon /></span>
+              Follow @unisouk.com_india <span aria-hidden="true"><ArrowUpRightIcon /></span>
             </a>
           </div>
         </div>
@@ -49,7 +49,7 @@ function InstagramReference({ media }: { media: InstagramMediaItem[] }) {
             <div className="instagram-feed__fallback-copy">
               <span className="instagram-feed__mark" aria-hidden="true">◎</span>
               <p>See the latest from UniSouk on Instagram.</p>
-              <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer">Open @unisouk.in <span aria-hidden="true"><ArrowUpRightIcon /></span></a>
+              <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer">Open @unisouk.com_india <span aria-hidden="true"><ArrowUpRightIcon /></span></a>
             </div>
             <InstagramEmbed />
           </div>

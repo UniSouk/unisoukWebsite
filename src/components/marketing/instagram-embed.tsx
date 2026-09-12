@@ -72,7 +72,7 @@ export function InstagramEmbed() {
       data-instgrm-version="14"
     >
       <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer">
-        View @unisouk.in on Instagram
+        View @unisouk.com_india on Instagram
       </a>
     </blockquote>
   );
