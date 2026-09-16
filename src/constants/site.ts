@@ -6,6 +6,8 @@ export const DEMO_BOOKING_URL =
   "https://calendar.app.google/NLwZ5g1RJvigqR4c6";
 export const CONSULTATION_BOOKING_URL =
   "https://calendar.app.google/kxxzKiyEfoWJzmTU6";
+export const ACCOUNT_MANAGEMENT_BOOKING_URL =
+  "https://calendar.app.google/z7tURzpYLRs6hpb17";
 
 export const INSTAGRAM_URL = "https://www.instagram.com/unisouk.com_india";
 export const YOUTUBE_URL = "https://www.youtube.com/@UniSouk";

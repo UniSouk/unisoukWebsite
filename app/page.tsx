@@ -13,6 +13,7 @@ import { HomeHero } from "@/components/marketing/home/home-hero";
 import { ChooseHowItWorks } from "@/components/marketing/home/choose-how-it-works";
 // import { CustomerProof } from "@/components/marketing/home/customer-proof";
 import {
+  ACCOUNT_MANAGEMENT_BOOKING_URL,
   CONSULTATION_BOOKING_URL,
   DEMO_BOOKING_URL,
   SIGN_UP_URL,
@@ -29,8 +30,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
 };
 
-const accountManagerCalendarUrl =
-  "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ27oiN5SQCdY_igGWRLCCzNNq2yR1qO5lXm9nTBi_BajecHLmlgGsalXAVVXTYyxRb7rbVSIL4S";
+const accountManagerCalendarUrl = ACCOUNT_MANAGEMENT_BOOKING_URL;
 
 const faqs = [
   {
@@ -162,7 +162,15 @@ export default function HomePage() {
                   <li>ONDC</li>
                   <li>Meesho</li>
                   <li>
-                    Flipkart <span>Coming soon</span>
+                    Flipkart{" "}
+                    <a
+                      className="inline-flex items-center gap-1.5 rounded-full border border-[var(--grey)] bg-[var(--mist)] px-3 py-1.5 font-[family-name:var(--font-body)] text-[0.75rem] font-medium tracking-[0.01em] text-[var(--text-muted)] no-underline transition-colors duration-150 hover:border-[var(--orange-ink)] hover:bg-[color-mix(in_oklch,var(--orange)_16%,var(--white))] hover:text-[var(--orange-ink)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--orange-ink)]"
+                      href="/contact/"
+                    >
+                      Coming soon
+                      <span aria-hidden="true">·</span>
+                      Notify me
+                    </a>
                   </li>
                 </ul>
               </article>

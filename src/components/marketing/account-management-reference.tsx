@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 import { ArrowRightIcon } from "@/components/ui/icon";
-import { CONSULTATION_BOOKING_URL } from "@/constants/site";
+import { ACCOUNT_MANAGEMENT_BOOKING_URL } from "@/constants/site";
 import { AccountManagementSections, deskItems } from "./account-management-sections";
 
 export function AccountManagementReference() {
@@ -21,7 +21,7 @@ export function AccountManagementReference() {
               operations and performance.
             </p>
             <div className="management-hero__actions">
-              <a className="button button--primary" href={CONSULTATION_BOOKING_URL}>
+              <a className="button button--primary" href={ACCOUNT_MANAGEMENT_BOOKING_URL}>
                 Book a free consultation
                 <ArrowRightIcon />
               </a>
