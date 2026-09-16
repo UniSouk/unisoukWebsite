@@ -49,6 +49,13 @@ export function HomeHero() {
                   <ArrowRightIcon />
                 </a>
               </div>
+              {/* <a
+                className="inline-flex min-h-11 items-center gap-2 border-b-2 border-[var(--orange-ink)] font-[family-name:var(--font-body)] text-[1rem] font-semibold text-[var(--ink)] no-underline transition-colors duration-150 hover:text-[var(--orange-ink)] focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--orange-ink)]"
+                href="/pricing/"
+              >
+                See pricing
+                <ArrowRightIcon />
+              </a> */}
             </div>
             <div className="hero-visual">
               <ContinuousCommerceFlow />

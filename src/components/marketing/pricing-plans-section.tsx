@@ -2,7 +2,11 @@
 
 import { useState } from "react";
 import { ArrowRightIcon, CheckIcon } from "@/components/ui/icon";
-import { DASHBOARD_URL, DEMO_BOOKING_URL } from "@/constants/site";
+import {
+  ACCOUNT_MANAGEMENT_BOOKING_URL,
+  DASHBOARD_URL,
+  DEMO_BOOKING_URL,
+} from "@/constants/site";
 import { agentFeatures, managementFeatures, websiteFeatures } from "./pricing-reference-data";
 
 function FeatureList({
@@ -149,7 +153,10 @@ export function PricingPlansSection() {
                 </div>
                 <small>Based on your channels and requirements</small>
               </div>
-              <a className="button button--secondary" href={DEMO_BOOKING_URL}>
+              <a
+                className="button button--secondary"
+                href={ACCOUNT_MANAGEMENT_BOOKING_URL}
+              >
                 Schedule a call
                 <ArrowRightIcon />
               </a>

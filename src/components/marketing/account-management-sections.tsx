@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 import { ArrowRightIcon } from "@/components/ui/icon";
-import { CONSULTATION_BOOKING_URL } from "@/constants/site";
+import { ACCOUNT_MANAGEMENT_BOOKING_URL } from "@/constants/site";
 import { ManagedServiceClarity } from "./managed-service-clarity";
 
 const responsibilities = [
@@ -217,7 +217,7 @@ export function AccountManagementSections() {
         </div>
       </section>
 
-      <ManagedServiceClarity scopeUrl={CONSULTATION_BOOKING_URL} />
+      <ManagedServiceClarity scopeUrl={ACCOUNT_MANAGEMENT_BOOKING_URL} />
 
       <section className="management-cta" aria-labelledby="management-cta-title">
         <div className="container management-cta__inner">
@@ -230,7 +230,7 @@ export function AccountManagementSections() {
               We&apos;ll show you how UniSouk can take it forward.
             </p>
           </div>
-          <a className="button button--primary" href={CONSULTATION_BOOKING_URL}>
+          <a className="button button--primary" href={ACCOUNT_MANAGEMENT_BOOKING_URL}>
             Book a free consultation
             <ArrowRightIcon />
           </a>
