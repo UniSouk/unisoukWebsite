@@ -18,6 +18,7 @@ import {
   SIGN_UP_URL,
   SITE_URL,
 } from "@/constants/site";
+import { buildFaqPageSchema } from "@/lib/faq-schema";
 
 export const metadata: Metadata = {
   title: {
@@ -121,6 +122,7 @@ export default function HomePage() {
           ],
         }}
       />
+      <PageStructuredData value={buildFaqPageSchema(faqs)} />
       <main id="main-content">
         <HomeHero />
 

@@ -16,8 +16,9 @@ export function UniAgentsFaqAccordion() {
 
   return (
     <div className="ual-accordion">
-      {UNI_AGENTS_FAQ.map((item) => {
+      {UNI_AGENTS_FAQ.map((item, index) => {
         const isOpen = openQuestion === item.question;
+        const panelId = `ual-faq-panel-${index}`;
         return (
           <article
             className={`ual-faq-item${isOpen ? " is-open" : ""}`}
@@ -26,6 +27,7 @@ export function UniAgentsFaqAccordion() {
             <button
               type="button"
               aria-expanded={isOpen}
+              aria-controls={panelId}
               onClick={() =>
                 setOpenQuestion(isOpen ? null : item.question)
               }
@@ -33,7 +35,7 @@ export function UniAgentsFaqAccordion() {
               <span>{item.question}</span>
               <i />
             </button>
-            <div className="ual-faq-answer" hidden={!isOpen}>
+            <div className="ual-faq-answer" id={panelId} hidden={!isOpen}>
               <p>{item.answer}</p>
             </div>
           </article>

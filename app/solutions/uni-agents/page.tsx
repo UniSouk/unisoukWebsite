@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import { UniAgentsLanding } from "@/components/marketing/uni-agents-landing";
 import { PageStructuredData } from "@/components/marketing/marketing-primitives";
 import { NativeSiteShell } from "@/components/layout/site-shell";
+import { UNI_AGENTS_FAQ } from "@/constants/uni-agents";
+import { buildFaqPageSchema } from "@/lib/faq-schema";
 
 export const metadata: Metadata = {
   title: { absolute: "Uni Agents | AI agents for commerce | UniSouk" },
@@ -26,6 +28,7 @@ export default function UniAgentsPage() {
           provider: { "@type": "Organization", name: "UniSouk" },
         }}
       />
+      <PageStructuredData value={buildFaqPageSchema(UNI_AGENTS_FAQ)} />
       <main id="main-content">
         <UniAgentsLanding />
       </main>

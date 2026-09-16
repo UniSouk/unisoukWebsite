@@ -3,6 +3,7 @@ import { AboutReference, aboutFaqs } from "@/components/marketing/about-referenc
 import { PageStructuredData } from "@/components/marketing/marketing-primitives";
 import { NativeSiteShell } from "@/components/layout/site-shell";
 import { SITE_URL } from "@/constants/site";
+import { buildFaqPageSchema } from "@/lib/faq-schema";
 
 export const metadata: Metadata = {
   title: { absolute: "About UniSouk | India’s Unified Seller Platform" },
@@ -20,15 +21,7 @@ export default function AboutPage() {
       url: SITE_URL,
       logo: `${SITE_URL}/unisouk-logo.svg`,
     },
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      mainEntity: aboutFaqs.map((faq) => ({
-        "@type": "Question",
-        name: faq.question,
-        acceptedAnswer: { "@type": "Answer", text: faq.answer },
-      })),
-    },
+    buildFaqPageSchema(aboutFaqs),
   ];
 
   return (
