@@ -131,7 +131,7 @@ export default function HomePage() {
           accountManagementUrl={accountManagerCalendarUrl}
         />
         <ChooseHowItWorks
-          startTrialUrl={SIGN_UP_URL}
+          startSellingUrl={SIGN_UP_URL}
           buildPlanUrl={DEMO_BOOKING_URL}
           consultationUrl={CONSULTATION_BOOKING_URL}
           pricingUrl="/pricing/"

@@ -2,14 +2,16 @@ import { ArrowRightIcon, CheckIcon, DisclosureIcons } from "@/components/ui/icon
 import { DASHBOARD_URL } from "@/constants/site";
 import { PricingPlansSection } from "./pricing-plans-section";
 import { comparisonRows, faqs } from "./pricing-reference-data";
+import type { SaasPlanPricing } from "@/lib/plans";
 
-export function PricingReference() {
+export function PricingReference({
+  saasPlanPricing,
+}: {
+  saasPlanPricing: SaasPlanPricing;
+}) {
   return (<>
       <section className="pricing-hero" aria-labelledby="pricing-title">
         <div className="container pricing-hero__inner">
-          <p className="pricing-hero__note">
-            <span aria-hidden="true" /> One month free on both SaaS plans
-          </p>
           <h1 id="pricing-title">
             Simple pricing.
             <br />
@@ -21,7 +23,7 @@ export function PricingReference() {
           </p>
           <div className="pricing-hero__actions">
             <a className="button button--primary" href={DASHBOARD_URL}>
-              Start your 1 month free trial
+              Create your account
               <ArrowRightIcon />
             </a>
             <a
@@ -33,7 +35,7 @@ export function PricingReference() {
           </div>
         </div>
       </section>
-      <PricingPlansSection />
+      <PricingPlansSection saasPlanPricing={saasPlanPricing} />
       <section
         className="plan-comparison"
         aria-labelledby="comparison-title"
@@ -42,8 +44,9 @@ export function PricingReference() {
           <header>
             <h2 id="comparison-title">Inside the SaaS subscription.</h2>
             <p>
-              Both SaaS choices share the same AI foundation. Operational
-              connections are added in the ₹2,999 plan.
+              All three SaaS choices share the same connected commerce
+              foundation. AI agents are added on the AI Agents Only and
+              Integrations + AI Tools plans.
             </p>
           </header>
           <div
@@ -57,6 +60,7 @@ export function PricingReference() {
             >
               <span role="columnheader">Capability</span>
               <span role="columnheader">AI Agents Only</span>
+              <span role="columnheader">Platform Only</span>
               <span role="columnheader">Integrations + AI Tools</span>
             </div>
             {comparisonRows.map((row) => (
@@ -64,6 +68,17 @@ export function PricingReference() {
                 <strong role="rowheader">{row.feature}</strong>
                 <span role="cell" data-label="AI Agents Only">
                   {row.agents ? (
+                    <i className="comparison-check" aria-label="Included">
+                      <CheckIcon />
+                    </i>
+                  ) : (
+                    <i className="comparison-dash" aria-label="Not included">
+                      No
+                    </i>
+                  )}
+                </span>
+                <span role="cell" data-label="Platform Only">
+                  {row.platform ? (
                     <i className="comparison-check" aria-label="Included">
                       <CheckIcon />
                     </i>

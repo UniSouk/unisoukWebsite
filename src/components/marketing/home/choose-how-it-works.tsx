@@ -15,12 +15,12 @@ const steps: Step[] = [
 const managedTasks = ["Listings ready", "Orders handled", "Reports shared"];
 
 export function ChooseHowItWorks({
-  startTrialUrl,
+  startSellingUrl,
   buildPlanUrl,
   consultationUrl,
   pricingUrl,
 }: {
-  startTrialUrl: string;
+  startSellingUrl: string;
   buildPlanUrl: string;
   consultationUrl: string;
   pricingUrl: string;
@@ -113,9 +113,9 @@ export function ChooseHowItWorks({
             </div>
             <a
               className="work-chooser__cta work-chooser__cta--outline"
-              href={startTrialUrl}
+              href={startSellingUrl}
             >
-              Start free trial
+              Start selling
               <ArrowRightIcon />
             </a>
           </article>

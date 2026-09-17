@@ -1,6 +1,44 @@
 import { COMMERCE_AGENTS } from "@/constants/agents";
+import type { SaasPlanPricing } from "@/lib/plans";
 
 export const agentFeatures = COMMERCE_AGENTS.map(({ name }) => name);
+
+// Static fallback used if the live plans API is unavailable or returns an
+// unexpected shape, so the pricing cards never show a broken price.
+export const fallbackSaasPlanPricing: SaasPlanPricing = {
+  agents: {
+    name: "AI Agents",
+    description: "Intelligent assistants for listings, analytics, imagery, marketing and finance.",
+    features: agentFeatures,
+    prices: [{ billingCycle: "MONTHLY", price: 1499, currency: "INR" }],
+  },
+  platform: {
+    name: "Platform",
+    description: "Unlimited channels, orders and tools without the AI agents.",
+    features: [
+      "Marketplace integrations",
+      "Storefront integrations",
+      "Unified listings",
+      "Inventory management",
+      "Order management",
+    ],
+    prices: [{ billingCycle: "MONTHLY", price: 1499, currency: "INR" }],
+  },
+  bundle: {
+    name: "Integrations + AI Tools",
+    description: "AI assistants plus the connected commerce workflows needed to operate across channels.",
+    features: [
+      ...agentFeatures,
+      "Marketplace integrations",
+      "Storefront integrations",
+      "Unified listings",
+      "Inventory and orders",
+      "Shipping and fulfilment",
+      "Payments and settlements",
+    ],
+    prices: [{ billingCycle: "MONTHLY", price: 2999, currency: "INR" }],
+  },
+};
 
 export const platformFeatures = [
   "Marketplace integrations",
@@ -32,9 +70,9 @@ export const faqs = [
       "The plan includes all five UniSouk agents: SoukList, SoukSense, SoukStudio, SoukBoost and SoukLedger.",
   },
   {
-    question: "Does the free trial apply to both SaaS plans?",
+    question: "Is there a free trial?",
     answer:
-      "Yes. Both AI Agents Only and Integrations + AI Tools include a one month free trial.",
+      "UniSouk does not offer a free trial. You can start selling right away with no long-term lock-in, and cancel your subscription at any time.",
   },
   {
     question: "Are taxes included in the displayed subscription prices?",
@@ -42,7 +80,7 @@ export const faqs = [
       "The displayed monthly prices exclude GST. Applicable GST is added to the final subscription amount.",
   },
   {
-    question: "Is Account Management included in the ₹2,999 plan?",
+    question: "Is Account Management included in the Integrations + AI Tools plan?",
     answer:
       "Account Management is a separate hands on service with pricing based on your channels, catalogue and operating requirements.",
   },
