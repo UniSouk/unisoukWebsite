@@ -3,6 +3,16 @@ import type { SaasPlanPricing } from "@/lib/plans";
 
 export const agentFeatures = COMMERCE_AGENTS.map(({ name }) => name);
 
+// One-line descriptions matching the copy used on the agent profile cards,
+// shown as subtext under each agent's name in the plan comparison table.
+const agentDescriptions: Record<string, string> = {
+  SoukList: "Audits product content and prepares clearer, channel-ready listings.",
+  SoukSense: "Turns connected performance signals into useful insights and next actions.",
+  SoukStudio: "Creates product visual directions for every important sales channel.",
+  SoukBoost: "Finds stronger campaign opportunities and smarter places to spend.",
+  SoukLedger: "Makes fees, payments, and profitability easier to understand.",
+};
+
 // Static fallback used if the live plans API is unavailable or returns an
 // unexpected shape, so the pricing cards never show a broken price.
 export const fallbackSaasPlanPricing: SaasPlanPricing = {
@@ -53,11 +63,13 @@ export const platformFeatures = [
 export const comparisonRows = [
   ...agentFeatures.map((feature) => ({
     feature,
+    description: agentDescriptions[feature] as string | undefined,
     agents: true,
     platform: true,
   })),
   ...platformFeatures.map((feature) => ({
     feature,
+    description: undefined as string | undefined,
     agents: false,
     platform: true,
   })),

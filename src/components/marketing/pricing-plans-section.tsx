@@ -52,7 +52,7 @@ const SUBSCRIPTION_LABELS: Record<SaasPlanCategory, string> = {
   bundle: "Platform + AI Tools",
 };
 
-const SUBSCRIPTION_ORDER: SaasPlanCategory[] = ["agents", "platform", "bundle"];
+const SUBSCRIPTION_ORDER: SaasPlanCategory[] = ["platform", "agents", "bundle"];
 
 export function PricingPlansSection({
   saasPlanPricing,
@@ -60,9 +60,9 @@ export function PricingPlansSection({
   saasPlanPricing: SaasPlanPricing;
 }) {
   const [subscription, setSubscription] = useState<SaasPlanCategory>(
-    "agents",
+    "platform",
   );
-  const [billingCycle, setBillingCycle] = useState<BillingCycle>("MONTHLY");
+  const [billingCycle, setBillingCycle] = useState<BillingCycle>("ANNUAL");
 
   const showAnnualToggle = SUBSCRIPTION_ORDER.some((category) =>
     saasPlanPricing[category].prices.some(
@@ -73,6 +73,21 @@ export function PricingPlansSection({
   const activePlan = saasPlanPricing[subscription];
   const activePrice = getPriceForCycle(activePlan.prices, billingCycle);
   const cycleSuffix = billingCycle === "ANNUAL" ? "/year + GST" : "/month + GST";
+
+  const activeAnnualSavingsPercent = (() => {
+    if (billingCycle !== "ANNUAL") return 0;
+    const monthly = activePlan.prices.find(
+      (entry) => entry.billingCycle === "MONTHLY",
+    );
+    const annual = activePlan.prices.find(
+      (entry) => entry.billingCycle === "ANNUAL",
+    );
+    if (!monthly || !annual) return 0;
+    const yearlyMonthlyTotal = monthly.price * 12;
+    return Math.round(
+      ((yearlyMonthlyTotal - annual.price) / yearlyMonthlyTotal) * 100,
+    );
+  })();
 
   return (
       <section
@@ -115,9 +130,16 @@ export function PricingPlansSection({
               <div className="plan-card__price">
                 <div>
                   <small>Starting from</small>
-                  <p>
-                    <span>₹</span>{formatPrice(activePrice.price)}
-                  </p>
+                  <span className="flex min-w-0 flex-wrap items-center gap-2">
+                    <p>
+                      <span>₹</span>{formatPrice(activePrice.price)}
+                    </p>
+                    {activeAnnualSavingsPercent > 0 && (
+                      <span className="-translate-y-1 inline-block shrink-0 whitespace-nowrap rounded-full bg-[var(--orange)] px-2.5 py-1 font-[family-name:var(--font-body)] text-[0.7rem] font-semibold text-white">
+                        Save {activeAnnualSavingsPercent}%
+                      </span>
+                    )}
+                  </span>
                 </div>
                 <small> {billingCycle === "ANNUAL" ? "yearly" : "monthly"} billing + GST</small>
               </div>
