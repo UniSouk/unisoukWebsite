@@ -60,9 +60,9 @@ export function PricingPlansSection({
   saasPlanPricing: SaasPlanPricing;
 }) {
   const [subscription, setSubscription] = useState<SaasPlanCategory>(
-    "agents",
+    "platform",
   );
-  const [billingCycle, setBillingCycle] = useState<BillingCycle>("MONTHLY");
+  const [billingCycle, setBillingCycle] = useState<BillingCycle>("ANNUAL");
 
   const showAnnualToggle = SUBSCRIPTION_ORDER.some((category) =>
     saasPlanPricing[category].prices.some(
@@ -73,6 +73,21 @@ export function PricingPlansSection({
   const activePlan = saasPlanPricing[subscription];
   const activePrice = getPriceForCycle(activePlan.prices, billingCycle);
   const cycleSuffix = billingCycle === "ANNUAL" ? "/year + GST" : "/month + GST";
+
+  const activeAnnualSavingsPercent = (() => {
+    if (billingCycle !== "ANNUAL") return 0;
+    const monthly = activePlan.prices.find(
+      (entry) => entry.billingCycle === "MONTHLY",
+    );
+    const annual = activePlan.prices.find(
+      (entry) => entry.billingCycle === "ANNUAL",
+    );
+    if (!monthly || !annual) return 0;
+    const yearlyMonthlyTotal = monthly.price * 12;
+    return Math.round(
+      ((yearlyMonthlyTotal - annual.price) / yearlyMonthlyTotal) * 100,
+    );
+  })();
 
   return (
       <section
@@ -117,6 +132,11 @@ export function PricingPlansSection({
                   <small>Starting from</small>
                   <p>
                     <span>₹</span>{formatPrice(activePrice.price)}
+                    {activeAnnualSavingsPercent > 0 && (
+                      <span className="plan-card__discount-badge">
+                        Save {activeAnnualSavingsPercent}%
+                      </span>
+                    )}
                   </p>
                 </div>
                 <small> {billingCycle === "ANNUAL" ? "yearly" : "monthly"} billing + GST</small>
