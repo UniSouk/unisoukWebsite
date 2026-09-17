@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/unisouk-mark-on-dark.svg",
+    icon: "/favicon-logo.png",
   },
 };
 
