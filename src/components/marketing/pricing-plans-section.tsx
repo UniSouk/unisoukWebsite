@@ -7,7 +7,8 @@ import {
   DASHBOARD_URL,
   DEMO_BOOKING_URL,
 } from "@/constants/site";
-import { agentFeatures, managementFeatures, websiteFeatures } from "./pricing-reference-data";
+import { managementFeatures, websiteFeatures } from "./pricing-reference-data";
+import type { BillingCycle, SaasPlanCategory, SaasPlanPricing } from "@/lib/plans";
 
 function FeatureList({
   items,
@@ -32,11 +33,47 @@ function FeatureList({
   );
 }
 
+function formatPrice(price: number) {
+  return price.toLocaleString("en-IN");
+}
 
-export function PricingPlansSection() {
-  const [subscription, setSubscription] = useState<"agents" | "integrations">(
+function getPriceForCycle(
+  prices: SaasPlanPricing["agents"]["prices"],
+  billingCycle: BillingCycle,
+) {
+  return (
+    prices.find((entry) => entry.billingCycle === billingCycle) || prices[0]
+  );
+}
+
+const SUBSCRIPTION_LABELS: Record<SaasPlanCategory, string> = {
+  agents: "AI Agents Only",
+  platform: "Platform Only",
+  bundle: "Platform + AI Tools",
+};
+
+const SUBSCRIPTION_ORDER: SaasPlanCategory[] = ["agents", "platform", "bundle"];
+
+export function PricingPlansSection({
+  saasPlanPricing,
+}: {
+  saasPlanPricing: SaasPlanPricing;
+}) {
+  const [subscription, setSubscription] = useState<SaasPlanCategory>(
     "agents",
   );
+  const [billingCycle, setBillingCycle] = useState<BillingCycle>("MONTHLY");
+
+  const showAnnualToggle = SUBSCRIPTION_ORDER.some((category) =>
+    saasPlanPricing[category].prices.some(
+      (entry) => entry.billingCycle === "ANNUAL",
+    ),
+  );
+
+  const activePlan = saasPlanPricing[subscription];
+  const activePrice = getPriceForCycle(activePlan.prices, billingCycle);
+  const cycleSuffix = billingCycle === "ANNUAL" ? "/year + GST" : "/month + GST";
+
   return (
       <section
         className="pricing-plans"
@@ -71,61 +108,76 @@ export function PricingPlansSection() {
                   Subscription
                 </h3>
                 <p>
-                  Choose intelligent assistants on their own, or connect the
-                  complete commerce platform.
+                  Choose intelligent assistants, the platform, or connect the
+                  complete commerce stack.
                 </p>
               </div>
               <div className="plan-card__price">
                 <div>
                   <small>Starting from</small>
                   <p>
-                    <span>₹</span>1,499
+                    <span>₹</span>{formatPrice(activePrice.price)}
                   </p>
                 </div>
-                <small>One month free, then monthly billing + GST</small>
+                <small> {billingCycle === "ANNUAL" ? "yearly" : "monthly"} billing + GST</small>
               </div>
               <a className="button button--primary" href={DASHBOARD_URL}>
-                Start your free trial
+                Start Your Journey
                 <ArrowRightIcon />
               </a>
               <div className="plan-card__body">
+                {showAnnualToggle && (
+                  <fieldset className="billing-cycle-toggle">
+                    <legend className="visually-hidden">
+                      Choose a billing cycle
+                    </legend>
+                    <label className="billing-cycle-toggle__option">
+                      <input
+                        type="radio"
+                        name="saas-billing-cycle"
+                        checked={billingCycle === "MONTHLY"}
+                        onChange={() => setBillingCycle("MONTHLY")}
+                      />
+                      <span>Monthly</span>
+                    </label>
+                    <label className="billing-cycle-toggle__option">
+                      <input
+                        type="radio"
+                        name="saas-billing-cycle"
+                        checked={billingCycle === "ANNUAL"}
+                        onChange={() => setBillingCycle("ANNUAL")}
+                      />
+                      <span>Yearly</span>
+                    </label>
+                  </fieldset>
+                )}
                 <fieldset className="subscription-options">
                   <legend className="visually-hidden">
                     Choose a SaaS subscription
                   </legend>
-                  <label className="subscription-option">
-                    <input
-                      type="radio"
-                      name="saas-subscription"
-                      checked={subscription === "agents"}
-                      onChange={() => setSubscription("agents")}
-                    />
-                    <span>AI Agents Only</span>
-                    <strong>
-                      ₹1,499<small>/month + GST</small>
-                    </strong>
-                  </label>
-                  <label className="subscription-option">
-                    <input
-                      type="radio"
-                      name="saas-subscription"
-                      checked={subscription === "integrations"}
-                      onChange={() => setSubscription("integrations")}
-                    />
-                    <span>Integrations + AI Tools</span>
-                    <strong>
-                      ₹2,999<small>/month + GST</small>
-                    </strong>
-                  </label>
+                  {SUBSCRIPTION_ORDER.map((category) => {
+                    const price = getPriceForCycle(
+                      saasPlanPricing[category].prices,
+                      billingCycle,
+                    );
+                    return (
+                      <label className="subscription-option" key={category}>
+                        <input
+                          type="radio"
+                          name="saas-subscription"
+                          checked={subscription === category}
+                          onChange={() => setSubscription(category)}
+                        />
+                        <span>{SUBSCRIPTION_LABELS[category]}</span>
+                        <strong>
+                          ₹{formatPrice(price.price)}<small>{cycleSuffix}</small>
+                        </strong>
+                      </label>
+                    );
+                  })}
                 </fieldset>
                 <FeatureList
-                  items={[
-                    ...agentFeatures,
-                    "One month free trial",
-                    ...(subscription === "integrations"
-                      ? ["Connected operations on the ₹2,999 plan"]
-                      : []),
-                  ]}
+                  items={activePlan.features}
                   footnote="Terms and conditions apply."
                 />
               </div>

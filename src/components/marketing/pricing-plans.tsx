@@ -62,9 +62,6 @@ export function PricingPlans() {
         ))}
       </div>
       <div className="grid content-start gap-8 bg-white p-[clamp(2rem,5vw,5rem)]">
-        <p className="m-0 text-xs tracking-[0.08em] text-[var(--orange-ink)] uppercase">
-          One month free
-        </p>
         <div>
           <h3 className="m-0 !text-[clamp(2.4rem,4vw,4rem)]">{active.name}</h3>
           <p className="mt-4 mb-0 max-w-[48ch] leading-[1.65] text-[var(--text-muted)]">
@@ -89,7 +86,7 @@ export function PricingPlans() {
           ))}
         </ul>
         <a className={`${buttonPrimaryClass} w-fit`} href={DASHBOARD_URL}>
-          Start your free trial
+          Get started
           <ArrowRightIcon />
         </a>
       </div>

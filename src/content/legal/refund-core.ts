@@ -35,6 +35,10 @@ export const refundCoreSections: LegalSection[] = [
       paragraph("Commission charges apply to sales processed through integrated channels according to the current pricing structure available on our website."),
     ],
   },
+  // TODO: This 14-day free trial clause contradicts current sitewide marketing
+  // copy, which now states no free trial is offered. Awaiting an explicit
+  // decision on how to reconcile this legal section — do not edit the visible
+  // text below without direction.
   {
     id: "trial",
     title: "3. Free trial policy",

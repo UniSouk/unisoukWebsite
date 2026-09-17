@@ -2,16 +2,22 @@ import type { Metadata } from "next";
 
 import { PageStructuredData } from "@/components/marketing/marketing-primitives";
 import { PricingReference } from "@/components/marketing/pricing-reference";
+import { fallbackSaasPlanPricing } from "@/components/marketing/pricing-reference-data";
 import { NativeSiteShell } from "@/components/layout/site-shell";
+import { extractSaasPlanPricing, getPublicPlans } from "@/lib/plans";
 
 export const metadata: Metadata = {
   title: "Pricing for Commerce Tools and Services",
   description:
-    "Start free with UniSouk AI agents or bring integrations and commerce operations together for ₹2,999 per month plus GST.",
+    "Get started with UniSouk AI agents or bring integrations and commerce operations together with the Integrations + AI Tools plan.",
   alternates: { canonical: "/pricing/" },
 };
 
-export default function PricingPage() {
+export default async function PricingPage() {
+  const publicPlansResult = await getPublicPlans();
+  const saasPlanPricing =
+    extractSaasPlanPricing(publicPlansResult) || fallbackSaasPlanPricing;
+
   return (
     <NativeSiteShell>
       <PageStructuredData
@@ -24,7 +30,7 @@ export default function PricingPage() {
         }}
       />
       <main id="main-content">
-        <PricingReference />
+        <PricingReference saasPlanPricing={saasPlanPricing} />
       </main>
     </NativeSiteShell>
   );
