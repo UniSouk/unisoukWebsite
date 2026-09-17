@@ -59,15 +59,22 @@ export function PricingReference({
               role="row"
             >
               <span role="columnheader">Capability</span>
-              <span role="columnheader">AI Agents Only</span>
               <span role="columnheader">Platform Only</span>
+              <span role="columnheader">AI Agents Only</span>
               <span role="columnheader">Integrations + AI Tools</span>
             </div>
             {comparisonRows.map((row) => (
               <div className="comparison-row" role="row" key={row.feature}>
-                <strong role="rowheader">{row.feature}</strong>
-                <span role="cell" data-label="AI Agents Only">
-                  {row.agents ? (
+                <strong role="rowheader">
+                  {row.feature}
+                  {row.description && (
+                    <small className="comparison-row__description">
+                      {row.description}
+                    </small>
+                  )}
+                </strong>
+                <span role="cell" data-label="Platform Only">
+                  {row.platform ? (
                     <i className="comparison-check" aria-label="Included">
                       <CheckIcon />
                     </i>
@@ -77,8 +84,8 @@ export function PricingReference({
                     </i>
                   )}
                 </span>
-                <span role="cell" data-label="Platform Only">
-                  {row.platform ? (
+                <span role="cell" data-label="AI Agents Only">
+                  {row.agents ? (
                     <i className="comparison-check" aria-label="Included">
                       <CheckIcon />
                     </i>

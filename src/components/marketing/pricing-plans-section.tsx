@@ -52,7 +52,7 @@ const SUBSCRIPTION_LABELS: Record<SaasPlanCategory, string> = {
   bundle: "Platform + AI Tools",
 };
 
-const SUBSCRIPTION_ORDER: SaasPlanCategory[] = ["agents", "platform", "bundle"];
+const SUBSCRIPTION_ORDER: SaasPlanCategory[] = ["platform", "agents", "bundle"];
 
 export function PricingPlansSection({
   saasPlanPricing,
@@ -130,14 +130,16 @@ export function PricingPlansSection({
               <div className="plan-card__price">
                 <div>
                   <small>Starting from</small>
-                  <p>
-                    <span>₹</span>{formatPrice(activePrice.price)}
+                  <span className="flex min-w-0 flex-wrap items-center gap-2">
+                    <p>
+                      <span>₹</span>{formatPrice(activePrice.price)}
+                    </p>
                     {activeAnnualSavingsPercent > 0 && (
-                      <span className="plan-card__discount-badge">
+                      <span className="-translate-y-1 inline-block shrink-0 whitespace-nowrap rounded-full bg-[var(--orange)] px-2.5 py-1 font-[family-name:var(--font-body)] text-[0.7rem] font-semibold text-white">
                         Save {activeAnnualSavingsPercent}%
                       </span>
                     )}
-                  </p>
+                  </span>
                 </div>
                 <small> {billingCycle === "ANNUAL" ? "yearly" : "monthly"} billing + GST</small>
               </div>
