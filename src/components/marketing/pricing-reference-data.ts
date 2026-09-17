@@ -13,6 +13,16 @@ const agentDescriptions: Record<string, string> = {
   SoukLedger: "Makes fees, payments, and profitability easier to understand.",
 };
 
+const platformFeatureDescriptions: Record<string, string> = {
+  "Marketplace integrations": "Connects your catalogue to Amazon, Meesho, ONDC and other marketplaces.",
+  "Storefront integrations": "Connects your catalogue to Shopify, WooCommerce and other storefronts.",
+  "Unified listings": "Keeps product listings consistent across every connected channel.",
+  "Inventory management": "Tracks stock levels centrally so channels stay accurate and in sync.",
+  "Order management": "Brings orders from every channel into one place to process.",
+  "Shipping and fulfilment": "Connects shipping partners like Shiprocket to fulfil orders on time.",
+  "Payments and settlements": "Reconciles payments and settlements through Cashfree and Razorpay.",
+};
+
 // Static fallback used if the live plans API is unavailable or returns an
 // unexpected shape, so the pricing cards never show a broken price.
 export const fallbackSaasPlanPricing: SaasPlanPricing = {
@@ -69,7 +79,7 @@ export const comparisonRows = [
   })),
   ...platformFeatures.map((feature) => ({
     feature,
-    description: undefined as string | undefined,
+    description: platformFeatureDescriptions[feature] as string | undefined,
     agents: false,
     platform: true,
   })),
