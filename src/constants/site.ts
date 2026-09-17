@@ -1,6 +1,6 @@
 export const SITE_URL = "https://www.unisouk.com";
 export const DASHBOARD_URL = "https://dashboard.unisouk.com/";
-export const SIGN_IN_URL = "https://dashboard.unisouk.com/auth/login";
+export const SIGN_IN_URL = "https://dashboard.unisouk.com/auth/sign-in";
 export const SIGN_UP_URL = "https://dashboard.unisouk.com/auth/sign-up";
 export const DEMO_BOOKING_URL =
   "https://calendar.app.google/NLwZ5g1RJvigqR4c6";
