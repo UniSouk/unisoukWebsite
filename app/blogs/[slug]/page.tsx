@@ -195,15 +195,25 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               }`}
             >
               <nav aria-label="Breadcrumb">
-                <ol className="mt-0 mb-[clamp(3rem,7vw,5.5rem)] flex list-none flex-wrap gap-2 p-0 text-[0.82rem] text-[var(--text-muted)] [&_a]:no-underline [&_li+li]:before:mr-2 [&_li+li]:before:content-['/']">
+                <ol className="mt-0 mb-[clamp(2.25rem,4.5vw,3.5rem)] flex list-none flex-wrap gap-2 p-0 text-[0.86rem] text-[var(--text-muted)] [&_li+li]:before:mr-2 [&_li+li]:before:text-[var(--text-muted)] [&_li+li]:before:opacity-60 [&_li+li]:before:content-['/']">
                   <li>
-                    <Link href="/">Home</Link>
+                    <Link
+                      href="/"
+                      className="inline-block py-1 -my-1 font-medium text-[var(--ink)] no-underline transition-colors duration-150 hover:text-[var(--orange-ink)] hover:underline focus-visible:underline"
+                    >
+                      Home
+                    </Link>
                   </li>
                   <li>
-                    <Link href="/blog/">Blog</Link>
+                    <Link
+                      href="/blog/"
+                      className="inline-block py-1 -my-1 font-medium text-[var(--ink)] no-underline transition-colors duration-150 hover:text-[var(--orange-ink)] hover:underline focus-visible:underline"
+                    >
+                      Blog
+                    </Link>
                   </li>
                   <li
-                    className="max-w-[35ch] overflow-hidden text-ellipsis whitespace-nowrap min-[48rem]:max-w-none min-[48rem]:overflow-visible min-[48rem]:whitespace-normal"
+                    className="max-w-[35ch] overflow-hidden text-ellipsis whitespace-nowrap font-semibold text-[var(--orange-ink)] min-[48rem]:max-w-none min-[48rem]:overflow-visible min-[48rem]:whitespace-normal"
                     aria-current="page"
                   >
                     {article.title}
