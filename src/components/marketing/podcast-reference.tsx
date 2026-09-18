@@ -1,9 +1,9 @@
 import type { CSSProperties } from "react";
 import Image from "next/image";
 
-import { ArrowRightIcon, ArrowUpRightIcon } from "@/components/ui/icon";
+import { ArrowUpRightIcon } from "@/components/ui/icon";
 import { InstagramEmbed } from "@/components/marketing/instagram-embed";
-import { PODCAST_EMBED_URL, PODCAST_VIDEO_URL } from "@/constants/podcast";
+import { PODCAST_EMBED_URL } from "@/constants/podcast";
 import { INSTAGRAM_URL } from "@/constants/site";
 import type { InstagramMediaItem } from "@/lib/instagram";
 
@@ -107,12 +107,12 @@ export function PodcastReference({ media }: { media: InstagramMediaItem[] }) {
               />
             ))}
           </div>
-          <div>
+          {/* <div>
             <span>Beyond the Cart</span>
             <h2 id="series-title">Conversations about the work customers never see.</h2>
             <p>Commerce is more than a storefront or a transaction. This series looks at the systems, choices and people behind building businesses that can keep moving.</p>
             <a href={PODCAST_VIDEO_URL} target="_blank" rel="noreferrer">Watch Episode 01 on YouTube <i aria-hidden="true"><ArrowRightIcon /></i></a>
-          </div>
+          </div> */}
         </div>
       </section>
 {/* 

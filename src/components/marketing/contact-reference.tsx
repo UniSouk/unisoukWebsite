@@ -17,7 +17,7 @@ import { DEMO_BOOKING_URL } from "@/constants/site";
 const supportAreas = [
   ["Seller registration & onboarding", "Get guidance when preparing your business and sales channels for UniSouk."],
   ["Marketplace integrations", "Talk to us about connecting Amazon, ONDC, Meesho, Flipkart and other commerce channels."],
-  ["AI agents for commerce", "Ask how SoukList, SoukSense, SoukStudio, SoukBoost and SoukLedger support listings, analytics, product visuals, campaigns and finance work."],
+  ["AI agents for commerce", "Optimise listings, generate product visuals, understand market trends, improve campaigns, and get actionable answers through a simple conversation."],
   ["Inventory automation & analytics", "Understand how connected inventory and clearer performance insights can improve daily operations."],
   ["Unique business requirements", "Discuss workflows, channel combinations or operating needs that do not fit a standard setup."],
   ["Ecommerce fulfilment support", "Get help understanding the operational flow from incoming order to fulfilment."],
@@ -88,12 +88,12 @@ export function ContactReference() {
         </div>
       </section>
 
-      <section className="contact-cta" aria-labelledby="contact-cta-title">
+      {/* <section className="contact-cta" aria-labelledby="contact-cta-title">
         <div className="container contact-cta__inner">
           <h2 id="contact-cta-title">Ready to simplify your online selling journey<span className="!text-[var(--ink)]">?</span></h2>
           <div className="contact-cta__copy"><p>Reach out today and see how UniSouk can help you simplify operations, expand your reach and prepare for the next stage of growth.</p></div>
         </div>
-      </section>
+      </section> */}
     </>
   );
 }
