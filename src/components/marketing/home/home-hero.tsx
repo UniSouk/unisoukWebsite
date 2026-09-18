@@ -6,7 +6,17 @@ import { PLATFORM_LOGOS } from "@/constants/platforms";
 import { SIGN_UP_URL } from "@/constants/site";
 
 const accountManagementUrl = "/solutions/account-management/";
-const integrationLogos = [
+
+type IntegrationLogo = {
+  name: string;
+  src: string;
+  modifier: string;
+  /** Intrinsic size. Defaults suit the wide wordmark SVGs. */
+  width?: number;
+  height?: number;
+};
+
+const integrationLogos: IntegrationLogo[] = [
   { name: "Amazon", src: PLATFORM_LOGOS.amazon, modifier: "amazon" },
   { name: "ONDC", src: PLATFORM_LOGOS.ondc, modifier: "ondc" },
   { name: "Meesho", src: PLATFORM_LOGOS.meesho, modifier: "meesho" },
@@ -16,6 +26,20 @@ const integrationLogos = [
     name: "WooCommerce",
     src: PLATFORM_LOGOS.woocommerce,
     modifier: "woocommerce",
+  },
+  {
+    name: "Amazon Ads",
+    src: PLATFORM_LOGOS.amazonAds,
+    modifier: "amazon-ads",
+    width: 96,
+    height: 25,
+  },
+  {
+    name: "Meta Ads",
+    src: PLATFORM_LOGOS.metaAds,
+    modifier: "meta-ads",
+    width: 96,
+    height: 51,
   },
 ];
 
@@ -83,8 +107,8 @@ export function HomeHero() {
                         <Image
                           src={logo.src}
                           alt={copy === 0 ? logo.name : ""}
-                          width={96}
-                          height={48}
+                          width={logo.width ?? 96}
+                          height={logo.height ?? 48}
                         />
                       </div>
                     ))}
