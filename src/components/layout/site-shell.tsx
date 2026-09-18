@@ -11,7 +11,7 @@ const focusWithinPage =
 export { siteContainerClass } from "@/components/layout/site-shell-styles";
 
 function WhatsAppChat() {
-  const message = encodeURIComponent("What services you provide");
+  const message = encodeURIComponent("What services do you provide?");
   return (
     <aside
       className="fixed right-[max(1.5rem,env(safe-area-inset-right))] bottom-[max(1.5rem,env(safe-area-inset-bottom))] z-90 max-[74.99rem]:right-[max(1.25rem,env(safe-area-inset-right))] max-[74.99rem]:bottom-[max(1.25rem,env(safe-area-inset-bottom))]"

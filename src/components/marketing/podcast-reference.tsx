@@ -1,4 +1,3 @@
-import type { CSSProperties } from "react";
 import Image from "next/image";
 
 import { ArrowUpRightIcon } from "@/components/ui/icon";
@@ -93,7 +92,7 @@ export function PodcastReference({ media }: { media: InstagramMediaItem[] }) {
         </div>
       </section>
 
-      <section className="series-statement" aria-labelledby="series-title">
+      {/* <section className="series-statement" aria-labelledby="series-title">
         <div className="container series-statement__inner">
           <div className="series-statement__wave" aria-hidden="true">
             {Array.from({ length: 52 }).map((_, index) => (
@@ -107,14 +106,14 @@ export function PodcastReference({ media }: { media: InstagramMediaItem[] }) {
               />
             ))}
           </div>
-          {/* <div>
+          <div>
             <span>Beyond the Cart</span>
             <h2 id="series-title">Conversations about the work customers never see.</h2>
             <p>Commerce is more than a storefront or a transaction. This series looks at the systems, choices and people behind building businesses that can keep moving.</p>
             <a href={PODCAST_VIDEO_URL} target="_blank" rel="noreferrer">Watch Episode 01 on YouTube <i aria-hidden="true"><ArrowRightIcon /></i></a>
-          </div> */}
+          </div>
         </div>
-      </section>
+      </section> */}
 {/* 
       <section className="podcast-cta" aria-labelledby="podcast-cta-title">
         <div className="container podcast-cta__inner">
