@@ -4,8 +4,10 @@ export const SIGN_IN_URL = "https://dashboard.unisouk.com/auth/sign-in";
 export const SIGN_UP_URL = "https://dashboard.unisouk.com/auth/sign-up";
 export const DEMO_BOOKING_URL =
   "https://calendar.app.google/NLwZ5g1RJvigqR4c6";
+// Consultation enquiries are handled by the Account Management team, so they use
+// the same booking calendar as ACCOUNT_MANAGEMENT_BOOKING_URL.
 export const CONSULTATION_BOOKING_URL =
-  "https://calendar.app.google/kxxzKiyEfoWJzmTU6";
+  "https://calendar.app.google/z7tURzpYLRs6hpb17";
 export const ACCOUNT_MANAGEMENT_BOOKING_URL =
   "https://calendar.app.google/z7tURzpYLRs6hpb17";
 

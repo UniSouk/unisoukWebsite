@@ -203,7 +203,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                     <Link href="/blog/">Blog</Link>
                   </li>
                   <li
-                    className="max-w-[35ch] overflow-hidden text-ellipsis whitespace-nowrap"
+                    className="max-w-[35ch] overflow-hidden text-ellipsis whitespace-nowrap min-[48rem]:max-w-none min-[48rem]:overflow-visible min-[48rem]:whitespace-normal"
                     aria-current="page"
                   >
                     {article.title}

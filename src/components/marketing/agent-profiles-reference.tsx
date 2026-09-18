@@ -65,23 +65,36 @@ const agents = [
 ];
 
 export function AgentProfilesReference() {
-  const [flippedId, setFlippedId] = useState<string | null>(null);
+  // Pointer hover reveals the details on devices that can hover, while the click
+  // and keyboard toggle keeps the same details reachable on touch and keyboards.
+  const [pinnedId, setPinnedId] = useState<string | null>(null);
+  const [hoveredId, setHoveredId] = useState<string | null>(null);
 
   return (
     <div className="agent-profiles">
       <ul className="agent-profiles__track" role="list">
         {agents.map((agent) => {
-          const flipped = flippedId === agent.id;
+          const pinned = pinnedId === agent.id;
+          const flipped = hoveredId === agent.id || pinned;
           return (
             <li className={`agent-profile agent-profile--${agent.id}${flipped ? " is-flipped" : ""}`} key={agent.id}>
               <button
                 className="agent-profile__trigger"
                 type="button"
-                aria-pressed={flipped}
+                aria-pressed={pinned}
                 aria-label={flipped ? `Return to ${agent.name} profile` : `View ${agent.name} capabilities`}
-                onClick={() => setFlippedId(flipped ? null : agent.id)}
+                onClick={() => setPinnedId(pinned ? null : agent.id)}
+                onPointerEnter={(event) => {
+                  if (event.pointerType === "mouse") setHoveredId(agent.id);
+                }}
+                onPointerLeave={(event) => {
+                  if (event.pointerType === "mouse") setHoveredId(null);
+                }}
                 onKeyDown={(event) => {
-                  if (event.key === "Escape") setFlippedId(null);
+                  if (event.key === "Escape") {
+                    setPinnedId(null);
+                    setHoveredId(null);
+                  }
                 }}
               >
                 <span className="agent-profile__inner">

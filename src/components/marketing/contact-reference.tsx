@@ -17,6 +17,7 @@ import { DEMO_BOOKING_URL } from "@/constants/site";
 const supportAreas = [
   ["Seller registration & onboarding", "Get guidance when preparing your business and sales channels for UniSouk."],
   ["Marketplace integrations", "Talk to us about connecting Amazon, ONDC, Meesho, Flipkart and other commerce channels."],
+  ["AI agents for commerce", "Ask how SoukList, SoukSense, SoukStudio, SoukBoost and SoukLedger support listings, analytics, product visuals, campaigns and finance work."],
   ["Inventory automation & analytics", "Understand how connected inventory and clearer performance insights can improve daily operations."],
   ["Unique business requirements", "Discuss workflows, channel combinations or operating needs that do not fit a standard setup."],
   ["Ecommerce fulfilment support", "Get help understanding the operational flow from incoming order to fulfilment."],
@@ -40,13 +41,13 @@ export function ContactReference() {
             <p>Whether you are launching your first product or growing across multiple marketplaces, the UniSouk team is here to help you move forward.</p>
             <div className="contact-hero__actions">
               <a className="button button--primary" href="#contact-form">Send us a message <ArrowRightIcon /></a>
-              <a className="text-link" href={DEMO_BOOKING_URL}>Book a free demo <ArrowRightIcon /></a>
+              <a className="text-link" href={DEMO_BOOKING_URL}>Book a free demo</a>
             </div>
           </div>
           <address className="contact-directory" aria-label="UniSouk contact information">
             <header><span>Get in touch</span><em>We’d love to hear from you</em></header>
             <a href={`mailto:${SUPPORT_EMAIL}`}><span>Email us</span><strong>{SUPPORT_EMAIL}</strong><i aria-hidden="true"><ArrowUpRightIcon /></i></a>
-            <a href={`tel:${SUPPORT_PHONE_E164}`}><span>Call us</span><strong>{SUPPORT_PHONE_DISPLAY}</strong><small>Monday to Friday · 10:00 AM to 6:00 PM</small><i aria-hidden="true"><ArrowUpRightIcon /></i></a>
+            <a href={`tel:${SUPPORT_PHONE_E164}`}><span>Call us</span><strong>{SUPPORT_PHONE_DISPLAY}</strong><small>Monday to Friday · 10:30 AM to 6:00 PM</small><i aria-hidden="true"><ArrowUpRightIcon /></i></a>
             <a href={OFFICE_MAP_URL} target="_blank" rel="noreferrer"><span>Visit us</span><strong>Solaris Cube, Vesu, Surat</strong><small>Seventh Floor, Office No. 701 · Gujarat 395007</small><i aria-hidden="true"><ArrowUpRightIcon /></i></a>
             <div className="flex justify-between pt-4">
               <Image src="/unisouk-mark-on-dark.svg" width={52} height={26} alt="" /><span>List. Sell. Grow.</span>
@@ -70,7 +71,7 @@ export function ContactReference() {
         <div className="container support-scope__inner">
           <div className="support-scope__intro">
             <h2 id="support-title">Why contact UniSouk?</h2>
-            <p>No question is too small and no commerce challenge needs to be explained in technical language. Tell us what is happening in the business, and we’ll help identify the relevant next step.</p>
+            <p>No question is too small and no commerce challenge needs to be explained in technical language. Ask about channels, daily operations or the AI agents inside the platform, and we’ll help identify the relevant next step.</p>
           </div>
           <div className="support-list">
             {supportAreas.map(([title, copy]) => <article key={title}><h3>{title}</h3><p>{copy}</p></article>)}

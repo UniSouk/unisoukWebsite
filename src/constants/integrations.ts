@@ -121,7 +121,7 @@ export const INTEGRATIONS: Integration[] = [
     description:
       "Connect payment and settlement activity to a clearer commerce workflow.",
     capabilities: ["Payments", "Settlements", "Payment visibility"],
-    mark: "CF",
+    logo: "/platform-logos/cashfree-logo.png",
   },
   {
     name: "Razorpay",

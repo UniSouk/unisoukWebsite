@@ -71,6 +71,13 @@ export function AiAgentsReference() {
           <h2 id="agents-cta-title">Put specialized AI inside your everyday commerce workflow.</h2>
           <div className="agents-cta__copy">
             <p className="!text-[var(--white)]">See how UniSouk brings your operations and AI agents into one connected platform.</p>
+            <a
+              className="button button--orange group mt-8 justify-self-start"
+              href={DEMO_BOOKING_URL}
+            >
+              Book a free demo
+              <ArrowRightIcon className="!text-black group-hover:!text-[var(--ink)]" />
+            </a>
           </div>
         </div>
       </section>
