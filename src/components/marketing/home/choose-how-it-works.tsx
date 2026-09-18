@@ -151,7 +151,7 @@ export function ChooseHowItWorks({
               className="work-chooser__cta work-chooser__cta--dark"
               href={buildPlanUrl}
             >
-              Build your plan
+              Book a free Demo
               <ArrowRightIcon />
             </a>
           </article>

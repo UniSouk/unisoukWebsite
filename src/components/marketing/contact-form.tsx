@@ -2,14 +2,15 @@
 
 import { FormEvent, useState } from "react";
 
-import { ArrowRightIcon } from "@/components/ui/icon";
+import { ArrowRightIcon, CheckIcon, CloseIcon } from "@/components/ui/icon";
+import { BUSINESS_CATEGORIES } from "@/constants/business-categories";
 
 type ContactFields = {
   firstName: string;
   lastName: string;
   email: string;
   phoneNumber: string;
-  industry: string;
+  businessCategory: string;
   message: string;
 };
 
@@ -29,7 +30,7 @@ const initialFields: ContactFields = {
   lastName: "",
   email: "",
   phoneNumber: "",
-  industry: "",
+  businessCategory: "",
   message: "",
 };
 
@@ -51,7 +52,8 @@ function validate(fields: ContactFields): FieldErrors {
         "Enter a valid Indian mobile number in the format +91 XXXXX XXXXX.";
     }
   }
-  if (!fields.industry) errors.industry = "Business industry is required.";
+  if (!fields.businessCategory)
+    errors.businessCategory = "Business category is required.";
   if (!fields.message.trim()) {
     errors.message = "Message is required.";
   } else if (fields.message.trim().length > 5000) {
@@ -119,7 +121,9 @@ export function ContactForm() {
           lastName: fields.lastName,
           email: fields.email,
           phoneNumber: fields.phoneNumber || undefined,
-          businessIndustry: fields.industry,
+          // The backend contract still names this field `businessIndustry`,
+          // so the key is kept even though the taxonomy is now categories.
+          businessIndustry: fields.businessCategory,
           message: fields.message,
         }),
         signal: controller.signal,
@@ -216,29 +220,28 @@ export function ContactForm() {
         />
         <p className="form-field__error" id="contact-phone-error" aria-live="polite" hidden={!errors.phoneNumber}>{errors.phoneNumber}</p>
       </div>
-      <div className="form-field" data-invalid={Boolean(errors.industry) || undefined}>
-        <label htmlFor="contact-industry">
-          Business industry
+      <div className="form-field" data-invalid={Boolean(errors.businessCategory) || undefined}>
+        <label htmlFor="contact-category">
+          Business category
           <RequiredMark />
         </label>
         <select
-          id="contact-industry"
-          name="industry"
-          value={fields.industry}
+          id="contact-category"
+          name="businessCategory"
+          value={fields.businessCategory}
           required
-          aria-invalid={Boolean(errors.industry)}
-          aria-describedby="contact-industry-error"
-          onChange={(event) => update("industry", event.target.value)}
+          aria-invalid={Boolean(errors.businessCategory)}
+          aria-describedby="contact-category-error"
+          onChange={(event) => update("businessCategory", event.target.value)}
         >
-          <option value="" disabled>Choose a business industry</option>
-          <option value="RETAIL_AND_ECOMMERCE">Retail and ecommerce</option>
-          <option value="D2C_BRAND">D2C brand</option>
-          <option value="MANUFACTURER_OR_DISTRIBUTOR">Manufacturer or distributor</option>
-          <option value="MARKETPLACE_SELLER">Marketplace seller</option>
-          <option value="PROFESSIONAL_SERVICES">Professional services</option>
-          <option value="OTHER">Other</option>
+          <option value="" disabled>Choose a business category</option>
+          {BUSINESS_CATEGORIES.map((category) => (
+            <option value={category.value} key={category.value}>
+              {category.label}
+            </option>
+          ))}
         </select>
-        <p className="form-field__error" id="contact-industry-error" aria-live="polite" hidden={!errors.industry}>{errors.industry}</p>
+        <p className="form-field__error" id="contact-category-error" aria-live="polite" hidden={!errors.businessCategory}>{errors.businessCategory}</p>
       </div>
       <div className="form-field" data-invalid={Boolean(errors.message) || undefined}>
         <label htmlFor="contact-message">
@@ -262,15 +265,27 @@ export function ContactForm() {
         </div>
         <p className="form-field__error" id="contact-message-error" aria-live="polite" hidden={!errors.message}>{errors.message}</p>
       </div>
-      <p
-        className="contact-form__status"
-        data-state={status?.tone}
-        role="status"
-        aria-live="polite"
-        hidden={!status}
-      >
-        {status?.message}
-      </p>
+       <p
+          className={`contact-form__status${status ? " flex items-center gap-2.5" : ""}`}
+          data-state={status?.tone}
+          role="status"
+          aria-live="polite"
+          hidden={!status}
+        >
+          {status ? (
+            <span
+              className="grid h-5 w-5 shrink-0 place-items-center rounded-full bg-current"
+              aria-hidden="true"
+            >
+              {status.tone === "success" ? (
+                <CheckIcon className="h-3 w-3 text-[var(--white)]" strokeWidth={3} />
+              ) : (
+                <CloseIcon className="h-3 w-3 text-[var(--white)]" strokeWidth={3} />
+              )}
+            </span>
+          ) : null}
+          <span>{status?.message}</span>
+        </p>
       <div className="contact-form__footer">
         <p>Fields marked with an asterisk (*) are required. We will only use these details to respond to your enquiry.</p>
         <button className="button button--primary" type="submit" disabled={isSubmitting}>

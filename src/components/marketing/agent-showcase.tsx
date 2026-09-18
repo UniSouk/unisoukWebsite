@@ -139,8 +139,8 @@ export function AgentShowcase() {
                     decoding="async"
                   />
                 </span>
-                <span className="agent-card__index">{agent.role}</span>
-                <span className="agent-card__name">{agent.name}</span>
+                <span className="agent-card__index">{agent.name}</span>
+                <span className="agent-card__name">{agent.role}</span>
                 <span className="agent-card__description">
                   {agent.description}
                 </span>
