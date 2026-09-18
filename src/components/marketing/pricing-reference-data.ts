@@ -75,7 +75,7 @@ export const comparisonRows = [
     feature,
     description: agentDescriptions[feature] as string | undefined,
     agents: true,
-    platform: true,
+    platform: false,
   })),
   ...platformFeatures.map((feature) => ({
     feature,

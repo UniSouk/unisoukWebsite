@@ -47,7 +47,7 @@ export function PricingReference({
             <p>
               All three SaaS choices share the same connected commerce
               foundation. AI agents are added on the AI Agents Only and
-              Integrations + AI Tools plans.
+              Platform + AI Tools plans.
             </p>
           </header>
           <div
@@ -62,7 +62,7 @@ export function PricingReference({
               <span role="columnheader">Capability</span>
               <span role="columnheader">Platform Only</span>
               <span role="columnheader">AI Agents Only</span>
-              <span role="columnheader">Integrations + AI Tools</span>
+              <span role="columnheader">Platform + AI Tools</span>
             </div>
             {comparisonRows.map((row) => (
               <div className="comparison-row" role="row" key={row.feature}>
@@ -96,7 +96,7 @@ export function PricingReference({
                     </i>
                   )}
                 </span>
-                <span role="cell" data-label="Integrations + AI Tools">
+                <span role="cell" data-label="Platform + AI Tools">
                   <i className="comparison-check" aria-label="Included">
                     <CheckIcon />
                   </i>
