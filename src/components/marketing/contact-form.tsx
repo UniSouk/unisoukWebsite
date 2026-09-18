@@ -15,6 +15,15 @@ type ContactFields = {
 
 type FieldErrors = Partial<Record<keyof ContactFields, string>>;
 
+/** Outcome banner shown after a submit attempt. `tone` drives the styling. */
+type FormStatus = { tone: "success" | "error"; message: string } | null;
+
+/** Success shape returned by POST /contact, e.g. `{ success: true, id, createdAt }`. */
+type ContactResponseBody = {
+  success?: unknown;
+  message?: string | string[];
+};
+
 const initialFields: ContactFields = {
   firstName: "",
   lastName: "",
@@ -51,6 +60,13 @@ function validate(fields: ContactFields): FieldErrors {
   return errors;
 }
 
+function readBackendMessage(body: ContactResponseBody | null) {
+  if (!body) return undefined;
+  if (Array.isArray(body.message)) return body.message.join(" ");
+  if (typeof body.message === "string") return body.message;
+  return undefined;
+}
+
 /**
  * Visual asterisk for required fields. Hidden from assistive technology
  * because the underlying control already carries the `required` attribute,
@@ -67,13 +83,13 @@ function RequiredMark() {
 export function ContactForm() {
   const [fields, setFields] = useState(initialFields);
   const [errors, setErrors] = useState<FieldErrors>({});
-  const [status, setStatus] = useState("");
+  const [status, setStatus] = useState<FormStatus>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const update = (name: keyof ContactFields, value: string) => {
     setFields((current) => ({ ...current, [name]: value }));
     setErrors((current) => ({ ...current, [name]: undefined }));
-    setStatus("");
+    setStatus(null);
   };
 
   const submit = async (event: FormEvent<HTMLFormElement>) => {
@@ -108,38 +124,50 @@ export function ContactForm() {
         }),
         signal: controller.signal,
       });
+      // Read the body once: it carries the error message on failure and the
+      // `success` flag on a completed submission.
+      let body: ContactResponseBody | null = null;
+      try {
+        body = (await response.json()) as ContactResponseBody;
+      } catch {
+        // Response body was not JSON; fall back to the generic messages below.
+      }
+      const backendMessage = readBackendMessage(body);
+
       if (!response.ok) {
         if (response.status === 429) {
           throw new Error(
             "You have sent several requests. Please wait and try again.",
           );
         }
-        let backendMessage: string | undefined;
-        try {
-          const data: { message?: string | string[] } = await response.json();
-          if (Array.isArray(data.message)) {
-            backendMessage = data.message.join(" ");
-          } else if (typeof data.message === "string") {
-            backendMessage = data.message;
-          }
-        } catch {
-          // Response body was not JSON; fall back to the generic message below.
-        }
         throw new Error(
           backendMessage ??
             "Our contact service is temporarily unavailable. Please try again shortly.",
         );
       }
+      // The API reports the outcome in the payload, so a 2xx that is explicitly
+      // `success: false` is still a failure and must not look like a send.
+      if (body?.success === false) {
+        throw new Error(
+          backendMessage ??
+            "We could not confirm your message was sent. Please try again.",
+        );
+      }
       setFields(initialFields);
-      setStatus("Thank you. Your message has been sent successfully.");
+      setStatus({
+        tone: "success",
+        message: "Thank you. Your message has been sent successfully.",
+      });
     } catch (error) {
-      setStatus(
-        error instanceof DOMException && error.name === "AbortError"
-          ? "The request took too long. Please check your connection and try again."
-          : error instanceof Error
-            ? error.message
-            : "We could not send your message. Please try again.",
-      );
+      setStatus({
+        tone: "error",
+        message:
+          error instanceof DOMException && error.name === "AbortError"
+            ? "The request took too long. Please check your connection and try again."
+            : error instanceof Error
+              ? error.message
+              : "We could not send your message. Please try again.",
+      });
     } finally {
       window.clearTimeout(timeout);
       setIsSubmitting(false);
@@ -236,11 +264,12 @@ export function ContactForm() {
       </div>
       <p
         className="contact-form__status"
+        data-state={status?.tone}
         role="status"
         aria-live="polite"
         hidden={!status}
       >
-        {status}
+        {status?.message}
       </p>
       <div className="contact-form__footer">
         <p>Fields marked with an asterisk (*) are required. We will only use these details to respond to your enquiry.</p>
