@@ -27,7 +27,7 @@ export function PricingReference({
           </p>
           <div className="pricing-hero__actions">
             <a className="button button--primary" href={DASHBOARD_URL}>
-              Create your account
+              Start Selling
               <ArrowRightIcon />
             </a>
             <a
