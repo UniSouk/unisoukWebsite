@@ -51,6 +51,19 @@ function validate(fields: ContactFields): FieldErrors {
   return errors;
 }
 
+/**
+ * Visual asterisk for required fields. Hidden from assistive technology
+ * because the underlying control already carries the `required` attribute,
+ * so screen readers would otherwise announce the requirement twice.
+ */
+function RequiredMark() {
+  return (
+    <span aria-hidden="true" className="ml-0.5 text-[var(--orange-ink)]">
+      *
+    </span>
+  );
+}
+
 export function ContactForm() {
   const [fields, setFields] = useState(initialFields);
   const [errors, setErrors] = useState<FieldErrors>({});
@@ -176,7 +189,10 @@ export function ContactForm() {
         <p className="form-field__error" id="contact-phone-error" aria-live="polite" hidden={!errors.phoneNumber}>{errors.phoneNumber}</p>
       </div>
       <div className="form-field" data-invalid={Boolean(errors.industry) || undefined}>
-        <label htmlFor="contact-industry">Business industry</label>
+        <label htmlFor="contact-industry">
+          Business industry
+          <RequiredMark />
+        </label>
         <select
           id="contact-industry"
           name="industry"
@@ -197,7 +213,10 @@ export function ContactForm() {
         <p className="form-field__error" id="contact-industry-error" aria-live="polite" hidden={!errors.industry}>{errors.industry}</p>
       </div>
       <div className="form-field" data-invalid={Boolean(errors.message) || undefined}>
-        <label htmlFor="contact-message">Message</label>
+        <label htmlFor="contact-message">
+          Message
+          <RequiredMark />
+        </label>
         <textarea
           id="contact-message"
           name="message"
@@ -224,7 +243,7 @@ export function ContactForm() {
         {status}
       </p>
       <div className="contact-form__footer">
-        <p>All fields are required except phone number. We will only use these details to respond to your enquiry.</p>
+        <p>Fields marked with an asterisk (*) are required. We will only use these details to respond to your enquiry.</p>
         <button className="button button--primary" type="submit" disabled={isSubmitting}>
           {isSubmitting ? "Sending..." : "Send message"}
           <ArrowRightIcon />
@@ -255,7 +274,10 @@ function Field({
   const errorId = `${inputId}-error`;
   return (
     <div className="form-field" data-invalid={Boolean(error) || undefined}>
-      <label htmlFor={inputId}>{label}</label>
+      <label htmlFor={inputId}>
+        {label}
+        <RequiredMark />
+      </label>
       <input
         id={inputId}
         name={name}
