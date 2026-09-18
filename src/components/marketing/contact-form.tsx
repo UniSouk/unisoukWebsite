@@ -2,7 +2,7 @@
 
 import { FormEvent, useState } from "react";
 
-import { ArrowRightIcon } from "@/components/ui/icon";
+import { ArrowRightIcon, CheckIcon, CloseIcon } from "@/components/ui/icon";
 
 type ContactFields = {
   firstName: string;
@@ -262,15 +262,27 @@ export function ContactForm() {
         </div>
         <p className="form-field__error" id="contact-message-error" aria-live="polite" hidden={!errors.message}>{errors.message}</p>
       </div>
-      <p
-        className="contact-form__status"
-        data-state={status?.tone}
-        role="status"
-        aria-live="polite"
-        hidden={!status}
-      >
-        {status?.message}
-      </p>
+       <p
+          className={`contact-form__status${status ? " flex items-center gap-2.5" : ""}`}
+          data-state={status?.tone}
+          role="status"
+          aria-live="polite"
+          hidden={!status}
+        >
+          {status ? (
+            <span
+              className="grid h-5 w-5 shrink-0 place-items-center rounded-full bg-current"
+              aria-hidden="true"
+            >
+              {status.tone === "success" ? (
+                <CheckIcon className="h-3 w-3 text-[var(--white)]" strokeWidth={3} />
+              ) : (
+                <CloseIcon className="h-3 w-3 text-[var(--white)]" strokeWidth={3} />
+              )}
+            </span>
+          ) : null}
+          <span>{status?.message}</span>
+        </p>
       <div className="contact-form__footer">
         <p>Fields marked with an asterisk (*) are required. We will only use these details to respond to your enquiry.</p>
         <button className="button button--primary" type="submit" disabled={isSubmitting}>

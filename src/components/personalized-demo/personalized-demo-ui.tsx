@@ -24,7 +24,7 @@ export function DemoLauncher({ launcherRef, onOpen }: DemoLauncherProps) {
       <button
         ref={launcherRef}
         type="button"
-        className="flex min-h-[3.3rem] cursor-pointer items-center gap-4 rounded-full border-0 bg-[var(--ink)] py-3 pr-3 pl-4 text-[0.8rem] font-medium text-[var(--white)] shadow-[0_0_0_1px_rgb(255_255_255/22%),0_8px_22px_rgb(0_0_0/34%)] max-[74.99rem]:h-[3.3rem] max-[74.99rem]:w-[3.3rem] max-[74.99rem]:justify-center max-[74.99rem]:gap-0 max-[74.99rem]:p-0"
+        className="flex min-h-[3.3rem] cursor-pointer items-center gap-4 rounded-full border-0 bg-[var(--ink)] py-3 pr-3 pl-4 text-[0.8rem] font-medium text-[var(--white)] ring-1 ring-white/20 shadow-xl shadow-black/35 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-black/45 focus-visible:-translate-y-0.5 focus-visible:shadow-2xl focus-visible:shadow-black/45 active:translate-y-0 motion-reduce:transition-none motion-reduce:hover:translate-y-0 max-[74.99rem]:h-[3.3rem] max-[74.99rem]:w-[3.3rem] max-[74.99rem]:justify-center max-[74.99rem]:gap-0 max-[74.99rem]:p-0"
         onClick={onOpen}
         aria-haspopup="dialog"
         aria-label="Get your personalized demo"
