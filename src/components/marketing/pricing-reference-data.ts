@@ -99,7 +99,7 @@ export const faqs = [
   {
     question: "Are taxes included in the displayed subscription prices?",
     answer:
-      "The displayed monthly prices exclude GST. Applicable GST is added to the final subscription amount.",
+      "Yes. Every subscription price shown here is inclusive of GST, so no extra tax is added to the subscription amount you pay.",
   },
   {
     question: "Is Account Management included in the Integrations + AI Tools plan?",

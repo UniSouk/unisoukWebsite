@@ -8,7 +8,12 @@ import {
   DEMO_BOOKING_URL,
 } from "@/constants/site";
 import { managementFeatures, websiteFeatures } from "./pricing-reference-data";
-import type { BillingCycle, SaasPlanCategory, SaasPlanPricing } from "@/lib/plans";
+import type {
+  BillingCycle,
+  SaasPlanCategory,
+  SaasPlanPrice,
+  SaasPlanPricing,
+} from "@/lib/plans";
 
 function FeatureList({
   items,
@@ -46,6 +51,19 @@ function getPriceForCycle(
   );
 }
 
+/**
+ * Annual plan prices are full-year totals, so the displayed headline divides
+ * them by 12 to stay comparable with the monthly price. The cycle is read from
+ * the resolved price entry rather than the selected toggle, because
+ * getPriceForCycle falls back to the first available price when a plan has no
+ * entry for the requested cycle, and a monthly price must never be divided.
+ */
+function getMonthlyEquivalent(entry: SaasPlanPrice) {
+  return entry.billingCycle === "ANNUAL"
+    ? Math.round(entry.price / 12)
+    : entry.price;
+}
+
 const SUBSCRIPTION_LABELS: Record<SaasPlanCategory, string> = {
   agents: "AI Agents Only",
   platform: "Platform Only",
@@ -72,7 +90,11 @@ export function PricingPlansSection({
 
   const activePlan = saasPlanPricing[subscription];
   const activePrice = getPriceForCycle(activePlan.prices, billingCycle);
-  const cycleSuffix = billingCycle === "ANNUAL" ? "/year + GST" : "/month + GST";
+  const activeDisplayPrice = getMonthlyEquivalent(activePrice);
+  const priceCaption =
+    activePrice.billingCycle === "ANNUAL"
+      ? `Billed ₹${formatPrice(activePrice.price)} yearly. GST included.`
+      : "Monthly billing. GST included.";
 
   const activeAnnualSavingsPercent = (() => {
     if (billingCycle !== "ANNUAL") return 0;
@@ -132,7 +154,7 @@ export function PricingPlansSection({
                   <small>Starting from</small>
                   <span className="flex min-w-0 flex-wrap items-center gap-2">
                     <p>
-                      <span>₹</span>{formatPrice(activePrice.price)}
+                      <span>₹</span>{formatPrice(activeDisplayPrice)}
                     </p>
                     {activeAnnualSavingsPercent > 0 && (
                       <span className="-translate-y-1 inline-block shrink-0 whitespace-nowrap rounded-full bg-[var(--orange)] px-2.5 py-1 font-[family-name:var(--font-body)] text-[0.7rem] font-semibold text-white">
@@ -141,7 +163,7 @@ export function PricingPlansSection({
                     )}
                   </span>
                 </div>
-                <small> {billingCycle === "ANNUAL" ? "yearly" : "monthly"} billing + GST</small>
+                <small>{priceCaption}</small>
               </div>
               <a className="button button--primary" href={DASHBOARD_URL}>
                 Start Your Journey
@@ -182,6 +204,10 @@ export function PricingPlansSection({
                       saasPlanPricing[category].prices,
                       billingCycle,
                     );
+                    const cycleSuffix =
+                      price.billingCycle === "ANNUAL"
+                        ? "/month, billed yearly"
+                        : "/month";
                     return (
                       <label className="subscription-option" key={category}>
                         <input
@@ -192,7 +218,8 @@ export function PricingPlansSection({
                         />
                         <span>{SUBSCRIPTION_LABELS[category]}</span>
                         <strong>
-                          ₹{formatPrice(price.price)}<small>{cycleSuffix}</small>
+                          ₹{formatPrice(getMonthlyEquivalent(price))}
+                          <small>{cycleSuffix}</small>
                         </strong>
                       </label>
                     );
