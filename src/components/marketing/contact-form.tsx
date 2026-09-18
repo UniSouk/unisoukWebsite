@@ -81,7 +81,7 @@ export function ContactForm() {
     setIsSubmitting(true);
 
     try {
-      const coreApiUrl = "https://api.dev.unisouk.com";
+      const coreApiUrl = "https://api.unisouk.com";
       const response = await fetch(`${coreApiUrl}/contact`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
