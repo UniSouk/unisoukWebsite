@@ -71,7 +71,7 @@ export function PricingPlans() {
         <p className="m-0 font-[family-name:var(--font-heading)] text-[clamp(3rem,6vw,5.5rem)] leading-none">
           {active.price}
           <span className="ml-2 font-[family-name:var(--font-body)] text-sm text-[var(--text-muted)]">
-            / month + GST
+            / month (GST included)
           </span>
         </p>
         <ul className="m-0 grid list-none grid-cols-2 gap-x-8 p-0 max-[40rem]:grid-cols-1">

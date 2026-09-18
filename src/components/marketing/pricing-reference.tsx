@@ -12,6 +12,10 @@ export function PricingReference({
   return (<>
       <section className="pricing-hero" aria-labelledby="pricing-title">
         <div className="container pricing-hero__inner">
+          <p className="pricing-hero__note">
+            <span aria-hidden="true" />
+            All subscription prices include GST.
+          </p>
           <h1 id="pricing-title">
             Simple pricing.
             <br />
