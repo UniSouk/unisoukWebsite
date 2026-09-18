@@ -20,7 +20,6 @@ export const BUSINESS_CATEGORIES = [
   "Pet supplies",
   "Automotive",
   "Handmade, handicrafts and gifts",
-  "Manufacturing and B2B",
   "Other",
 ] as const;
 
