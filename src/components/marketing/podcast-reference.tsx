@@ -1,4 +1,3 @@
-import type { CSSProperties } from "react";
 import Image from "next/image";
 
 import { ArrowUpRightIcon } from "@/components/ui/icon";
