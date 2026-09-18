@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 
 import { CheckIcon, ChevronDownIcon } from "@/components/ui/icon";
-import { BUSINESS_CATEGORIES } from "@/constants/demo";
+import { BUSINESS_CATEGORIES } from "@/constants/business-categories";
 
 type CategorySelectProps = {
   value: string;
@@ -15,7 +15,7 @@ export function CategorySelect({ value, onChange }: CategorySelectProps) {
 
   const openMenu = (preferredIndex?: number) => {
     const selectedIndex = BUSINESS_CATEGORIES.findIndex(
-      (category) => category === value,
+      (category) => category.label === value,
     );
     const optionIndex =
       preferredIndex ?? (selectedIndex >= 0 ? selectedIndex : 0);
@@ -83,9 +83,9 @@ export function CategorySelect({ value, onChange }: CategorySelectProps) {
               className="flex min-h-11 w-full cursor-pointer items-center justify-between gap-3 rounded-[calc(var(--radius-sm)-2px)] border-0 bg-transparent py-[0.65rem] px-3 text-left text-[0.875rem] leading-[1.3] text-[var(--ink)] hover:bg-[var(--mist)] focus-visible:bg-[var(--mist)] focus-visible:outline-0 aria-selected:bg-[var(--ink)] aria-selected:text-[var(--white)] [&_svg]:h-4 [&_svg]:w-4 [&_svg]:shrink-0 [&_svg]:fill-none [&_svg]:stroke-[var(--orange-ink)] [&_svg]:stroke-2 [&_svg]:opacity-0 aria-selected:[&_svg]:opacity-100"
               type="button"
               role="option"
-              aria-selected={value === category}
-              key={category}
-              onClick={() => selectCategory(category)}
+              aria-selected={value === category.label}
+              key={category.value}
+              onClick={() => selectCategory(category.label)}
               onKeyDown={(event) => {
                 if (event.key === "ArrowDown" || event.key === "ArrowUp") {
                   event.preventDefault();
@@ -105,7 +105,7 @@ export function CategorySelect({ value, onChange }: CategorySelectProps) {
                 }
               }}
             >
-              <span>{category}</span>
+              <span>{category.label}</span>
               <CheckIcon />
             </button>
           ))}
