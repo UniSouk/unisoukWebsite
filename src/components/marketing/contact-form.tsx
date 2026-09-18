@@ -39,7 +39,7 @@ function validate(fields: ContactFields): FieldErrors {
     const normalized = fields.phoneNumber.replace(/[\s-]/g, "");
     if (!INDIAN_PHONE_PATTERN.test(normalized)) {
       errors.phoneNumber =
-        "Enter a valid Indian mobile number, e.g. +91 98765 43210.";
+        "Enter a valid Indian mobile number in the format +91 XXXXX XXXXX.";
     }
   }
   if (!fields.industry) errors.industry = "Business industry is required.";
@@ -81,7 +81,7 @@ export function ContactForm() {
     setIsSubmitting(true);
 
     try {
-      const coreApiUrl = "https://api.unisouk.com";
+      const coreApiUrl = "https://api.dev.unisouk.com";
       const response = await fetch(`${coreApiUrl}/contact`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -157,6 +157,7 @@ export function ContactForm() {
         type="email"
         value={fields.email}
         error={errors.email}
+        placeholder="name@yourbusiness.com"
         onChange={update}
       />
       <div className="form-field" data-invalid={Boolean(errors.phoneNumber) || undefined}>
@@ -167,7 +168,7 @@ export function ContactForm() {
           type="tel"
           value={fields.phoneNumber}
           autoComplete="tel"
-          placeholder="+91 98765 43210"
+          placeholder="+91 XXXXX XXX21"
           aria-invalid={Boolean(errors.phoneNumber)}
           aria-describedby="contact-phone-error"
           onChange={(event) => update("phoneNumber", event.target.value)}
@@ -239,6 +240,7 @@ function Field({
   type = "text",
   value,
   error,
+  placeholder,
   onChange,
 }: {
   label: string;
@@ -246,6 +248,7 @@ function Field({
   type?: "text" | "email";
   value: string;
   error?: string;
+  placeholder?: string;
   onChange: (name: keyof ContactFields, value: string) => void;
 }) {
   const inputId = `contact-${name === "firstName" ? "first-name" : name === "lastName" ? "last-name" : "email"}`;
@@ -259,6 +262,7 @@ function Field({
         type={type}
         value={value}
         required
+        placeholder={placeholder}
         autoComplete={
           name === "email"
             ? "email"

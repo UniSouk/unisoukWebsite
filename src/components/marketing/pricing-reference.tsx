@@ -28,7 +28,7 @@ export function PricingReference({
             </a>
             <a
               className="text-link text-link--arrow text-link--black"
-              href="#plans"
+              href="#plan-comparison"
             >
               Compare the plans
             </a>
@@ -38,6 +38,7 @@ export function PricingReference({
       <PricingPlansSection saasPlanPricing={saasPlanPricing} />
       <section
         className="plan-comparison"
+        id="plan-comparison"
         aria-labelledby="comparison-title"
       >
         <div className="container plan-comparison__inner">
