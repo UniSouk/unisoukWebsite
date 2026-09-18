@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import { ArrowUpRightIcon } from "@/components/ui/icon";
 import { InstagramEmbed } from "@/components/marketing/instagram-embed";
-import { PODCAST_EMBED_URL, PODCAST_VIDEO_URL } from "@/constants/podcast";
+import { PODCAST_EMBED_URL } from "@/constants/podcast";
 import { INSTAGRAM_URL } from "@/constants/site";
 import type { InstagramMediaItem } from "@/lib/instagram";
 
