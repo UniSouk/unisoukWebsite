@@ -91,10 +91,10 @@ export function PricingPlansSection({
   const activePlan = saasPlanPricing[subscription];
   const activePrice = getPriceForCycle(activePlan.prices, billingCycle);
   const activeDisplayPrice = getMonthlyEquivalent(activePrice);
-  const priceCaption =
-    activePrice.billingCycle === "ANNUAL"
-      ? `Billed ₹${formatPrice(activePrice.price)} yearly. GST included.`
-      : "Monthly billing. GST included.";
+  // const priceCaption =
+  //   activePrice.billingCycle === "ANNUAL"
+  //     ? `Billed ₹${formatPrice(activePrice.price)} yearly. GST included.`
+  //     : "Monthly billing. GST included.";
 
   const activeAnnualSavingsPercent = (() => {
     if (billingCycle !== "ANNUAL") return 0;
@@ -151,7 +151,7 @@ export function PricingPlansSection({
               </div>
               <div className="plan-card__price">
                 <div>
-                  <small>Starting from</small>
+                  <small>Special Offer</small>
                   <span className="flex min-w-0 flex-wrap items-center gap-2">
                     <p>
                       <span>₹</span>{formatPrice(activeDisplayPrice)}
@@ -163,7 +163,7 @@ export function PricingPlansSection({
                     )}
                   </span>
                 </div>
-                <small>{priceCaption}</small>
+                <small>Monthly billing. GST included.</small>
               </div>
               <a className="button button--primary" href={DASHBOARD_URL}>
                 Start Your Journey
@@ -204,10 +204,6 @@ export function PricingPlansSection({
                       saasPlanPricing[category].prices,
                       billingCycle,
                     );
-                    const cycleSuffix =
-                      price.billingCycle === "ANNUAL"
-                        ? "/month, billed yearly"
-                        : "/month";
                     return (
                       <label className="subscription-option" key={category}>
                         <input
@@ -219,7 +215,7 @@ export function PricingPlansSection({
                         <span>{SUBSCRIPTION_LABELS[category]}</span>
                         <strong>
                           ₹{formatPrice(getMonthlyEquivalent(price))}
-                          <small>{cycleSuffix}</small>
+                          <small>/month</small>
                         </strong>
                       </label>
                     );
